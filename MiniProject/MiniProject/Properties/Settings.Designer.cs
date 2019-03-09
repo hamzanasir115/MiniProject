@@ -38,8 +38,8 @@ namespace MiniProject.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("String conURL = “Data Source=HAMZA;Initial Catalog=HIRE A CAR;User ID=sa;Password" +
-            "=hamza;MultipleActiveResultSets=True”;")]
+        [global::System.Configuration.DefaultSettingValueAttribute("String conURL = “Data Source=HAMZA;Initial Catalog=ProjectB;User ID=sa;Password=h" +
+            "amza;MultipleActiveResultSets=True”;")]
         public string Setting1 {
             get {
                 return ((string)(this["Setting1"]));

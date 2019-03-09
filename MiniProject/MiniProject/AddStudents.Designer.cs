@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnadd = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.txtstatus = new System.Windows.Forms.TextBox();
             this.lblstatus = new System.Windows.Forms.Label();
             this.lblregistration = new System.Windows.Forms.Label();
             this.lblemail = new System.Windows.Forms.Label();
@@ -43,13 +45,22 @@
             this.txtlast = new System.Windows.Forms.TextBox();
             this.txtfirst = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
-            this.txtstatus = new System.Windows.Forms.TextBox();
+            this.datastudent = new System.Windows.Forms.DataGridView();
+            this.errorfirst = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorlast = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorcontact = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erroremail = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorreg = new System.Windows.Forms.ErrorProvider(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datastudent)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorfirst)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorlast)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorcontact)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erroremail)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorreg)).BeginInit();
             this.SuspendLayout();
             // 
             // btnadd
@@ -94,6 +105,13 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Add Students";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // txtstatus
+            // 
+            this.txtstatus.Location = new System.Drawing.Point(239, 264);
+            this.txtstatus.Name = "txtstatus";
+            this.txtstatus.Size = new System.Drawing.Size(100, 20);
+            this.txtstatus.TabIndex = 25;
             // 
             // lblstatus
             // 
@@ -155,6 +173,7 @@
             this.txtregister.Name = "txtregister";
             this.txtregister.Size = new System.Drawing.Size(100, 20);
             this.txtregister.TabIndex = 17;
+            this.txtregister.Leave += new System.EventHandler(this.txtregister_Leave);
             // 
             // txtemail
             // 
@@ -162,6 +181,7 @@
             this.txtemail.Name = "txtemail";
             this.txtemail.Size = new System.Drawing.Size(100, 20);
             this.txtemail.TabIndex = 16;
+            this.txtemail.Leave += new System.EventHandler(this.txtemail_Leave);
             // 
             // txtcontact
             // 
@@ -169,6 +189,7 @@
             this.txtcontact.Name = "txtcontact";
             this.txtcontact.Size = new System.Drawing.Size(100, 20);
             this.txtcontact.TabIndex = 15;
+            this.txtcontact.Leave += new System.EventHandler(this.txtcontact_Leave);
             // 
             // txtlast
             // 
@@ -176,6 +197,7 @@
             this.txtlast.Name = "txtlast";
             this.txtlast.Size = new System.Drawing.Size(100, 20);
             this.txtlast.TabIndex = 14;
+            this.txtlast.Leave += new System.EventHandler(this.txtlast_Leave);
             // 
             // txtfirst
             // 
@@ -183,11 +205,12 @@
             this.txtfirst.Name = "txtfirst";
             this.txtfirst.Size = new System.Drawing.Size(100, 20);
             this.txtfirst.TabIndex = 13;
+            this.txtfirst.Leave += new System.EventHandler(this.txtfirst_Leave);
             // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.button1);
-            this.tabPage2.Controls.Add(this.dataGridView1);
+            this.tabPage2.Controls.Add(this.datastudent);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -195,15 +218,6 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "View Students";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(22, 107);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(371, 204);
-            this.dataGridView1.TabIndex = 0;
             // 
             // button1
             // 
@@ -213,13 +227,36 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "Show Data";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // txtstatus
+            // datastudent
             // 
-            this.txtstatus.Location = new System.Drawing.Point(239, 256);
-            this.txtstatus.Name = "txtstatus";
-            this.txtstatus.Size = new System.Drawing.Size(100, 20);
-            this.txtstatus.TabIndex = 25;
+            this.datastudent.AllowUserToOrderColumns = true;
+            this.datastudent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datastudent.Location = new System.Drawing.Point(22, 107);
+            this.datastudent.Name = "datastudent";
+            this.datastudent.Size = new System.Drawing.Size(371, 204);
+            this.datastudent.TabIndex = 0;
+            // 
+            // errorfirst
+            // 
+            this.errorfirst.ContainerControl = this;
+            // 
+            // errorlast
+            // 
+            this.errorlast.ContainerControl = this;
+            // 
+            // errorcontact
+            // 
+            this.errorcontact.ContainerControl = this;
+            // 
+            // erroremail
+            // 
+            this.erroremail.ContainerControl = this;
+            // 
+            // errorreg
+            // 
+            this.errorreg.ContainerControl = this;
             // 
             // AddStudents
             // 
@@ -233,7 +270,12 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datastudent)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorfirst)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorlast)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorcontact)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erroremail)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorreg)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -255,7 +297,12 @@
         private System.Windows.Forms.TextBox txtfirst;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView datastudent;
         private System.Windows.Forms.TextBox txtstatus;
+        private System.Windows.Forms.ErrorProvider errorfirst;
+        private System.Windows.Forms.ErrorProvider errorlast;
+        private System.Windows.Forms.ErrorProvider errorcontact;
+        private System.Windows.Forms.ErrorProvider erroremail;
+        private System.Windows.Forms.ErrorProvider errorreg;
     }
 }

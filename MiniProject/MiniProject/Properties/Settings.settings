@@ -6,7 +6,7 @@
       <Value Profile="(Default)">String conURL = “Data Source=(local);Initial Catalog=MedicalEncyclopedia;Integrated Security=True;MultipleActiveResultSets=True”;</Value>
     </Setting>
     <Setting Name="Setting1" Type="System.String" Scope="User">
-      <Value Profile="(Default)">String conURL = “Data Source=HAMZA;Initial Catalog=HIRE A CAR;User ID=sa;Password=hamza;MultipleActiveResultSets=True”;</Value>
+      <Value Profile="(Default)">String conURL = “Data Source=HAMZA;Initial Catalog=ProjectB;User ID=sa;Password=hamza;MultipleActiveResultSets=True”;</Value>
     </Setting>
   </Settings>
 </SettingsFile>

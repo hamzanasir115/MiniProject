@@ -8,4 +8,3 @@ D:\Semester 6\Database\Lab 6\MiniProject\MiniProject\obj\Debug\MiniProject.exe
 D:\Semester 6\Database\Lab 6\MiniProject\MiniProject\obj\Debug\MiniProject.pdb
 D:\Semester 6\Database\Lab 6\MiniProject\MiniProject\obj\Debug\MiniProject.Main.resources
 D:\Semester 6\Database\Lab 6\MiniProject\MiniProject\obj\Debug\MiniProject.AddStudents.resources
-D:\Semester 6\Database\Lab 6\MiniProject\MiniProject\obj\Debug\MiniProject.Manage_Students.resources

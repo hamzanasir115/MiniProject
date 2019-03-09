@@ -45,7 +45,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.txtstatus = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -60,6 +60,7 @@
             this.btnadd.TabIndex = 13;
             this.btnadd.Text = "Add Students";
             this.btnadd.UseVisualStyleBackColor = true;
+            this.btnadd.Click += new System.EventHandler(this.btnadd_Click);
             // 
             // tabControl1
             // 
@@ -73,7 +74,7 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.comboBox1);
+            this.tabPage1.Controls.Add(this.txtstatus);
             this.tabPage1.Controls.Add(this.lblstatus);
             this.tabPage1.Controls.Add(this.btnadd);
             this.tabPage1.Controls.Add(this.lblregistration);
@@ -213,16 +214,12 @@
             this.button1.Text = "Show Data";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // txtstatus
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "0",
-            "1"});
-            this.comboBox1.Location = new System.Drawing.Point(239, 256);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(100, 21);
-            this.comboBox1.TabIndex = 25;
+            this.txtstatus.Location = new System.Drawing.Point(239, 256);
+            this.txtstatus.Name = "txtstatus";
+            this.txtstatus.Size = new System.Drawing.Size(100, 20);
+            this.txtstatus.TabIndex = 25;
             // 
             // AddStudents
             // 
@@ -257,8 +254,8 @@
         private System.Windows.Forms.TextBox txtlast;
         private System.Windows.Forms.TextBox txtfirst;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox txtstatus;
     }
 }

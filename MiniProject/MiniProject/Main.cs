@@ -27,5 +27,10 @@ namespace MiniProject
         {
 
         }
+
+        private void manageclos_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -51,6 +51,7 @@
             this.manageclos.TabIndex = 1;
             this.manageclos.Text = "Manage CLOs";
             this.manageclos.UseVisualStyleBackColor = true;
+            this.manageclos.Click += new System.EventHandler(this.manageclos_Click);
             // 
             // managerubrics
             // 

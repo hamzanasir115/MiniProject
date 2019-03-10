@@ -26,80 +26,168 @@ namespace MiniProject
         /// <param name="e"></param>
         private void btnadd_Click(object sender, EventArgs e)
         {
-            SqlConnection conn = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
-            bool IsValidFirstName = false;
-            bool isValidContact = false;
-            bool isValidContactDigit = false;
-            bool IsValidLastName = false;
-            bool Email = false;
-            bool isValidRegistration;
-            IsValidFirstName = IsString(txtfirst.Text);
-            IsValidLastName = IsString(txtlast.Text);
-            isValidContact = IsValidContactLength(txtcontact.Text);
-            isValidContactDigit = IsValidContactDigit(txtcontact.Text);
-            Email = IsEmail(txtemail.Text);
-            isValidRegistration = isValidStudent(txtregister.Text);
+            if(btnadd.Text=="Update")
+            {
+                SqlConnection conn = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
+                bool IsValidFirstName = false;
+                bool isValidContact = false;
+                bool isValidContactDigit = false;
+                bool IsValidLastName = false;
+                bool Email = false;
+                bool isValidRegistration;
+                IsValidFirstName = IsString(txtfirst.Text);
+                IsValidLastName = IsString(txtlast.Text);
+                isValidContact = IsValidContactLength(txtcontact.Text);
+                isValidContactDigit = IsValidContactDigit(txtcontact.Text);
+                Email = IsEmail(txtemail.Text);
+                isValidRegistration = isValidStudent(txtregister.Text);
 
-            if (IsValidFirstName == true && IsValidLastName == true && isValidContactDigit == true && isValidContact == true && Email == true && isValidRegistration == true)
-            {
-                Student student = new Student();
-                student.FirstName1 = txtfirst.Text;
-                student.LastName1 = txtlast.Text;
-                student.Contact1 = txtcontact.Text;
-                student.Email1 = txtemail.Text;
-                student.Registration1 = txtregister.Text;
-                student.Status1 = Convert.ToInt32(txtstatus.Text);
-                try
+                if (IsValidFirstName == true && IsValidLastName == true && isValidContactDigit == true && isValidContact == true && Email == true && isValidRegistration == true)
                 {
-                    String firstname = txtfirst.Text;
-                    String lastname = txtlast.Text;
-                    String contact = txtcontact.Text;
-                    String email = txtemail.Text;
-                    String registration = txtregister.Text;
-                    int status = Convert.ToInt32(txtstatus.Text);
-                    conn.Open();
-                    String cmd = String.Format("INSERT INTO Student(FirstName, LastName,Contact, Email, RegistrationNumber, Status) values('{0}','{1}','{2}','{3}','{4}','{5}')", firstname, lastname, contact, email, registration, status);
-                    SqlCommand command = new SqlCommand(cmd, conn);
-                    command.Parameters.Add(new SqlParameter("0", 1));
-                    //conn.Open();
-                    SqlDataReader reader = command.ExecuteReader();
-                    txtfirst.Text = " ";
-                    txtlast.Text = " ";
-                    txtcontact.Text = " ";
-                    txtemail.Text = " ";
-                    txtregister.Text = " ";
-                    txtstatus.Text = null;
-                    conn.Close();
+                    Student student = new Student();
+                    student.FirstName1 = txtfirst.Text;
+                    student.LastName1 = txtlast.Text;
+                    student.Contact1 = txtcontact.Text;
+                    student.Email1 = txtemail.Text;
+                    student.Registration1 = txtregister.Text;
+                    student.Status1 = Convert.ToInt32(txtstatus.Text);
+                    try
+                    {
+                        String firstname = txtfirst.Text;
+                        String lastname = txtlast.Text;
+                        String contact = txtcontact.Text;
+                        String email = txtemail.Text;
+                        String registration = txtregister.Text;
+                        int status = Convert.ToInt32(txtstatus.Text);
+                        int Id = Convert.ToInt32(empty.Text);
+                        conn.Open();
+                        String cmd = String.Format("UPDATE Student SET FirstName = @firstname, LastName=@lastname,Contact=@contact, Email=@email, RegistrationNumber=@registration, Status=@status WHERE Id=@Id");
+                        SqlCommand command = new SqlCommand(cmd, conn);
+                        command.Parameters.Add(new SqlParameter("@Id", Id));
+                        command.Parameters.Add(new SqlParameter("@firstname", firstname));
+                        command.Parameters.Add(new SqlParameter("@lastname", lastname));
+                        command.Parameters.Add(new SqlParameter("@contact", contact));
+                        command.Parameters.Add(new SqlParameter("@email", email));
+                        command.Parameters.Add(new SqlParameter("@registration", registration));
+                        command.Parameters.Add(new SqlParameter("@status", status));
+                        //conn.Open();
+                        SqlDataReader reader = command.ExecuteReader();
+                        txtfirst.Text = " ";
+                        txtlast.Text = " ";
+                        txtcontact.Text = " ";
+                        txtemail.Text = " ";
+                        txtregister.Text = " ";
+                        txtstatus.Text = null;
+                        conn.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
                 }
-                catch (Exception ex)
+                if (IsValidFirstName == false)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show("Invalid FirstName");
+                }
+                if (IsValidLastName == false)
+                {
+                    MessageBox.Show("Invalid LastName");
+                }
+                if (isValidContact == false)
+                {
+                    MessageBox.Show("Invalid Contact Length");
+                }
+                if (isValidContactDigit == false)
+                {
+                    MessageBox.Show("Invalid Contact");
+                }
+                if (Email == false)
+                {
+                    MessageBox.Show("Invalid Email");
+                }
+                if (isValidRegistration == false)
+                {
+                    MessageBox.Show("Invalid Registration Number");
                 }
             }
-            if (IsValidFirstName == false)
+            else if(btnadd.Text== "Add Students")
             {
-                MessageBox.Show("Invalid FirstName");
+                SqlConnection conn = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
+                bool IsValidFirstName = false;
+                bool isValidContact = false;
+                bool isValidContactDigit = false;
+                bool IsValidLastName = false;
+                bool Email = false;
+                bool isValidRegistration;
+                IsValidFirstName = IsString(txtfirst.Text);
+                IsValidLastName = IsString(txtlast.Text);
+                isValidContact = IsValidContactLength(txtcontact.Text);
+                isValidContactDigit = IsValidContactDigit(txtcontact.Text);
+                Email = IsEmail(txtemail.Text);
+                isValidRegistration = isValidStudent(txtregister.Text);
+
+                if (IsValidFirstName == true && IsValidLastName == true && isValidContactDigit == true && isValidContact == true && Email == true && isValidRegistration == true)
+                {
+                    Student student = new Student();
+                    student.FirstName1 = txtfirst.Text;
+                    student.LastName1 = txtlast.Text;
+                    student.Contact1 = txtcontact.Text;
+                    student.Email1 = txtemail.Text;
+                    student.Registration1 = txtregister.Text;
+                    student.Status1 = Convert.ToInt32(txtstatus.Text);
+                    try
+                    {
+                        String firstname = txtfirst.Text;
+                        String lastname = txtlast.Text;
+                        String contact = txtcontact.Text;
+                        String email = txtemail.Text;
+                        String registration = txtregister.Text;
+                        int status = Convert.ToInt32(txtstatus.Text);
+                        conn.Open();
+                        String cmd = String.Format("INSERT INTO Student(FirstName, LastName,Contact, Email, RegistrationNumber, Status) values('{0}','{1}','{2}','{3}','{4}','{5}')", firstname, lastname, contact, email, registration, status);
+                        SqlCommand command = new SqlCommand(cmd, conn);
+                        command.Parameters.Add(new SqlParameter("0", 1));
+                        //conn.Open();
+                        SqlDataReader reader = command.ExecuteReader();
+                        txtfirst.Text = " ";
+                        txtlast.Text = " ";
+                        txtcontact.Text = " ";
+                        txtemail.Text = " ";
+                        txtregister.Text = " ";
+                        txtstatus.Text = null;
+                        conn.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+                if (IsValidFirstName == false)
+                {
+                    MessageBox.Show("Invalid FirstName");
+                }
+                if (IsValidLastName == false)
+                {
+                    MessageBox.Show("Invalid LastName");
+                }
+                if (isValidContact == false)
+                {
+                    MessageBox.Show("Invalid Contact Length");
+                }
+                if (isValidContactDigit == false)
+                {
+                    MessageBox.Show("Invalid Contact");
+                }
+                if (Email == false)
+                {
+                    MessageBox.Show("Invalid Email");
+                }
+                if (isValidRegistration == false)
+                {
+                    MessageBox.Show("Invalid Registration Number");
+                }
             }
-            if (IsValidLastName == false)
-            {
-                MessageBox.Show("Invalid LastName");
-            }
-            if (isValidContact == false)
-            {
-                MessageBox.Show("Invalid Contact Length");
-            }
-            if (isValidContactDigit == false)
-            {
-                MessageBox.Show("Invalid Contact");
-            }
-            if (Email == false)
-            {
-                MessageBox.Show("Invalid Email");
-            }
-            if (isValidRegistration == false)
-            {
-                MessageBox.Show("Invalid Registration Number");
-            }
+            
         }
         /// <summary>
         /// The Function is checking that string is all letters.
@@ -312,6 +400,59 @@ namespace MiniProject
             DataTable view = new DataTable();
             adapter.Fill(view);
             datastudent.DataSource = view;
+        }
+
+        private void datastudent_DoubleClick(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void datastudent_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            SqlConnection conn;
+            conn = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
+            String cmd;
+            var Id = datastudent.Rows[e.RowIndex].Cells[0].Value;
+            cmd = "SELECT * FROM Student WHERE Id = @Id";
+
+            SqlCommand command;
+            command = new SqlCommand(cmd, conn);
+            command.Parameters.Add(new SqlParameter("@Id", Id));
+            conn.Open();
+            
+            SqlDataReader reader;
+            reader = command.ExecuteReader();
+            string first;
+            string last;
+            string contact;
+            string registrationNumber;
+            string email;
+            int status;
+            int id;
+            while(reader.Read())
+            {
+                first = Convert.ToString(reader[1]);
+                last = Convert.ToString(reader[2]);
+                contact = Convert.ToString(reader[3]);
+                email = Convert.ToString(reader[4]);
+                registrationNumber = Convert.ToString(reader[5]);
+                status = Convert.ToInt32(reader[6]);
+                id = Convert.ToInt32(reader[0]);
+                empty.Text = Convert.ToString(id);
+                txtfirst.Text = first;
+                txtlast.Text = last;
+                txtemail.Text = email;
+                txtregister.Text = registrationNumber;
+                txtcontact.Text = contact;
+                txtstatus.Text = Convert.ToString(status);
+            }
+            btnadd.Text = "Update";
+            tabPage1.Show();
+        }
+
+        private void AddStudents_Load(object sender, EventArgs e)
+        {
+            empty.Hide();
         }
     }
 }

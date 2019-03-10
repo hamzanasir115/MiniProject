@@ -52,6 +52,7 @@
             this.errorcontact = new System.Windows.Forms.ErrorProvider(this.components);
             this.erroremail = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorreg = new System.Windows.Forms.ErrorProvider(this.components);
+            this.empty = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -85,6 +86,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.empty);
             this.tabPage1.Controls.Add(this.txtstatus);
             this.tabPage1.Controls.Add(this.lblstatus);
             this.tabPage1.Controls.Add(this.btnadd);
@@ -237,6 +239,8 @@
             this.datastudent.Name = "datastudent";
             this.datastudent.Size = new System.Drawing.Size(371, 204);
             this.datastudent.TabIndex = 0;
+            this.datastudent.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datastudent_CellClick);
+            this.datastudent.DoubleClick += new System.EventHandler(this.datastudent_DoubleClick);
             // 
             // errorfirst
             // 
@@ -258,6 +262,15 @@
             // 
             this.errorreg.ContainerControl = this;
             // 
+            // empty
+            // 
+            this.empty.AutoSize = true;
+            this.empty.Location = new System.Drawing.Point(77, 88);
+            this.empty.Name = "empty";
+            this.empty.Size = new System.Drawing.Size(36, 13);
+            this.empty.TabIndex = 27;
+            this.empty.Text = "Empty";
+            // 
             // AddStudents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -266,6 +279,7 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "AddStudents";
             this.Text = "Students";
+            this.Load += new System.EventHandler(this.AddStudents_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -304,5 +318,6 @@
         private System.Windows.Forms.ErrorProvider errorcontact;
         private System.Windows.Forms.ErrorProvider erroremail;
         private System.Windows.Forms.ErrorProvider errorreg;
+        private System.Windows.Forms.Label empty;
     }
 }

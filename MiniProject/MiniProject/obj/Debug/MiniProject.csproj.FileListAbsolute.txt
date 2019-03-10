@@ -8,3 +8,23 @@ D:\Semester 6\Database\Lab 6\MiniProject\MiniProject\obj\Debug\MiniProject.exe
 D:\Semester 6\Database\Lab 6\MiniProject\MiniProject\obj\Debug\MiniProject.pdb
 D:\Semester 6\Database\Lab 6\MiniProject\MiniProject\obj\Debug\MiniProject.Main.resources
 D:\Semester 6\Database\Lab 6\MiniProject\MiniProject\obj\Debug\MiniProject.AddStudents.resources
+C:\Users\lenevo\Desktop\MiniProject-master\MiniProject\MiniProject\bin\Debug\MiniProject.exe.config
+C:\Users\lenevo\Desktop\MiniProject-master\MiniProject\MiniProject\obj\Debug\MiniProject.exe
+C:\Users\lenevo\Desktop\MiniProject-master\MiniProject\MiniProject\obj\Debug\MiniProject.pdb
+C:\Users\lenevo\Desktop\MiniProject-master\MiniProject\MiniProject\obj\Debug\MiniProject.csprojResolveAssemblyReference.cache
+C:\Users\lenevo\Desktop\MiniProject-master\MiniProject\MiniProject\obj\Debug\MiniProject.AddStudents.resources
+C:\Users\lenevo\Desktop\MiniProject-master\MiniProject\MiniProject\obj\Debug\MiniProject.Main.resources
+C:\Users\lenevo\Desktop\MiniProject-master\MiniProject\MiniProject\obj\Debug\MiniProject.Properties.Resources.resources
+C:\Users\lenevo\Desktop\MiniProject-master\MiniProject\MiniProject\obj\Debug\MiniProject.csproj.GenerateResource.Cache
+C:\Users\lenevo\Desktop\MiniProject-master\MiniProject\MiniProject\bin\Debug\MiniProject.exe
+C:\Users\lenevo\Desktop\MiniProject-master\MiniProject\MiniProject\bin\Debug\MiniProject.pdb
+C:\Users\Hamza Nasir\Downloads\Compressed\MiniProject\MiniProject\MiniProject\bin\Debug\MiniProject.exe.config
+C:\Users\Hamza Nasir\Downloads\Compressed\MiniProject\MiniProject\MiniProject\obj\Debug\MiniProject.exe
+C:\Users\Hamza Nasir\Downloads\Compressed\MiniProject\MiniProject\MiniProject\obj\Debug\MiniProject.pdb
+C:\Users\Hamza Nasir\Downloads\Compressed\MiniProject\MiniProject\MiniProject\bin\Debug\MiniProject.exe
+C:\Users\Hamza Nasir\Downloads\Compressed\MiniProject\MiniProject\MiniProject\bin\Debug\MiniProject.pdb
+C:\Users\Hamza Nasir\Downloads\Compressed\MiniProject\MiniProject\MiniProject\obj\Debug\MiniProject.csprojResolveAssemblyReference.cache
+C:\Users\Hamza Nasir\Downloads\Compressed\MiniProject\MiniProject\MiniProject\obj\Debug\MiniProject.AddStudents.resources
+C:\Users\Hamza Nasir\Downloads\Compressed\MiniProject\MiniProject\MiniProject\obj\Debug\MiniProject.Main.resources
+C:\Users\Hamza Nasir\Downloads\Compressed\MiniProject\MiniProject\MiniProject\obj\Debug\MiniProject.Properties.Resources.resources
+C:\Users\Hamza Nasir\Downloads\Compressed\MiniProject\MiniProject\MiniProject\obj\Debug\MiniProject.csproj.GenerateResource.Cache

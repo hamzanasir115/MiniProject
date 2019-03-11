@@ -22,7 +22,11 @@ namespace MiniProject
         {
             
         }
-
+        /// <summary>
+        /// Here we add clos in the database.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             SqlConnection conn = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
@@ -50,7 +54,12 @@ namespace MiniProject
             }
 
         }
-
+        /// <summary>
+        /// Here we show clos which are
+        /// in the database.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bbshow_Click(object sender, EventArgs e)
         {
             SqlConnection conn = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");

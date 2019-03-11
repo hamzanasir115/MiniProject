@@ -46,12 +46,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Add CLOs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add CLOs.Designer.cs">
+      <DependentUpon>Add CLOs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddRubrics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddRubrics.Designer.cs">
+      <DependentUpon>AddRubrics.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddStudents.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AddStudents.Designer.cs">
       <DependentUpon>AddStudents.cs</DependentUpon>
     </Compile>
+    <Compile Include="CLO.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,7 +73,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rubric.cs" />
     <Compile Include="Student.cs" />
+    <EmbeddedResource Include="Add CLOs.resx">
+      <DependentUpon>Add CLOs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddRubrics.resx">
+      <DependentUpon>AddRubrics.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddStudents.resx">
       <DependentUpon>AddStudents.cs</DependentUpon>
     </EmbeddedResource>

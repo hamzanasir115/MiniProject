@@ -103,7 +103,11 @@ namespace MiniProject
             dataGridView1.DataSource = view;
 
         }
-
+        /// <summary>
+        /// Here we add rubric level in the database using queries.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bbaddlevel_Click(object sender, EventArgs e)
         {
             SqlConnection conn = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
@@ -130,7 +134,12 @@ namespace MiniProject
                 MessageBox.Show(ex.Message);
             }
         }
-
+        /// <summary>
+        ///  Here we show rubric level which are
+        /// in the database.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bblvl_Click(object sender, EventArgs e)
         {
 

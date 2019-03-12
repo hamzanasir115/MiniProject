@@ -409,50 +409,77 @@ namespace MiniProject
 
         private void datastudent_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            SqlConnection conn;
-            conn = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
-            String cmd;
-            var Id = datastudent.Rows[e.RowIndex].Cells[0].Value;
-            cmd = "SELECT * FROM Student WHERE Id = @Id";
-
-            SqlCommand command;
-            command = new SqlCommand(cmd, conn);
-            command.Parameters.Add(new SqlParameter("@Id", Id));
-            conn.Open();
             
-            SqlDataReader reader;
-            reader = command.ExecuteReader();
-            string first;
-            string last;
-            string contact;
-            string registrationNumber;
-            string email;
-            int status;
-            int id;
-            while(reader.Read())
-            {
-                first = Convert.ToString(reader[1]);
-                last = Convert.ToString(reader[2]);
-                contact = Convert.ToString(reader[3]);
-                email = Convert.ToString(reader[4]);
-                registrationNumber = Convert.ToString(reader[5]);
-                status = Convert.ToInt32(reader[6]);
-                id = Convert.ToInt32(reader[0]);
-                empty.Text = Convert.ToString(id);
-                txtfirst.Text = first;
-                txtlast.Text = last;
-                txtemail.Text = email;
-                txtregister.Text = registrationNumber;
-                txtcontact.Text = contact;
-                txtstatus.Text = Convert.ToString(status);
-            }
-            btnadd.Text = "Update";
-            tabPage1.Show();
         }
 
         private void AddStudents_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'projectBDataSet.Student' table. You can move, or remove it, as needed.
+            this.studentTableAdapter.Fill(this.projectBDataSet.Student);
             empty.Hide();
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void datastudent_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            SqlConnection conn = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
+            conn.Open();
+            if (e.ColumnIndex == datastudent.Columns["delete"].Index)
+            {
+                this.datastudent.Rows.RemoveAt(e.RowIndex);
+                int row = e.RowIndex;
+                int id = Convert.ToInt32(datastudent.Rows[row].Cells[0].Value);
+                string query = "Delete from student where Id = '" + id + "'";
+                SqlCommand command = new SqlCommand(query, conn);
+                command.ExecuteNonQuery();
+                MessageBox.Show("Data Deleted Succesfully");
+                conn.Close();
+            }
+            else 
+            {               
+                String cmd;
+                var Id = datastudent.Rows[e.RowIndex].Cells[0].Value;
+                cmd = "SELECT * FROM Student WHERE Id = @Id";
+
+                SqlCommand command;
+                command = new SqlCommand(cmd, conn);
+                command.Parameters.Add(new SqlParameter("@Id", Id));
+                
+
+                SqlDataReader reader;
+                reader = command.ExecuteReader();
+                string first;
+                string last;
+                string contact;
+                string registrationNumber;
+                string email;
+                int status;
+                int id;
+                while (reader.Read())
+                {
+                    first = Convert.ToString(reader[1]);
+                    last = Convert.ToString(reader[2]);
+                    contact = Convert.ToString(reader[3]);
+                    email = Convert.ToString(reader[4]);
+                    registrationNumber = Convert.ToString(reader[5]);
+                    status = Convert.ToInt32(reader[6]);
+                    id = Convert.ToInt32(reader[0]);
+                    empty.Text = Convert.ToString(id);
+                    txtfirst.Text = first;
+                    txtlast.Text = last;
+                    txtemail.Text = email;
+                    txtregister.Text = registrationNumber;
+                    txtcontact.Text = contact;
+                    txtstatus.Text = Convert.ToString(status);
+                }
+                btnadd.Text = "Update";
+                tabPage1.Show();
+                conn.Close();
+            }
         }
     }
 }

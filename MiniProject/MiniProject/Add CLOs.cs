@@ -105,13 +105,8 @@ namespace MiniProject
                 string id1 = dataGridView1.Rows[e.RowIndex].Cells[0].FormattedValue.ToString();
                 id = Convert.ToInt32(id1);
                 txtname.Text = dataGridView1.Rows[e.RowIndex].Cells[1].FormattedValue.ToString();
-                button1.Text = "Update";
+                //button1.Text = "Update";
                 tabPage1.Show();
-                   
-
-
-
-
 
             }
 

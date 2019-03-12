@@ -59,6 +59,8 @@ namespace MiniProject
         /// <param name="e"></param>
         private void AddRubrics_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'projectBDataSet2.Rubric' table. You can move, or remove it, as needed.
+            this.rubricTableAdapter.Fill(this.projectBDataSet2.Rubric);
             SqlConnection conn = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
             conn.Open();
             String cmd = "SELECT Id from Clo";

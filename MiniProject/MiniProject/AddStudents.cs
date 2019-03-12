@@ -421,7 +421,7 @@ namespace MiniProject
 
         private void tabPage2_Click(object sender, EventArgs e)
         {
-
+           
         }
 
         private void datastudent_CellContentClick(object sender, DataGridViewCellEventArgs e)

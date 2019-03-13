@@ -133,14 +133,15 @@ namespace MiniProject
                 bool IsValidLastName = false;
                 bool Email = false;
                 bool isValidRegistration;
+                bool isValidStatus = false;
                 IsValidFirstName = IsString(txtfirst.Text);
                 IsValidLastName = IsString(txtlast.Text);
                 isValidContact = IsValidContactLength(txtcontact.Text);
                 isValidContactDigit = IsValidContactDigit(txtcontact.Text);
                 Email = IsEmail(txtemail.Text);
                 isValidRegistration = isValidStudent(txtregister.Text);
-
-                if (IsValidFirstName == true && IsValidLastName == true && isValidContactDigit == true && isValidContact == true && Email == true && isValidRegistration == true)
+                isValidStatus = IsValidContactDigit(txtstatus.Text);
+                if (IsValidFirstName == true && IsValidLastName == true && isValidContactDigit == true && isValidContact == true && Email == true && isValidRegistration == true && isValidStatus == true)
                 {
                     Student student = new Student();
                     student.FirstName1 = txtfirst.Text;
@@ -199,6 +200,10 @@ namespace MiniProject
                 if (isValidRegistration == false)
                 {
                     MessageBox.Show("Invalid Registration Number");
+                }
+                if(isValidStatus == false)
+                {
+                    MessageBox.Show("Invalid Status");
                 }
             }
             
@@ -585,31 +590,6 @@ namespace MiniProject
         }
 
         private void lblfirst_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtregister_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtemail_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtcontact_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtlast_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtfirst_TextChanged(object sender, EventArgs e)
         {
 
         }

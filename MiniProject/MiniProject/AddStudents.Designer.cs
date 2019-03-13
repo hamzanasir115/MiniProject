@@ -363,11 +363,11 @@
             // txtregister
             // 
             this.txtregister.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtregister.Location = new System.Drawing.Point(239, 209);
+            this.txtregister.Location = new System.Drawing.Point(239, 213);
             this.txtregister.Name = "txtregister";
             this.txtregister.Size = new System.Drawing.Size(100, 20);
             this.txtregister.TabIndex = 17;
-            this.txtregister.TextChanged += new System.EventHandler(this.txtregister_TextChanged);
+            this.txtregister.TextChanged += new System.EventHandler(this.txtregister_Leave);
             // 
             // txtemail
             // 
@@ -376,7 +376,7 @@
             this.txtemail.Name = "txtemail";
             this.txtemail.Size = new System.Drawing.Size(100, 20);
             this.txtemail.TabIndex = 16;
-            this.txtemail.TextChanged += new System.EventHandler(this.txtemail_TextChanged);
+            this.txtemail.TextChanged += new System.EventHandler(this.txtemail_Leave);
             // 
             // txtcontact
             // 
@@ -385,7 +385,7 @@
             this.txtcontact.Name = "txtcontact";
             this.txtcontact.Size = new System.Drawing.Size(100, 20);
             this.txtcontact.TabIndex = 15;
-            this.txtcontact.TextChanged += new System.EventHandler(this.txtcontact_TextChanged);
+            this.txtcontact.TextChanged += new System.EventHandler(this.txtcontact_Leave);
             // 
             // txtlast
             // 
@@ -394,7 +394,7 @@
             this.txtlast.Name = "txtlast";
             this.txtlast.Size = new System.Drawing.Size(100, 20);
             this.txtlast.TabIndex = 14;
-            this.txtlast.TextChanged += new System.EventHandler(this.txtlast_TextChanged);
+            this.txtlast.TextChanged += new System.EventHandler(this.txtlast_Leave);
             // 
             // txtfirst
             // 
@@ -403,7 +403,7 @@
             this.txtfirst.Name = "txtfirst";
             this.txtfirst.Size = new System.Drawing.Size(100, 20);
             this.txtfirst.TabIndex = 13;
-            this.txtfirst.TextChanged += new System.EventHandler(this.txtfirst_TextChanged);
+            this.txtfirst.TextChanged += new System.EventHandler(this.txtfirst_Leave);
             // 
             // tabPage2
             // 

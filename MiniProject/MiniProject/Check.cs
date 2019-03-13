@@ -56,5 +56,10 @@ namespace MiniProject
         {
 
         }
+
+        private void btnclo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

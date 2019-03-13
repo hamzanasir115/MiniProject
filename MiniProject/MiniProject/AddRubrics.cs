@@ -18,7 +18,8 @@ namespace MiniProject
             InitializeComponent();
         }
         int id;
-        int id5;
+        int id2;
+
         /// <summary>
         /// Here we add rubrics in the database using queries.
         /// </summary>
@@ -61,6 +62,8 @@ namespace MiniProject
         /// <param name="e"></param>
         private void AddRubrics_Load(object sender, EventArgs e)
         {
+            button1.Hide();
+            Update.Hide();
             // TODO: This line of code loads data into the 'projectBDataSet3.RubricLevel' table. You can move, or remove it, as needed.
             this.rubricLevelTableAdapter.Fill(this.projectBDataSet3.RubricLevel);
             // TODO: This line of code loads data into the 'projectBDataSet2.Rubric' table. You can move, or remove it, as needed.
@@ -133,6 +136,7 @@ namespace MiniProject
                 MessageBox.Show("Rubric Level has been added");
                 txtdet.Text = "";
                 txtlvl.Text = "";
+                cmbrubricid.Text = "";
                 conn.Close();
             }
             catch (Exception ex)
@@ -159,66 +163,98 @@ namespace MiniProject
             DataTable view = new DataTable();
             adapter.Fill(view);
             dataGridView2.DataSource = view;
+            conn.Close();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             SqlConnection conn = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
+            id2 = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value);
             conn.Open();
-            if (e.ColumnIndex == dataGridView1.Columns["delete"].Index)
+            if (e.ColumnIndex == dataGridView1.Columns["Delete"].Index)
             {
                 this.dataGridView1.Rows.RemoveAt(e.RowIndex);
                 int row = e.RowIndex;
-                int id = Convert.ToInt32(dataGridView1.Rows[row].Cells[0].Value);
-                string query = "Delete from rubric where Id = '" + id + "'";
+                var item = dataGridView1.Rows[e.RowIndex].Cells[0].Value;
+                //int id5 = Convert.ToInt32(dataGridView2.Rows[row].Cells[0].Value);
+                string query = "Delete from Rubric where Id = @id2";
                 SqlCommand command = new SqlCommand(query, conn);
-                command.ExecuteNonQuery();
+                command.Parameters.Add(new SqlParameter("@id2", id2));
+                SqlDataReader reader = command.ExecuteReader();
                 MessageBox.Show("Data Deleted Succesfully");
                 conn.Close();
             }
             if (e.ColumnIndex == dataGridView1.Columns["Edit"].Index)
             {
-                string id2 = dataGridView1.Rows[e.RowIndex].Cells[0].FormattedValue.ToString();
-                id = Convert.ToInt32(id2);
+                // id3 = dataGridView1.Rows[e.RowIndex].Cells[0].FormattedValue.ToString();
+                //id5 = Convert.ToInt32(id2);
                 txtdetail.Text = dataGridView1.Rows[e.RowIndex].Cells[1].FormattedValue.ToString();
-
+                cmbselect.Text = dataGridView1.Rows[e.RowIndex].Cells[2].FormattedValue.ToString();
                 txtid.Text = dataGridView1.Rows[e.RowIndex].Cells[0].FormattedValue.ToString();
+                bbaddrubrics.Hide();
+                button1.Show();
                 tabPage1.Show();
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
+
         {
+
             SqlConnection constring = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
             constring.Open();
-            string Query = "Update Rubric Set Id  ='" + txtid.Text + "', Details ='" + txtdetail.Text + "' where Id ='" + id + "' ";
+            string Query = "Update Rubric Set  Details ='" + txtdetail.Text + "', CloId ='" + cmbselect.Text + "' where Id ='" + id2 + "' ";
             SqlCommand cmd = new SqlCommand(Query, constring);
             cmd.ExecuteNonQuery();
-            MessageBox.Show("Data Updated");
+            MessageBox.Show("Data has been Updated");
+            constring.Close();
+            button1.Hide();
+            bbaddrubrics.Show();
+            txtid.Text = "";
+            txtdetail.Text = "";
+            cmbselect.Text = "";
+            tabPage1.Hide();
+            tabPage2.Show();
+            String query = "SELECT * FROM Rubric";
+            cmd = new SqlCommand(query, constring);
+            cmd.Parameters.Add(new SqlParameter("0", 1));
+            constring.Open();
+            SqlDataReader reader = cmd.ExecuteReader();
+            SqlDataAdapter adapter = new SqlDataAdapter(query, constring);
+            DataTable view = new DataTable();
+            adapter.Fill(view);
+            dataGridView1.DataSource = view;
+            constring.Close();
+
         }
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             SqlConnection conn = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
+            id = Convert.ToInt32(dataGridView2.Rows[e.RowIndex].Cells[0].Value);
             conn.Open();
             if (e.ColumnIndex == dataGridView2.Columns["deelete"].Index)
             {
-                this.dataGridView1.Rows.RemoveAt(e.RowIndex);
+                this.dataGridView2.Rows.RemoveAt(e.RowIndex);
                 int row = e.RowIndex;
-                int id5 = Convert.ToInt32(dataGridView2.Rows[row].Cells[0].Value);
-                string query = "Delete from RubricLevel where Id = '" + id5 + "'";
+                var item = dataGridView2.Rows[e.RowIndex].Cells[0].Value;
+                //int id5 = Convert.ToInt32(dataGridView2.Rows[row].Cells[0].Value);
+                string query = "Delete from RubricLevel where Id = @id";
                 SqlCommand command = new SqlCommand(query, conn);
-                command.ExecuteNonQuery();
+                command.Parameters.Add(new SqlParameter("@id", id));
+                SqlDataReader reader = command.ExecuteReader();
                 MessageBox.Show("Data Deleted Succesfully");
                 conn.Close();
             }
-            if (e.ColumnIndex == dataGridView2.Columns["Editt"].Index)
+           if (e.ColumnIndex == dataGridView2.Columns["Editt"].Index)
             {
                 string id2 = dataGridView2.Rows[e.RowIndex].Cells[0].FormattedValue.ToString();
-                id5 = Convert.ToInt32(id2);
-                txtdet.Text = dataGridView2.Rows[e.RowIndex].Cells[1].FormattedValue.ToString();
-                txtlvl.Text = dataGridView2.Rows[e.RowIndex].Cells[2].FormattedValue.ToString();
-                txtid.Text = dataGridView2.Rows[e.RowIndex].Cells[0].FormattedValue.ToString();
+                //id5 = Convert.ToInt32(id2);
+                txtdet.Text = dataGridView2.Rows[e.RowIndex].Cells[2].FormattedValue.ToString();
+                txtlvl.Text = dataGridView2.Rows[e.RowIndex].Cells[3].FormattedValue.ToString();
+                cmbrubricid.Text = dataGridView2.Rows[e.RowIndex].Cells[0].FormattedValue.ToString();
+                bbaddlevel.Hide();
+                Update.Show();
                 tabPage3.Show();
             }
         }
@@ -231,6 +267,23 @@ namespace MiniProject
             SqlCommand cmd = new SqlCommand(Query, constring);
             cmd.ExecuteNonQuery();
             MessageBox.Show("Data has been Updated");
+            constring.Close();
+            Update.Hide();
+            bbaddlevel.Show();
+            txtdet.Text = "";
+            txtlvl.Text = "";
+            tabPage3.Hide();
+            tabPage4.Show();
+            String query = "SELECT * FROM RubricLevel";
+            cmd = new SqlCommand(query, constring);
+            cmd.Parameters.Add(new SqlParameter("0", 1));
+            constring.Open();
+            SqlDataReader reader = cmd.ExecuteReader();
+            SqlDataAdapter adapter = new SqlDataAdapter(query, constring);
+            DataTable view = new DataTable();
+            adapter.Fill(view);
+            dataGridView2.DataSource = view;
+            constring.Close();
         }
     }
 }

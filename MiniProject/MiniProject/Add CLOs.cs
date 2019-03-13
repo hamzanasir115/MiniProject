@@ -17,7 +17,7 @@ namespace MiniProject
         {
             InitializeComponent();
         }
-        int id;
+        
         SqlConnection conn = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
 
         private void bbaddclos_Click(object sender, EventArgs e)
@@ -74,6 +74,7 @@ namespace MiniProject
             DataTable view = new DataTable();
             adapter.Fill(view);
             dataGridView1.DataSource = view;
+            conn.Close();
 
 
         }
@@ -82,46 +83,80 @@ namespace MiniProject
         {
             // TODO: This line of code loads data into the 'projectBDataSet1.Clo' table. You can move, or remove it, as needed.
             this.cloTableAdapter.Fill(this.projectBDataSet1.Clo);
+            btnUpdate.Hide();
+            lblID.Hide();
 
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            SqlConnection conn = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
-            conn.Open();
-            if (e.ColumnIndex == dataGridView1.Columns["delete"].Index)
-            {
-                this.dataGridView1.Rows.RemoveAt(e.RowIndex);
-                int row = e.RowIndex;
-                int id = Convert.ToInt32(dataGridView1.Rows[row].Cells[0].Value);
-                string query = "Delete from student where Id = '" + id + "'";
-                SqlCommand command = new SqlCommand(query, conn);
-                command.ExecuteNonQuery();
-                MessageBox.Show("Data Deleted Succesfully");
-                conn.Close();
-            }
-            if (e.ColumnIndex == dataGridView1.Columns["Edit"].Index)
-            {
-                string id1 = dataGridView1.Rows[e.RowIndex].Cells[0].FormattedValue.ToString();
-                id = Convert.ToInt32(id1);
-                txtname.Text = dataGridView1.Rows[e.RowIndex].Cells[1].FormattedValue.ToString();
-                //button1.Text = "Update";
-                tabPage1.Show();
-
-            }
-
-
-
+           
         }
 
         private void cmdUpdate_Click(object sender, EventArgs e)
         {
             SqlConnection constring = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
             constring.Open();
+            int id = Convert.ToInt32(lblID.Text);
+        
             string Query = "Update Clo Set Name ='" + txtname.Text + "', DateUpdated ='" + DateTime.Now + "' where id ='" + id + "' ";
-            SqlCommand cmd = new SqlCommand(Query, constring);
-            cmd.ExecuteNonQuery();
+            SqlCommand command = new SqlCommand(Query, constring);
+            command.ExecuteNonQuery();
             MessageBox.Show("Data Updated");
+            conn.Close();
+            btnUpdate.Hide();
+            button1.Show();
+            txtname.Text = "";
+            tabPage1.Hide();
+            tabPage2.Show();
+            String cmd = "SELECT * FROM Clo";
+            command = new SqlCommand(cmd, conn);
+            command.Parameters.Add(new SqlParameter("0", 1));
+            conn.Open();
+            SqlDataReader reader = command.ExecuteReader();
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd, conn);
+            DataTable view = new DataTable();
+            adapter.Fill(view);
+            dataGridView1.DataSource = view;
+            conn.Close();
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int id = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value);
+            lblID.Text = Convert.ToString(id);
+            conn.Open();
+            if (e.ColumnIndex == dataGridView1.Columns["delete"].Index)
+            {
+               // this.dataGridView1.Rows.RemoveAt(e.RowIndex);
+                int row = e.RowIndex;
+                var item = dataGridView1.Rows[e.RowIndex].Cells[0].Value;
+                //int id = Convert.ToInt32(dataGridView1.Rows[row].Cells[0].Value);
+                string query = "Delete from Clo where Id = @id";
+
+                SqlCommand command = new SqlCommand(query, conn);
+                command.Parameters.Add(new SqlParameter("@id", id));
+                SqlDataReader reader = command.ExecuteReader();
+                MessageBox.Show("Data Deleted Succesfully");
+                conn.Close();
+            }
+            else if (e.ColumnIndex == dataGridView1.Columns["Edit"].Index)
+            {
+                string id1 = dataGridView1.Rows[e.RowIndex].Cells[0].FormattedValue.ToString();
+                //int id = Convert.ToInt32(id1);
+                txtname.Text = dataGridView1.Rows[e.RowIndex].Cells[1].FormattedValue.ToString();
+                //button1.Text = "Update";
+                button1.Hide();
+                btnUpdate.Show();
+                tabPage1.Show();
+
+            }
+
         }
     }
 }

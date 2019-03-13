@@ -446,23 +446,26 @@ namespace MiniProject
 
         private void datastudent_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
+            var Id = datastudent.Rows[e.RowIndex].Cells[0].Value;
             SqlConnection conn = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
             conn.Open();
             if (e.ColumnIndex == datastudent.Columns["delete"].Index)
             {
-                this.datastudent.Rows.RemoveAt(e.RowIndex);
+                //this.datastudent.Rows.RemoveAt(e.RowIndex);
                 int row = e.RowIndex;
-                int id = Convert.ToInt32(datastudent.Rows[row].Cells[0].Value);
-                string query = "Delete from student where Id = '" + id + "'";
+               // int id = Convert.ToInt32(datastudent.Rows[row].Cells[0].Value);
+                //var id = datastudent.Rows[e.RowIndex].Cells[0].Value;
+                string query = "Delete from Student where Id = @id";
                 SqlCommand command = new SqlCommand(query, conn);
-                command.ExecuteNonQuery();
+                command.Parameters.Add(new SqlParameter("@Id", Id));
+                command.ExecuteReader();
                 MessageBox.Show("Data Deleted Succesfully");
                 conn.Close();
             }
             else 
             {               
                 String cmd;
-                var Id = datastudent.Rows[e.RowIndex].Cells[0].Value;
+                //var Id = datastudent.Rows[e.RowIndex].Cells[0].Value;
                 cmd = "SELECT * FROM Student WHERE Id = @Id";
 
                 SqlCommand command;

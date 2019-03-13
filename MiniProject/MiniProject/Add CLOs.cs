@@ -133,15 +133,26 @@ namespace MiniProject
             conn.Open();
             if (e.ColumnIndex == dataGridView1.Columns["delete"].Index)
             {
-               // this.dataGridView1.Rows.RemoveAt(e.RowIndex);
+                // this.dataGridView1.Rows.RemoveAt(e.RowIndex);
+                string  qry = "Delete from Rubric where CloId = @id1";
+                SqlCommand command = new SqlCommand(qry, conn);
+                command.Parameters.Add(new SqlParameter("@id1", id));
+                SqlDataReader reader = command.ExecuteReader();
+                conn.Close();
+                conn.Open();
+                string qr = "Delete from RubricLevel where RubricId = @id";
+                 command = new SqlCommand(qr, conn);
+                command.Parameters.Add(new SqlParameter("@id", id));
+                reader = command.ExecuteReader();
+                conn.Close();
                 int row = e.RowIndex;
                 var item = dataGridView1.Rows[e.RowIndex].Cells[0].Value;
                 //int id = Convert.ToInt32(dataGridView1.Rows[row].Cells[0].Value);
-                string query = "Delete from Clo where Id = @id";
-
-                SqlCommand command = new SqlCommand(query, conn);
-                command.Parameters.Add(new SqlParameter("@id", id));
-                SqlDataReader reader = command.ExecuteReader();
+                conn.Open();
+                string query = "Delete from Clo where Id = @id2";
+                command = new SqlCommand(query, conn);
+                command.Parameters.Add(new SqlParameter("@id2", id));
+                reader = command.ExecuteReader();
                 MessageBox.Show("Data Deleted Succesfully");
                 conn.Close();
             }

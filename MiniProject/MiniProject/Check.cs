@@ -31,35 +31,5 @@ namespace MiniProject
         {
 
         }
-
-        private void txtregister_Leave(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtemail_Leave(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtcontact_Leave(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtlast_Leave(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtfirst_Leave(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnclo_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

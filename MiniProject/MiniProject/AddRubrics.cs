@@ -285,5 +285,10 @@ namespace MiniProject
             dataGridView2.DataSource = view;
             constring.Close();
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

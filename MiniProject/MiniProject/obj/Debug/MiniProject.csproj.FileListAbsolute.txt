@@ -40,3 +40,4 @@ C:\Users\Hamza Nasir\Desktop\MiniProject\MiniProject\MiniProject\obj\Debug\MiniP
 C:\Users\Hamza Nasir\Desktop\MiniProject\MiniProject\MiniProject\obj\Debug\MiniProject.Properties.Resources.resources
 C:\Users\Hamza Nasir\Desktop\MiniProject\MiniProject\MiniProject\obj\Debug\MiniProject.csproj.GenerateResource.Cache
 C:\Users\Hamza Nasir\Desktop\MiniProject\MiniProject\MiniProject\obj\Debug\MiniProject.AddRubrics.resources
+C:\Users\Hamza Nasir\Desktop\MiniProject\MiniProject\MiniProject\obj\Debug\MiniProject.Check.resources

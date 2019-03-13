@@ -230,7 +230,7 @@ namespace MiniProject
             string Query = "Update RubricLevel Set  RubricId ='" + cmbrubricid.Text + "', Details ='" + txtdet.Text + "', MeasurementLevel ='" + txtlvl.Text + "' where Id ='" + id + "' ";
             SqlCommand cmd = new SqlCommand(Query, constring);
             cmd.ExecuteNonQuery();
-            MessageBox.Show("Data Updated");
+            MessageBox.Show("Data has been Updated");
         }
     }
 }

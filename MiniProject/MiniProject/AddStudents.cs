@@ -24,7 +24,7 @@ namespace MiniProject
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnadd_Click(object sender, EventArgs e)
+        private void btnadd_Click_1(object sender, EventArgs e)
         {
             if(btnadd.Text=="Update")
             {
@@ -79,6 +79,20 @@ namespace MiniProject
                         txtregister.Text = " ";
                         txtstatus.Text = null;
                         conn.Close();
+                        tabPage1.Hide();
+                        tabPage2.Show();
+                        //SqlConnection conn = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
+                        cmd = "SELECT * FROM Student";
+                        command = new SqlCommand(cmd, conn);
+                        command.Parameters.Add(new SqlParameter("0", 1));
+                        conn.Open();
+                        reader = command.ExecuteReader();
+                        SqlDataAdapter adapter = new SqlDataAdapter(cmd, conn);
+                        DataTable view = new DataTable();
+                        adapter.Fill(view);
+                        datastudent.DataSource = view;
+                        conn.Close();
+
                     }
                     catch (Exception ex)
                     {
@@ -388,7 +402,7 @@ namespace MiniProject
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
             SqlConnection conn = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
             String cmd = "SELECT * FROM Student";
@@ -400,6 +414,7 @@ namespace MiniProject
             DataTable view = new DataTable();
             adapter.Fill(view);
             datastudent.DataSource = view;
+            conn.Close();
         }
 
         private void datastudent_DoubleClick(object sender, EventArgs e)
@@ -424,7 +439,7 @@ namespace MiniProject
            
         }
 
-        private void datastudent_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void datastudent_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
             SqlConnection conn = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
             conn.Open();
@@ -481,5 +496,130 @@ namespace MiniProject
                 conn.Close();
             }
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void studentBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tablelstudent_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnstudent_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnclo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnrubric_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tablelst_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void empty_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtstatus_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblstatus_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        
+
+        private void lblregistration_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblemail_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblcontact_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblsecond_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblfirst_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtregister_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtemail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtcontact_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtlast_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtfirst_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+       
+        
     }
 }

@@ -50,7 +50,7 @@ namespace MiniProject
                     student.Contact1 = txtcontact.Text;
                     student.Email1 = txtemail.Text;
                     student.Registration1 = txtregister.Text;
-                    student.Status1 = Convert.ToInt32(txtstatus.Text);
+                    student.Status1 = Convert.ToInt32(cmbstatus.Text);
                     try
                     {
                         String firstname = txtfirst.Text;
@@ -58,7 +58,7 @@ namespace MiniProject
                         String contact = txtcontact.Text;
                         String email = txtemail.Text;
                         String registration = txtregister.Text;
-                        int status = Convert.ToInt32(txtstatus.Text);
+                        int status = Convert.ToInt32(cmbstatus.Text);
                         int Id = Convert.ToInt32(empty.Text);
                         conn.Open();
                         String cmd = String.Format("UPDATE Student SET FirstName = @firstname, LastName=@lastname,Contact=@contact, Email=@email, RegistrationNumber=@registration, Status=@status WHERE Id=@Id");
@@ -77,7 +77,7 @@ namespace MiniProject
                         txtcontact.Text = " ";
                         txtemail.Text = " ";
                         txtregister.Text = " ";
-                        txtstatus.Text = null;
+                        cmbstatus.Text = null;
                         conn.Close();
                         tabPage1.Hide();
                         tabPage2.Show();
@@ -92,6 +92,7 @@ namespace MiniProject
                         adapter.Fill(view);
                         datastudent.DataSource = view;
                         conn.Close();
+                        btnadd.Text = "Add Students";
 
                     }
                     catch (Exception ex)
@@ -140,7 +141,7 @@ namespace MiniProject
                 isValidContactDigit = IsValidContactDigit(txtcontact.Text);
                 Email = IsEmail(txtemail.Text);
                 isValidRegistration = isValidStudent(txtregister.Text);
-                isValidStatus = IsValidContactDigit(txtstatus.Text);
+                isValidStatus = IsValidContactDigit(cmbstatus.Text);
                 if (IsValidFirstName == true && IsValidLastName == true && isValidContactDigit == true && isValidContact == true && Email == true && isValidRegistration == true && isValidStatus == true)
                 {
                     Student student = new Student();
@@ -149,7 +150,7 @@ namespace MiniProject
                     student.Contact1 = txtcontact.Text;
                     student.Email1 = txtemail.Text;
                     student.Registration1 = txtregister.Text;
-                    student.Status1 = Convert.ToInt32(txtstatus.Text);
+                    student.Status1 = Convert.ToInt32(cmbstatus.Text);
                     try
                     {
                         String firstname = txtfirst.Text;
@@ -157,7 +158,7 @@ namespace MiniProject
                         String contact = txtcontact.Text;
                         String email = txtemail.Text;
                         String registration = txtregister.Text;
-                        int status = Convert.ToInt32(txtstatus.Text);
+                        int status = Convert.ToInt32(cmbstatus.Text);
                         conn.Open();
                         String cmd = String.Format("INSERT INTO Student(FirstName, LastName,Contact, Email, RegistrationNumber, Status) values('{0}','{1}','{2}','{3}','{4}','{5}')", firstname, lastname, contact, email, registration, status);
                         SqlCommand command = new SqlCommand(cmd, conn);
@@ -169,7 +170,7 @@ namespace MiniProject
                         txtcontact.Text = " ";
                         txtemail.Text = " ";
                         txtregister.Text = " ";
-                        txtstatus.Text = null;
+                        cmbstatus.Text = null;
                         conn.Close();
                     }
                     catch (Exception ex)
@@ -337,7 +338,11 @@ namespace MiniProject
                 return false;
             }
         }
-
+        /// <summary>
+        /// Provides Error when first name is not valid.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtfirst_Leave(object sender, EventArgs e)
         {
             string path;
@@ -351,7 +356,11 @@ namespace MiniProject
                 errorfirst.SetError(txtfirst, "Invalid First Name");
             }
         }
-
+        /// <summary>
+        /// Provides Error when last name is not valid.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtlast_Leave(object sender, EventArgs e)
         {
             string path;
@@ -365,7 +374,11 @@ namespace MiniProject
                 errorlast.SetError(txtlast, "Invalid Last Name");
             }
         }
-
+        /// <summary>
+        /// Provides Error when contact is not valid.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtcontact_Leave(object sender, EventArgs e)
         {
             bool contactlength = IsValidContactLength(txtcontact.Text);
@@ -379,7 +392,11 @@ namespace MiniProject
                 errorcontact.SetError(txtcontact, "Invalid Contact");
             } 
         }
-
+        /// <summary>
+        /// Provides Error when email is not valid.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtemail_Leave(object sender, EventArgs e)
         {
             string path;
@@ -393,7 +410,12 @@ namespace MiniProject
                 erroremail.SetError(txtemail, "Invalid Email");
             }
         }
-
+        /// <summary>
+        /// Provides Error when registration number
+        /// is not valid.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtregister_Leave(object sender, EventArgs e)
         {
             string path = @"[\d]{4}[-][A-Z|a-z][A-Z|a-z][-][\d]+";
@@ -406,7 +428,11 @@ namespace MiniProject
                 errorreg.SetError(txtregister, "Invalid Registration Number");
             }
         }
-
+        /// <summary>
+        /// To Show Data in the grid. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click_1(object sender, EventArgs e)
         {
             SqlConnection conn = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
@@ -435,6 +461,18 @@ namespace MiniProject
         private void AddStudents_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'projectBDataSet.Student' table. You can move, or remove it, as needed.
+            SqlConnection conn = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
+            conn.Open();
+            String cmd = "SELECT LookupId from Lookup";
+            SqlCommand command = new SqlCommand(cmd, conn);
+            command.Parameters.Add(new SqlParameter("0", 1));
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                // Console.WriteLine(cmbselect reader[0] + " " + reader[1]);
+                cmbstatus.Items.Add(reader[0]);
+            }
+            conn.Close();
             this.studentTableAdapter.Fill(this.projectBDataSet.Student);
             empty.Hide();
         }
@@ -443,7 +481,11 @@ namespace MiniProject
         {
            
         }
-
+        /// <summary>
+        /// Updation and deletion of students here.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void datastudent_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
             var Id = datastudent.Rows[e.RowIndex].Cells[0].Value;
@@ -460,6 +502,17 @@ namespace MiniProject
                 command.Parameters.Add(new SqlParameter("@Id", Id));
                 command.ExecuteReader();
                 MessageBox.Show("Data Deleted Succesfully");
+                conn.Close();
+
+                String cmd = "SELECT * FROM Student";
+                //command = new SqlCommand(cmd, conn);
+                command.Parameters.Add(new SqlParameter("0", 1));
+                conn.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd, conn);
+                DataTable view = new DataTable();
+                adapter.Fill(view);
+                datastudent.DataSource = view;
                 conn.Close();
             }
             else 
@@ -497,7 +550,7 @@ namespace MiniProject
                     txtemail.Text = email;
                     txtregister.Text = registrationNumber;
                     txtcontact.Text = contact;
-                    txtstatus.Text = Convert.ToString(status);
+                    cmbstatus.Text = Convert.ToString(status);
                 }
                 btnadd.Text = "Update";
                 tabPage1.Show();
@@ -532,17 +585,23 @@ namespace MiniProject
 
         private void btnstudent_Click(object sender, EventArgs e)
         {
-
+            AddStudents student = new AddStudents();
+            this.Hide();
+            student.Show();
         }
 
         private void btnclo_Click(object sender, EventArgs e)
         {
-
+            Add_CLOs clo = new Add_CLOs();
+            this.Hide();
+            clo.Show();
         }
 
         private void btnrubric_Click(object sender, EventArgs e)
         {
-
+            AddRubrics rubric = new AddRubrics();
+            this.Hide();
+            rubric.Show();
         }
 
         private void tablelst_Paint(object sender, PaintEventArgs e)

@@ -196,7 +196,11 @@ namespace MiniProject
                 tabPage1.Show();
             }
         }
-
+        /// <summary>
+        /// Updation and Deletion of rubric.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
 
         {
@@ -227,7 +231,11 @@ namespace MiniProject
             constring.Close();
 
         }
-
+        /// <summary>
+        /// Updation and Deletion of Rubric Level.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             SqlConnection conn = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
@@ -258,7 +266,11 @@ namespace MiniProject
                 tabPage3.Show();
             }
         }
-
+        /// <summary>
+        /// Update Rubric Level here.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Update_Click(object sender, EventArgs e)
         {
             SqlConnection constring = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
@@ -289,6 +301,27 @@ namespace MiniProject
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btnstudent_Click(object sender, EventArgs e)
+        {
+            AddStudents student = new AddStudents();
+            this.Hide();
+            student.Show();
+        }
+
+        private void btnclo_Click(object sender, EventArgs e)
+        {
+            Add_CLOs clo = new Add_CLOs();
+            this.Hide();
+            clo.Show();
+        }
+
+        private void btnrubric_Click(object sender, EventArgs e)
+        {
+            AddRubrics rubric = new AddRubrics();
+            this.Hide();
+            rubric.Show();
         }
     }
 }

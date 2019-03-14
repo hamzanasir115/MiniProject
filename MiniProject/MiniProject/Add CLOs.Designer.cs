@@ -49,6 +49,7 @@
             this.tablelst = new System.Windows.Forms.TableLayoutPanel();
             this.Add = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.lblID = new System.Windows.Forms.Label();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -62,7 +63,6 @@
             this.dateUpdatedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.delete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.lblID = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.cloBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
@@ -184,6 +184,7 @@
             this.btnrubric.TabIndex = 2;
             this.btnrubric.Text = "Rubric";
             this.btnrubric.UseVisualStyleBackColor = true;
+            this.btnrubric.Click += new System.EventHandler(this.btnrubric_Click);
             // 
             // btnclo
             // 
@@ -196,6 +197,7 @@
             this.btnclo.TabIndex = 1;
             this.btnclo.Text = "Clo";
             this.btnclo.UseVisualStyleBackColor = true;
+            this.btnclo.Click += new System.EventHandler(this.btnclo_Click);
             // 
             // btnstudent
             // 
@@ -208,6 +210,7 @@
             this.btnstudent.TabIndex = 0;
             this.btnstudent.Text = "Student";
             this.btnstudent.UseVisualStyleBackColor = true;
+            this.btnstudent.Click += new System.EventHandler(this.btnstudent_Click);
             // 
             // tablelst
             // 
@@ -251,6 +254,15 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Add Clos";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // lblID
+            // 
+            this.lblID.AutoSize = true;
+            this.lblID.Location = new System.Drawing.Point(428, 276);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(15, 13);
+            this.lblID.TabIndex = 7;
+            this.lblID.Text = "id";
             // 
             // btnUpdate
             // 
@@ -306,7 +318,8 @@
             // 
             // bbshow
             // 
-            this.bbshow.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.bbshow.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.bbshow.Location = new System.Drawing.Point(183, 43);
             this.bbshow.Name = "bbshow";
             this.bbshow.Size = new System.Drawing.Size(75, 23);
@@ -381,15 +394,6 @@
             this.delete.ToolTipText = "delete";
             this.delete.UseColumnTextForButtonValue = true;
             // 
-            // lblID
-            // 
-            this.lblID.AutoSize = true;
-            this.lblID.Location = new System.Drawing.Point(445, 133);
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(15, 13);
-            this.lblID.TabIndex = 7;
-            this.lblID.Text = "id";
-            // 
             // Add_CLOs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -399,6 +403,7 @@
             this.Controls.Add(this.tablelstudent);
             this.Controls.Add(this.tablelst);
             this.Name = "Add_CLOs";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add_CLOs";
             this.Load += new System.EventHandler(this.Add_CLOs_Load);
             ((System.ComponentModel.ISupportInitialize)(this.cloBindingSource)).EndInit();

@@ -44,23 +44,6 @@
             this.btnclo = new System.Windows.Forms.Button();
             this.btnstudent = new System.Windows.Forms.Button();
             this.tablelst = new System.Windows.Forms.TableLayoutPanel();
-            this.measurementLevelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Deelete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.rubricLevelBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.projectBDataSet3 = new MiniProject.ProjectBDataSet3();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.bbshow = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detailsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cloIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.delete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.rubricBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.projectBDataSet2 = new MiniProject.ProjectBDataSet2();
-            this.bblvl = new System.Windows.Forms.Button();
-            this.bbaddlevel = new System.Windows.Forms.Button();
-            this.rubricLevelTableAdapter = new MiniProject.ProjectBDataSet3TableAdapters.RubricLevelTableAdapter();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
@@ -71,8 +54,19 @@
             this.lblselect = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtdetail = new System.Windows.Forms.TextBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.bbshow = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detailsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cloIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.rubricBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.projectBDataSet2 = new MiniProject.ProjectBDataSet2();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.Update = new System.Windows.Forms.Button();
+            this.bbaddlevel = new System.Windows.Forms.Button();
             this.txtlvl = new System.Windows.Forms.TextBox();
             this.lblmeasure = new System.Windows.Forms.Label();
             this.txtdet = new System.Windows.Forms.TextBox();
@@ -84,7 +78,13 @@
             this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rubricIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.detailsDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.measurementLevelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Editt = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Deelete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.rubricLevelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.projectBDataSet3 = new MiniProject.ProjectBDataSet3();
+            this.bblvl = new System.Windows.Forms.Button();
+            this.rubricLevelTableAdapter = new MiniProject.ProjectBDataSet3TableAdapters.RubricLevelTableAdapter();
             this.rubricTableAdapter = new MiniProject.ProjectBDataSet2TableAdapters.RubricTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet)).BeginInit();
@@ -96,17 +96,17 @@
             this.panel1.SuspendLayout();
             this.tablelstudent.SuspendLayout();
             this.tablelst.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rubricLevelBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet3)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rubricBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet2)).BeginInit();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rubricLevelBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet3)).BeginInit();
             this.SuspendLayout();
             // 
             // studentBindingSource
@@ -199,6 +199,7 @@
             this.btnrubric.TabIndex = 2;
             this.btnrubric.Text = "Rubric";
             this.btnrubric.UseVisualStyleBackColor = true;
+            this.btnrubric.Click += new System.EventHandler(this.btnrubric_Click);
             // 
             // btnclo
             // 
@@ -211,6 +212,7 @@
             this.btnclo.TabIndex = 1;
             this.btnclo.Text = "Clo";
             this.btnclo.UseVisualStyleBackColor = true;
+            this.btnclo.Click += new System.EventHandler(this.btnclo_Click);
             // 
             // btnstudent
             // 
@@ -223,6 +225,7 @@
             this.btnstudent.TabIndex = 0;
             this.btnstudent.Text = "Student";
             this.btnstudent.UseVisualStyleBackColor = true;
+            this.btnstudent.Click += new System.EventHandler(this.btnstudent_Click);
             // 
             // tablelst
             // 
@@ -240,147 +243,6 @@
             this.tablelst.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tablelst.Size = new System.Drawing.Size(676, 370);
             this.tablelst.TabIndex = 6;
-            // 
-            // measurementLevelDataGridViewTextBoxColumn
-            // 
-            this.measurementLevelDataGridViewTextBoxColumn.DataPropertyName = "MeasurementLevel";
-            this.measurementLevelDataGridViewTextBoxColumn.HeaderText = "MeasurementLevel";
-            this.measurementLevelDataGridViewTextBoxColumn.Name = "measurementLevelDataGridViewTextBoxColumn";
-            // 
-            // Deelete
-            // 
-            this.Deelete.DataPropertyName = "(none)";
-            this.Deelete.HeaderText = "Deelete";
-            this.Deelete.Name = "Deelete";
-            this.Deelete.Text = "Deelete";
-            this.Deelete.ToolTipText = "Deelete";
-            this.Deelete.UseColumnTextForButtonValue = true;
-            // 
-            // rubricLevelBindingSource
-            // 
-            this.rubricLevelBindingSource.DataMember = "RubricLevel";
-            this.rubricLevelBindingSource.DataSource = this.projectBDataSet3;
-            // 
-            // projectBDataSet3
-            // 
-            this.projectBDataSet3.DataSetName = "ProjectBDataSet3";
-            this.projectBDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.bbshow);
-            this.tabPage2.Controls.Add(this.dataGridView1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(662, 338);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "View Rubrics";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // bbshow
-            // 
-            this.bbshow.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.bbshow.Location = new System.Drawing.Point(196, 40);
-            this.bbshow.Name = "bbshow";
-            this.bbshow.Size = new System.Drawing.Size(75, 23);
-            this.bbshow.TabIndex = 1;
-            this.bbshow.Text = "Show All";
-            this.bbshow.UseVisualStyleBackColor = true;
-            this.bbshow.Click += new System.EventHandler(this.bbshow_Click);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.detailsDataGridViewTextBoxColumn,
-            this.cloIdDataGridViewTextBoxColumn,
-            this.Edit,
-            this.delete});
-            this.dataGridView1.DataSource = this.rubricBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 83);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(651, 267);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            // 
-            // detailsDataGridViewTextBoxColumn
-            // 
-            this.detailsDataGridViewTextBoxColumn.DataPropertyName = "Details";
-            this.detailsDataGridViewTextBoxColumn.HeaderText = "Details";
-            this.detailsDataGridViewTextBoxColumn.Name = "detailsDataGridViewTextBoxColumn";
-            // 
-            // cloIdDataGridViewTextBoxColumn
-            // 
-            this.cloIdDataGridViewTextBoxColumn.DataPropertyName = "CloId";
-            this.cloIdDataGridViewTextBoxColumn.HeaderText = "CloId";
-            this.cloIdDataGridViewTextBoxColumn.Name = "cloIdDataGridViewTextBoxColumn";
-            // 
-            // Edit
-            // 
-            this.Edit.DataPropertyName = "(none)";
-            this.Edit.HeaderText = "Edit";
-            this.Edit.Name = "Edit";
-            this.Edit.Text = "Edit";
-            this.Edit.ToolTipText = "Edit";
-            this.Edit.UseColumnTextForButtonValue = true;
-            // 
-            // delete
-            // 
-            this.delete.DataPropertyName = "(none)";
-            this.delete.HeaderText = "Delete";
-            this.delete.Name = "delete";
-            this.delete.Text = "Delete";
-            this.delete.ToolTipText = "Delete";
-            this.delete.UseColumnTextForButtonValue = true;
-            // 
-            // rubricBindingSource
-            // 
-            this.rubricBindingSource.DataMember = "Rubric";
-            this.rubricBindingSource.DataSource = this.projectBDataSet2;
-            // 
-            // projectBDataSet2
-            // 
-            this.projectBDataSet2.DataSetName = "ProjectBDataSet2";
-            this.projectBDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // bblvl
-            // 
-            this.bblvl.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.bblvl.Location = new System.Drawing.Point(196, 32);
-            this.bblvl.Name = "bblvl";
-            this.bblvl.Size = new System.Drawing.Size(75, 23);
-            this.bblvl.TabIndex = 0;
-            this.bblvl.Text = "Show Level";
-            this.bblvl.UseVisualStyleBackColor = true;
-            this.bblvl.Click += new System.EventHandler(this.bblvl_Click);
-            // 
-            // bbaddlevel
-            // 
-            this.bbaddlevel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.bbaddlevel.Location = new System.Drawing.Point(107, 218);
-            this.bbaddlevel.Name = "bbaddlevel";
-            this.bbaddlevel.Size = new System.Drawing.Size(96, 23);
-            this.bbaddlevel.TabIndex = 6;
-            this.bbaddlevel.Text = "Add Level";
-            this.bbaddlevel.UseVisualStyleBackColor = true;
-            this.bbaddlevel.Click += new System.EventHandler(this.bbaddlevel_Click);
-            // 
-            // rubricLevelTableAdapter
-            // 
-            this.rubricLevelTableAdapter.ClearBeforeFill = true;
             // 
             // tabControl1
             // 
@@ -492,6 +354,97 @@
             this.txtdetail.Size = new System.Drawing.Size(100, 20);
             this.txtdetail.TabIndex = 2;
             // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.bbshow);
+            this.tabPage2.Controls.Add(this.dataGridView1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(662, 338);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "View Rubrics";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // bbshow
+            // 
+            this.bbshow.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.bbshow.Location = new System.Drawing.Point(196, 40);
+            this.bbshow.Name = "bbshow";
+            this.bbshow.Size = new System.Drawing.Size(75, 23);
+            this.bbshow.TabIndex = 1;
+            this.bbshow.Text = "Show All";
+            this.bbshow.UseVisualStyleBackColor = true;
+            this.bbshow.Click += new System.EventHandler(this.bbshow_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.detailsDataGridViewTextBoxColumn,
+            this.cloIdDataGridViewTextBoxColumn,
+            this.Edit,
+            this.delete});
+            this.dataGridView1.DataSource = this.rubricBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(6, 83);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(651, 267);
+            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            // 
+            // detailsDataGridViewTextBoxColumn
+            // 
+            this.detailsDataGridViewTextBoxColumn.DataPropertyName = "Details";
+            this.detailsDataGridViewTextBoxColumn.HeaderText = "Details";
+            this.detailsDataGridViewTextBoxColumn.Name = "detailsDataGridViewTextBoxColumn";
+            // 
+            // cloIdDataGridViewTextBoxColumn
+            // 
+            this.cloIdDataGridViewTextBoxColumn.DataPropertyName = "CloId";
+            this.cloIdDataGridViewTextBoxColumn.HeaderText = "CloId";
+            this.cloIdDataGridViewTextBoxColumn.Name = "cloIdDataGridViewTextBoxColumn";
+            // 
+            // Edit
+            // 
+            this.Edit.DataPropertyName = "(none)";
+            this.Edit.HeaderText = "Edit";
+            this.Edit.Name = "Edit";
+            this.Edit.Text = "Edit";
+            this.Edit.ToolTipText = "Edit";
+            this.Edit.UseColumnTextForButtonValue = true;
+            // 
+            // delete
+            // 
+            this.delete.DataPropertyName = "(none)";
+            this.delete.HeaderText = "Delete";
+            this.delete.Name = "delete";
+            this.delete.Text = "Delete";
+            this.delete.ToolTipText = "Delete";
+            this.delete.UseColumnTextForButtonValue = true;
+            // 
+            // rubricBindingSource
+            // 
+            this.rubricBindingSource.DataMember = "Rubric";
+            this.rubricBindingSource.DataSource = this.projectBDataSet2;
+            // 
+            // projectBDataSet2
+            // 
+            this.projectBDataSet2.DataSetName = "ProjectBDataSet2";
+            this.projectBDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.Update);
@@ -520,6 +473,17 @@
             this.Update.Text = "Update";
             this.Update.UseVisualStyleBackColor = true;
             this.Update.Click += new System.EventHandler(this.Update_Click);
+            // 
+            // bbaddlevel
+            // 
+            this.bbaddlevel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.bbaddlevel.Location = new System.Drawing.Point(107, 218);
+            this.bbaddlevel.Name = "bbaddlevel";
+            this.bbaddlevel.Size = new System.Drawing.Size(96, 23);
+            this.bbaddlevel.TabIndex = 6;
+            this.bbaddlevel.Text = "Add Level";
+            this.bbaddlevel.UseVisualStyleBackColor = true;
+            this.bbaddlevel.Click += new System.EventHandler(this.bbaddlevel_Click);
             // 
             // txtlvl
             // 
@@ -629,6 +593,12 @@
             this.detailsDataGridViewTextBoxColumn1.HeaderText = "Details";
             this.detailsDataGridViewTextBoxColumn1.Name = "detailsDataGridViewTextBoxColumn1";
             // 
+            // measurementLevelDataGridViewTextBoxColumn
+            // 
+            this.measurementLevelDataGridViewTextBoxColumn.DataPropertyName = "MeasurementLevel";
+            this.measurementLevelDataGridViewTextBoxColumn.HeaderText = "MeasurementLevel";
+            this.measurementLevelDataGridViewTextBoxColumn.Name = "measurementLevelDataGridViewTextBoxColumn";
+            // 
             // Editt
             // 
             this.Editt.DataPropertyName = "(none)";
@@ -637,6 +607,41 @@
             this.Editt.Text = "Editt";
             this.Editt.ToolTipText = "Editt";
             this.Editt.UseColumnTextForButtonValue = true;
+            // 
+            // Deelete
+            // 
+            this.Deelete.DataPropertyName = "(none)";
+            this.Deelete.HeaderText = "Deelete";
+            this.Deelete.Name = "Deelete";
+            this.Deelete.Text = "Deelete";
+            this.Deelete.ToolTipText = "Deelete";
+            this.Deelete.UseColumnTextForButtonValue = true;
+            // 
+            // rubricLevelBindingSource
+            // 
+            this.rubricLevelBindingSource.DataMember = "RubricLevel";
+            this.rubricLevelBindingSource.DataSource = this.projectBDataSet3;
+            // 
+            // projectBDataSet3
+            // 
+            this.projectBDataSet3.DataSetName = "ProjectBDataSet3";
+            this.projectBDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // bblvl
+            // 
+            this.bblvl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.bblvl.Location = new System.Drawing.Point(196, 32);
+            this.bblvl.Name = "bblvl";
+            this.bblvl.Size = new System.Drawing.Size(75, 23);
+            this.bblvl.TabIndex = 0;
+            this.bblvl.Text = "Show Level";
+            this.bblvl.UseVisualStyleBackColor = true;
+            this.bblvl.Click += new System.EventHandler(this.bblvl_Click);
+            // 
+            // rubricLevelTableAdapter
+            // 
+            this.rubricLevelTableAdapter.ClearBeforeFill = true;
             // 
             // rubricTableAdapter
             // 
@@ -651,6 +656,7 @@
             this.Controls.Add(this.tablelstudent);
             this.Controls.Add(this.tablelst);
             this.Name = "AddRubrics";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddRubrics";
             this.Load += new System.EventHandler(this.AddRubrics_Load);
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).EndInit();
@@ -663,19 +669,19 @@
             this.panel1.ResumeLayout(false);
             this.tablelstudent.ResumeLayout(false);
             this.tablelst.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.rubricLevelBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet3)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rubricBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet2)).EndInit();
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rubricLevelBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

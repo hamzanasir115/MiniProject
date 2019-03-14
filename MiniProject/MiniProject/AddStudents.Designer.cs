@@ -47,7 +47,6 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.empty = new System.Windows.Forms.Label();
-            this.txtstatus = new System.Windows.Forms.TextBox();
             this.lblstatus = new System.Windows.Forms.Label();
             this.btnadd = new System.Windows.Forms.Button();
             this.lblregistration = new System.Windows.Forms.Label();
@@ -71,6 +70,7 @@
             this.registrationNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.cmbstatus = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorfirst)).BeginInit();
@@ -240,8 +240,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.cmbstatus);
             this.tabPage1.Controls.Add(this.empty);
-            this.tabPage1.Controls.Add(this.txtstatus);
             this.tabPage1.Controls.Add(this.lblstatus);
             this.tabPage1.Controls.Add(this.btnadd);
             this.tabPage1.Controls.Add(this.lblregistration);
@@ -273,15 +273,6 @@
             this.empty.TabIndex = 27;
             this.empty.Text = "Empty";
             this.empty.Click += new System.EventHandler(this.empty_Click);
-            // 
-            // txtstatus
-            // 
-            this.txtstatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtstatus.Location = new System.Drawing.Point(239, 264);
-            this.txtstatus.Name = "txtstatus";
-            this.txtstatus.Size = new System.Drawing.Size(100, 20);
-            this.txtstatus.TabIndex = 25;
-            this.txtstatus.TextChanged += new System.EventHandler(this.txtstatus_TextChanged);
             // 
             // lblstatus
             // 
@@ -420,7 +411,8 @@
             // 
             // btnShowData
             // 
-            this.btnShowData.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnShowData.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnShowData.Location = new System.Drawing.Point(151, 49);
             this.btnShowData.Name = "btnShowData";
             this.btnShowData.Size = new System.Drawing.Size(75, 23);
@@ -506,6 +498,15 @@
             this.delete.ToolTipText = "delete";
             this.delete.UseColumnTextForButtonValue = true;
             // 
+            // cmbstatus
+            // 
+            this.cmbstatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbstatus.FormattingEnabled = true;
+            this.cmbstatus.Location = new System.Drawing.Point(239, 256);
+            this.cmbstatus.Name = "cmbstatus";
+            this.cmbstatus.Size = new System.Drawing.Size(100, 21);
+            this.cmbstatus.TabIndex = 28;
+            // 
             // AddStudents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -557,7 +558,6 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Label empty;
-        private System.Windows.Forms.TextBox txtstatus;
         private System.Windows.Forms.Label lblstatus;
         private System.Windows.Forms.Button btnadd;
         private System.Windows.Forms.Label lblregistration;
@@ -581,5 +581,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn registrationNumberDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn delete;
+        private System.Windows.Forms.ComboBox cmbstatus;
     }
 }

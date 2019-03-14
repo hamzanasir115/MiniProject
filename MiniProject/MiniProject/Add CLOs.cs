@@ -92,7 +92,11 @@ namespace MiniProject
         {
            
         }
-
+        /// <summary>
+        /// Update data for CLos module.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmdUpdate_Click(object sender, EventArgs e)
         {
             SqlConnection constring = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
@@ -125,26 +129,46 @@ namespace MiniProject
         {
 
         }
-
+        /// <summary>
+        /// deletion and updation of Clos.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int id = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value);
             lblID.Text = Convert.ToString(id);
-            conn.Open();
+            
             if (e.ColumnIndex == dataGridView1.Columns["delete"].Index)
             {
-                // this.dataGridView1.Rows.RemoveAt(e.RowIndex);
-                string  qry = "Delete from Rubric where CloId = @id1";
-                SqlCommand command = new SqlCommand(qry, conn);
-                command.Parameters.Add(new SqlParameter("@id1", id));
+                conn.Open();
+                string qr = "SELECT Id FROM Rubric WHERE CloId = @id";
+                //string qr = "Delete from RubricLevel where RubricId in (SELECT RubricId FROM RubricLevel WHERE RubricId= @id)";
+                SqlCommand command = new SqlCommand(qr, conn);
+                command.Parameters.Add(new SqlParameter("@id", id));
                 SqlDataReader reader = command.ExecuteReader();
+                
+                //conn.Close();
+                
+                while (reader.Read())
+                {
+                    //conn.Open();
+                    int read = Convert.ToInt32(reader[0]);
+                    string qr1 = "DELETE FROM RubricLevel WHERE RubricId = @id1";
+                    command = new SqlCommand(qr1, conn);
+                    command.Parameters.Add(new SqlParameter("@id1", read));
+                    SqlDataReader extract = command.ExecuteReader();
+                   // conn.Close();
+                }
                 conn.Close();
                 conn.Open();
-                string qr = "Delete from RubricLevel where RubricId = @id";
-                 command = new SqlCommand(qr, conn);
-                command.Parameters.Add(new SqlParameter("@id", id));
+                // this.dataGridView1.Rows.RemoveAt(e.RowIndex);
+                string  qry = "Delete from Rubric where CloId in(SELECT CloId FROM Rubric WHERE CloId= @id2)";
+                command = new SqlCommand(qry, conn);
+                command.Parameters.Add(new SqlParameter("@id2", id));
                 reader = command.ExecuteReader();
                 conn.Close();
+                
                 int row = e.RowIndex;
                 var item = dataGridView1.Rows[e.RowIndex].Cells[0].Value;
                 //int id = Convert.ToInt32(dataGridView1.Rows[row].Cells[0].Value);
@@ -155,6 +179,19 @@ namespace MiniProject
                 reader = command.ExecuteReader();
                 MessageBox.Show("Data Deleted Succesfully");
                 conn.Close();
+
+                String cmd = "SELECT * FROM Clo";
+                command = new SqlCommand(cmd, conn);
+                command.Parameters.Add(new SqlParameter("0", 1));
+                conn.Open();
+                reader = command.ExecuteReader();
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd, conn);
+                DataTable view = new DataTable();
+                adapter.Fill(view);
+                dataGridView1.DataSource = view;
+                conn.Close();
+
+
             }
             else if (e.ColumnIndex == dataGridView1.Columns["Edit"].Index)
             {
@@ -168,6 +205,27 @@ namespace MiniProject
 
             }
 
+        }
+
+        private void btnstudent_Click(object sender, EventArgs e)
+        {
+            AddStudents student = new AddStudents();
+            this.Hide();
+            student.Show();
+        }
+
+        private void btnclo_Click(object sender, EventArgs e)
+        {
+            Add_CLOs clo = new Add_CLOs();
+            this.Hide();
+            clo.Show();
+        }
+
+        private void btnrubric_Click(object sender, EventArgs e)
+        {
+            AddRubrics rubric = new AddRubrics();
+            this.Hide();
+            rubric.Show();
         }
     }
 }

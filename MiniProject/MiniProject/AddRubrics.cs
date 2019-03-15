@@ -27,39 +27,97 @@ namespace MiniProject
         /// <param name="e"></param>
         private void bbaddrubrics_Click(object sender, EventArgs e)
         {
-            if(txtdetail.TextLength != 0)
+            bool IsDigit;
+            bool AllLetter;
+            IsDigit = IsValidRubricDigit(txtid.Text);
+            AllLetter = IsLetters(txtdetail.Text);
+            if (txtdetail.TextLength != 0 && IsDigit == true && AllLetter == true)
             {
+                bool IdPresent = false;
                 SqlConnection conn = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
-                Rubric rubric = new Rubric();
-                rubric.Details1 = txtdetail.Text;
-                rubric.Id1 = Convert.ToInt32(txtid.Text);
-                try
+                string qry = "select Id from Rubric";
+                SqlCommand command = new SqlCommand(qry, conn);
+                conn.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
                 {
-                    String details = txtdetail.Text;
                     int id = Convert.ToInt32(txtid.Text);
-                    int cloid = Convert.ToInt32(cmbselect.Text);
-                    conn.Open();
-                    String cmd = String.Format("INSERT INTO Rubric(Id, Details, CloId) values('{0}', '{1}', '{2}')", id, details, cloid);
-                    SqlCommand command = new SqlCommand(cmd, conn);
-                    command.Parameters.Add(new SqlParameter("0", 1));
-                    SqlDataReader reader = command.ExecuteReader();
-                    MessageBox.Show("Rubric has been added");
-                    txtdetail.Text = "";
-                    txtid.Text = "";
-                    conn.Close();
+                    if (id == Convert.ToInt32(reader[0]))
+                    {
+                        IdPresent = true;
+                        MessageBox.Show("Rubric Id Exist");
+                        break;
+                    }
                 }
-                catch (Exception ex)
+                conn.Close();
+                if(IdPresent == false)
                 {
-                    MessageBox.Show(ex.Message);
+                    Rubric rubric = new Rubric();
+                    rubric.Details1 = txtdetail.Text;
+                    rubric.Id1 = Convert.ToInt32(txtid.Text);
+                    try
+                    {
+                        String details = txtdetail.Text;
+                        int id = Convert.ToInt32(txtid.Text);
+                        int cloid = Convert.ToInt32(cmbselect.Text);
+                        conn.Open();
+                        String cmd = String.Format("INSERT INTO Rubric(Id, Details, CloId) values('{0}', '{1}', '{2}')", id, details, cloid);
+                        command = new SqlCommand(cmd, conn);
+                        command.Parameters.Add(new SqlParameter("0", 1));
+                        reader = command.ExecuteReader();
+                        MessageBox.Show("Rubric has been added");
+                        txtdetail.Text = "";
+                        txtid.Text = "";
+                        conn.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+
                 }
-
             }
-            else
+            
+            if(IsDigit == false)
             {
-                MessageBox.Show("Required Detail");
+                MessageBox.Show("RubricId Required");
             }
 
+        }
+        public static bool IsValidRubricDigit(string digit)
+        {
+            bool number = false;
+            foreach (char no in digit)
+            {
+                if (char.IsNumber(no))
+                {
+                    number = true;
+                }
+                else
+                {
+                    number = false;
+                }
+            }
+            return number;
+        }
+        public static bool IsLetters(string name)
+        {
+            foreach (char i in name)
+            {
+                if (!Char.IsLetter(i))
+                {
+                    if (i == ' ')
+                    {
 
+                    }
+                    else
+                    {
+                        return false;
+                    }
+
+                }
+            }
+            return true;
         }
         /// <summary>
         /// Here we take CloId from the database using query
@@ -180,14 +238,20 @@ namespace MiniProject
             conn.Open();
             if (e.ColumnIndex == dataGridView1.Columns["Delete"].Index)
             {
+                string qry = "Delete from RubricLevel where RubricId in(SELECT RubricId FROM RubricLevel WHERE RubricId= @id2)";
+                SqlCommand command = new SqlCommand(qry, conn);
+                command.Parameters.Add(new SqlParameter("@id2", id2));
+                SqlDataReader reader = command.ExecuteReader();
+                conn.Close();
                 this.dataGridView1.Rows.RemoveAt(e.RowIndex);
                 int row = e.RowIndex;
                 var item = dataGridView1.Rows[e.RowIndex].Cells[0].Value;
                 //int id5 = Convert.ToInt32(dataGridView2.Rows[row].Cells[0].Value);
-                string query = "Delete from Rubric where Id = @id2";
-                SqlCommand command = new SqlCommand(query, conn);
-                command.Parameters.Add(new SqlParameter("@id2", id2));
-                SqlDataReader reader = command.ExecuteReader();
+                string query = "Delete from Rubric where Id = @id3";
+                command = new SqlCommand(query, conn);
+                command.Parameters.Add(new SqlParameter("@id3", id2));
+                conn.Open();
+                reader = command.ExecuteReader();
                 MessageBox.Show("Data Deleted Succesfully");
                 conn.Close();
             }
@@ -195,6 +259,8 @@ namespace MiniProject
             {
                 // id3 = dataGridView1.Rows[e.RowIndex].Cells[0].FormattedValue.ToString();
                 //id5 = Convert.ToInt32(id2);
+                txtid.Hide();
+                lblid.Hide();
                 txtdetail.Text = dataGridView1.Rows[e.RowIndex].Cells[1].FormattedValue.ToString();
                 cmbselect.Text = dataGridView1.Rows[e.RowIndex].Cells[2].FormattedValue.ToString();
                 txtid.Text = dataGridView1.Rows[e.RowIndex].Cells[0].FormattedValue.ToString();
@@ -218,6 +284,8 @@ namespace MiniProject
             SqlCommand cmd = new SqlCommand(Query, constring);
             cmd.ExecuteNonQuery();
             MessageBox.Show("Data has been Updated");
+            txtid.Show();
+            lblid.Show();
             constring.Close();
             button1.Hide();
             bbaddrubrics.Show();

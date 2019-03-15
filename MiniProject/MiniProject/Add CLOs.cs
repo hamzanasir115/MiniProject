@@ -17,12 +17,12 @@ namespace MiniProject
         {
             InitializeComponent();
         }
-        
+
         SqlConnection conn = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
 
         private void bbaddclos_Click(object sender, EventArgs e)
         {
-            
+
         }
         /// <summary>
         /// Here we add clos in the database.
@@ -97,7 +97,7 @@ namespace MiniProject
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-           
+
         }
         /// <summary>
         /// Update data for CLos module.
@@ -109,7 +109,7 @@ namespace MiniProject
             SqlConnection constring = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
             constring.Open();
             int id = Convert.ToInt32(lblID.Text);
-        
+
             string Query = "Update Clo Set Name ='" + txtname.Text + "', DateUpdated ='" + DateTime.Now + "' where id ='" + id + "' ";
             SqlCommand command = new SqlCommand(Query, constring);
             command.ExecuteNonQuery();
@@ -145,7 +145,7 @@ namespace MiniProject
         {
             int id = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value);
             lblID.Text = Convert.ToString(id);
-            
+
             if (e.ColumnIndex == dataGridView1.Columns["delete"].Index)
             {
                 conn.Open();
@@ -154,9 +154,9 @@ namespace MiniProject
                 SqlCommand command = new SqlCommand(qr, conn);
                 command.Parameters.Add(new SqlParameter("@id", id));
                 SqlDataReader reader = command.ExecuteReader();
-                
+
                 //conn.Close();
-                
+
                 while (reader.Read())
                 {
                     //conn.Open();
@@ -165,17 +165,17 @@ namespace MiniProject
                     command = new SqlCommand(qr1, conn);
                     command.Parameters.Add(new SqlParameter("@id1", read));
                     SqlDataReader extract = command.ExecuteReader();
-                   // conn.Close();
+                    // conn.Close();
                 }
                 conn.Close();
                 conn.Open();
                 // this.dataGridView1.Rows.RemoveAt(e.RowIndex);
-                string  qry = "Delete from Rubric where CloId in(SELECT CloId FROM Rubric WHERE CloId= @id2)";
+                string qry = "Delete from Rubric where CloId in(SELECT CloId FROM Rubric WHERE CloId= @id2)";
                 command = new SqlCommand(qry, conn);
                 command.Parameters.Add(new SqlParameter("@id2", id));
                 reader = command.ExecuteReader();
                 conn.Close();
-                
+
                 int row = e.RowIndex;
                 var item = dataGridView1.Rows[e.RowIndex].Cells[0].Value;
                 //int id = Convert.ToInt32(dataGridView1.Rows[row].Cells[0].Value);
@@ -237,15 +237,30 @@ namespace MiniProject
 
         private void isstr(object sender, KeyPressEventArgs e)
         {
-            if(!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
+            if(!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && !char.IsPunctuation(e.KeyChar))
             {
                 e.Handled = true;
-                if((sender as TextBox).SelectionStart == 0)
-                {
-                    e.Handled = (e.KeyChar == (char)Keys.Space);
-                }
             }
-            
+
+        }
+
+        private void txtname_Validating(object sender, CancelEventArgs e)
+        {
+            TextBox t = sender as TextBox;
+            if (string.IsNullOrWhiteSpace(t.Text) == true)
+            {
+                MessageBox.Show("Invalid Information");
+                e.Cancel = true;
+                return;
+            }
+        }
+
+        private void txtname_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                txtname.ContextMenu = new ContextMenu();
+            }
         }
     }
 }

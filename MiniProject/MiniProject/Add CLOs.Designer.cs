@@ -304,6 +304,8 @@
             this.txtname.Size = new System.Drawing.Size(100, 20);
             this.txtname.TabIndex = 3;
             this.txtname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.isstr);
+            this.txtname.MouseDown += new System.Windows.Forms.MouseEventHandler(this.txtname_MouseDown);
+            this.txtname.Validating += new System.ComponentModel.CancelEventHandler(this.txtname_Validating);
             // 
             // tabPage2
             // 

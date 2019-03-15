@@ -42,11 +42,11 @@ namespace MiniProject
                 Email = IsEmail(txtemail.Text);
                 isValidRegistration = isValidStudent(txtregister.Text);
 
-                if (IsValidFirstName == true  && isValidContact == true && Email == true && isValidRegistration == true )
+                if (IsValidFirstName == true   && Email == true && isValidRegistration == true )
                 {
                     if(IsValidLastName == true || txtlast.Text.Length == 0)
                     {
-                        if (isValidContactDigit == true || txtcontact.Text.Length == 0)
+                        if ((isValidContactDigit == true && isValidContact == true) || txtcontact.Text.Length == 0)
                         {
                             Student student = new Student();
                             student.FirstName1 = txtfirst.Text;
@@ -76,11 +76,11 @@ namespace MiniProject
                                 command.Parameters.Add(new SqlParameter("@status", status));
                                 //conn.Open();
                                 SqlDataReader reader = command.ExecuteReader();
-                                txtfirst.Text = " ";
-                                txtlast.Text = " ";
-                                txtcontact.Text = " ";
-                                txtemail.Text = " ";
-                                txtregister.Text = " ";
+                                txtfirst.Text = "";
+                                txtlast.Text = "";
+                                txtcontact.Text = "";
+                                txtemail.Text = "";
+                                txtregister.Text = "";
                                 cmbstatus.Text = null;
                                 conn.Close();
                                 tabPage1.Hide();
@@ -103,7 +103,19 @@ namespace MiniProject
                                 MessageBox.Show(ex.Message);
                             }
                         }
+                        else
+                        {
+                            MessageBox.Show("Invalid Contact");
+                        }
                         
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid last name");
+                        if ((isValidContactDigit == true && isValidContact == true) || txtcontact.Text.Length == 0)
+                        {
+                            MessageBox.Show("Invalid Contact");
+                        }
                     }
                     
                     
@@ -112,18 +124,18 @@ namespace MiniProject
                 {
                     MessageBox.Show("Invalid FirstName");
                 }
-                if (IsValidLastName == false && txtlast.Text.Length > 0)
-                {
-                    MessageBox.Show("Invalid LastName");
-                }
-                if (isValidContact == false && txtcontact.Text.Length > 0)
-                {
-                    MessageBox.Show("Invalid Contact Length");
-                }
-                if (isValidContactDigit == false)
-                {
-                    MessageBox.Show("Invalid Contact");
-                }
+                //if (IsValidLastName == false && txtlast.Text.Length > 0)
+                //{
+                //    MessageBox.Show("Invalid LastName");
+                //}
+                //if (isValidContact == false && txtcontact.Text.Length > 0)
+                //{
+                //    MessageBox.Show("Invalid Contact Length");
+                //}
+                //if (isValidContactDigit == false)
+                //{
+                //    MessageBox.Show("Invalid Contact");
+                //}
                 if (Email == false)
                 {
                     MessageBox.Show("Invalid Email");
@@ -154,7 +166,7 @@ namespace MiniProject
                 {
                     if(IsValidLastName == true  || txtlast.Text.Length == 0)
                     {
-                        if (isValidContactDigit == true || txtcontact.Text.Length == 0 && isValidContact == true )
+                        if ((isValidContactDigit == true  && isValidContact == true)|| txtcontact.Text.Length == 0 )
                         {
                             Student student = new Student();
                             student.FirstName1 = txtfirst.Text;
@@ -177,11 +189,12 @@ namespace MiniProject
                                 command.Parameters.Add(new SqlParameter("0", 1));
                                 //conn.Open();
                                 SqlDataReader reader = command.ExecuteReader();
-                                txtfirst.Text = " ";
-                                txtlast.Text = " ";
-                                txtcontact.Text = " ";
-                                txtemail.Text = " ";
-                                txtregister.Text = " ";
+                                MessageBox.Show("Student has been added");
+                                txtfirst.Text = "";
+                                txtlast.Text = "";
+                                txtcontact.Text = "";
+                                txtemail.Text = "";
+                                txtregister.Text = "";
                                 cmbstatus.Text = null;
                                 conn.Close();
                             }
@@ -190,6 +203,18 @@ namespace MiniProject
                                 MessageBox.Show(ex.Message);
                             }
                         }
+                        else
+                        {
+                            MessageBox.Show("Invalid Contact");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid last name");
+                        if ((isValidContactDigit == true && isValidContact == true) || txtcontact.Text.Length == 0)
+                        {
+                            MessageBox.Show("Invalid Contact");
+                        }
                     }
                     
                 }
@@ -197,18 +222,18 @@ namespace MiniProject
                 {
                     MessageBox.Show("Invalid FirstName");
                 }
-                if (IsValidLastName == false && txtlast.Text.Length > 0)
-                {
-                    MessageBox.Show("Invalid LastName");
-                }
-                if (isValidContact == false && txtcontact.Text.Length > 0)
-                {
-                    MessageBox.Show("Invalid Contact Length");
-                }
-                if (isValidContactDigit == false)
-                {
-                    MessageBox.Show("Invalid Contact");
-                }
+                //if (IsValidLastName == false && txtlast.Text.Length > 0)
+                //{
+                //    MessageBox.Show("Invalid LastName");
+                //}
+                //if (isValidContact == false && txtcontact.Text.Length > 0)
+                //{
+                //    MessageBox.Show("Invalid Contact Length");
+                //}
+                //if (isValidContactDigit == false)
+                //{
+                //    MessageBox.Show("Invalid Contact");
+                //}
                 if (Email == false)
                 {
                     MessageBox.Show("Invalid Email");
@@ -530,7 +555,7 @@ namespace MiniProject
                 datastudent.DataSource = view;
                 conn.Close();
             }
-            else 
+            else if (e.ColumnIndex == datastudent.Columns["Edit"].Index)
             {               
                 String cmd;
                 //var Id = datastudent.Rows[e.RowIndex].Cells[0].Value;

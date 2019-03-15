@@ -31,7 +31,16 @@ namespace MiniProject
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            if (txtname.Text != "")
+            bool Name = false;
+            if (string.IsNullOrWhiteSpace(txtname.Text))
+            {
+                Name = false;
+            }
+            else
+            {
+                Name = true;
+            }
+            if(Name == true)
             {
                 SqlConnection conn = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
                 CLO clo = new CLO();
@@ -249,8 +258,8 @@ namespace MiniProject
             TextBox t = sender as TextBox;
             if (string.IsNullOrWhiteSpace(t.Text) == true)
             {
-                MessageBox.Show("Invalid Information");
-                e.Cancel = true;
+                //MessageBox.Show("Invalid Information");
+                e.Cancel = false;
                 return;
             }
         }

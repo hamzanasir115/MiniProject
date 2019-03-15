@@ -27,11 +27,20 @@ namespace MiniProject
         /// <param name="e"></param>
         private void bbaddrubrics_Click(object sender, EventArgs e)
         {
+            bool Name = false;
+            if (string.IsNullOrWhiteSpace(txtdetail.Text))
+            {
+                Name = false;
+            }
+            else
+            {
+                Name = true;
+            }
             bool IsDigit;
             bool AllLetter;
             IsDigit = IsValidRubricDigit(txtid.Text);
             AllLetter = IsLetters(txtdetail.Text);
-            if (txtdetail.TextLength != 0 && IsDigit == true && AllLetter == true)
+            if (txtdetail.TextLength != 0 && IsDigit == true && AllLetter == true && Name == true)
             {
                 bool IdPresent = false;
                 SqlConnection conn = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
@@ -50,7 +59,7 @@ namespace MiniProject
                     }
                 }
                 conn.Close();
-                if(IdPresent == false)
+                if (IdPresent == false)
                 {
                     Rubric rubric = new Rubric();
                     rubric.Details1 = txtdetail.Text;
@@ -70,6 +79,7 @@ namespace MiniProject
                         txtid.Text = "";
                         conn.Close();
                     }
+
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message);
@@ -77,13 +87,13 @@ namespace MiniProject
 
                 }
             }
-            
-            if(IsDigit == false)
+            else
             {
-                MessageBox.Show("RubricId Required");
+                MessageBox.Show("Give Valid Detail or Id");
             }
-
         }
+            
+          
         public static bool IsValidRubricDigit(string digit)
         {
             bool number = false;

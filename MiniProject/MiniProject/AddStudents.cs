@@ -42,73 +42,81 @@ namespace MiniProject
                 Email = IsEmail(txtemail.Text);
                 isValidRegistration = isValidStudent(txtregister.Text);
 
-                if (IsValidFirstName == true && IsValidLastName == true && isValidContactDigit == true && isValidContact == true && Email == true && isValidRegistration == true)
+                if (IsValidFirstName == true  && isValidContact == true && Email == true && isValidRegistration == true )
                 {
-                    Student student = new Student();
-                    student.FirstName1 = txtfirst.Text;
-                    student.LastName1 = txtlast.Text;
-                    student.Contact1 = txtcontact.Text;
-                    student.Email1 = txtemail.Text;
-                    student.Registration1 = txtregister.Text;
-                    student.Status1 = Convert.ToInt32(cmbstatus.Text);
-                    try
+                    if(IsValidLastName == true || txtlast.Text.Length == 0)
                     {
-                        String firstname = txtfirst.Text;
-                        String lastname = txtlast.Text;
-                        String contact = txtcontact.Text;
-                        String email = txtemail.Text;
-                        String registration = txtregister.Text;
-                        int status = Convert.ToInt32(cmbstatus.Text);
-                        int Id = Convert.ToInt32(empty.Text);
-                        conn.Open();
-                        String cmd = String.Format("UPDATE Student SET FirstName = @firstname, LastName=@lastname,Contact=@contact, Email=@email, RegistrationNumber=@registration, Status=@status WHERE Id=@Id");
-                        SqlCommand command = new SqlCommand(cmd, conn);
-                        command.Parameters.Add(new SqlParameter("@Id", Id));
-                        command.Parameters.Add(new SqlParameter("@firstname", firstname));
-                        command.Parameters.Add(new SqlParameter("@lastname", lastname));
-                        command.Parameters.Add(new SqlParameter("@contact", contact));
-                        command.Parameters.Add(new SqlParameter("@email", email));
-                        command.Parameters.Add(new SqlParameter("@registration", registration));
-                        command.Parameters.Add(new SqlParameter("@status", status));
-                        //conn.Open();
-                        SqlDataReader reader = command.ExecuteReader();
-                        txtfirst.Text = " ";
-                        txtlast.Text = " ";
-                        txtcontact.Text = " ";
-                        txtemail.Text = " ";
-                        txtregister.Text = " ";
-                        cmbstatus.Text = null;
-                        conn.Close();
-                        tabPage1.Hide();
-                        tabPage2.Show();
-                        //SqlConnection conn = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
-                        cmd = "SELECT * FROM Student";
-                        command = new SqlCommand(cmd, conn);
-                        command.Parameters.Add(new SqlParameter("0", 1));
-                        conn.Open();
-                        reader = command.ExecuteReader();
-                        SqlDataAdapter adapter = new SqlDataAdapter(cmd, conn);
-                        DataTable view = new DataTable();
-                        adapter.Fill(view);
-                        datastudent.DataSource = view;
-                        conn.Close();
-                        btnadd.Text = "Add Students";
-
+                        if (isValidContactDigit == true || txtcontact.Text.Length == 0)
+                        {
+                            Student student = new Student();
+                            student.FirstName1 = txtfirst.Text;
+                            student.LastName1 = txtlast.Text;
+                            student.Contact1 = txtcontact.Text;
+                            student.Email1 = txtemail.Text;
+                            student.Registration1 = txtregister.Text;
+                            student.Status1 = Convert.ToInt32(cmbstatus.Text);
+                            try
+                            {
+                                String firstname = txtfirst.Text;
+                                String lastname = txtlast.Text;
+                                String contact = txtcontact.Text;
+                                String email = txtemail.Text;
+                                String registration = txtregister.Text;
+                                int status = Convert.ToInt32(cmbstatus.Text);
+                                int Id = Convert.ToInt32(empty.Text);
+                                conn.Open();
+                                String cmd = String.Format("UPDATE Student SET FirstName = @firstname, LastName=@lastname,Contact=@contact, Email=@email, RegistrationNumber=@registration, Status=@status WHERE Id=@Id");
+                                SqlCommand command = new SqlCommand(cmd, conn);
+                                command.Parameters.Add(new SqlParameter("@Id", Id));
+                                command.Parameters.Add(new SqlParameter("@firstname", firstname));
+                                command.Parameters.Add(new SqlParameter("@lastname", lastname));
+                                command.Parameters.Add(new SqlParameter("@contact", contact));
+                                command.Parameters.Add(new SqlParameter("@email", email));
+                                command.Parameters.Add(new SqlParameter("@registration", registration));
+                                command.Parameters.Add(new SqlParameter("@status", status));
+                                //conn.Open();
+                                SqlDataReader reader = command.ExecuteReader();
+                                txtfirst.Text = " ";
+                                txtlast.Text = " ";
+                                txtcontact.Text = " ";
+                                txtemail.Text = " ";
+                                txtregister.Text = " ";
+                                cmbstatus.Text = null;
+                                conn.Close();
+                                tabPage1.Hide();
+                                tabPage2.Show();
+                                //SqlConnection conn = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
+                                cmd = "SELECT * FROM Student";
+                                command = new SqlCommand(cmd, conn);
+                                command.Parameters.Add(new SqlParameter("0", 1));
+                                conn.Open();
+                                reader = command.ExecuteReader();
+                                SqlDataAdapter adapter = new SqlDataAdapter(cmd, conn);
+                                DataTable view = new DataTable();
+                                adapter.Fill(view);
+                                datastudent.DataSource = view;
+                                conn.Close();
+                                btnadd.Text = "Add Students";
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(ex.Message);
+                            }
+                        }
+                        
                     }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
+                    
+                    
                 }
                 if (IsValidFirstName == false)
                 {
                     MessageBox.Show("Invalid FirstName");
                 }
-                if (IsValidLastName == false)
+                if (IsValidLastName == false && txtlast.Text.Length > 0)
                 {
                     MessageBox.Show("Invalid LastName");
                 }
-                if (isValidContact == false)
+                if (isValidContact == false && txtcontact.Text.Length > 0)
                 {
                     MessageBox.Show("Invalid Contact Length");
                 }
@@ -142,51 +150,58 @@ namespace MiniProject
                 Email = IsEmail(txtemail.Text);
                 isValidRegistration = isValidStudent(txtregister.Text);
                 isValidStatus = IsValidContactDigit(cmbstatus.Text);
-                if (IsValidFirstName == true && IsValidLastName == true && isValidContactDigit == true && isValidContact == true && Email == true && isValidRegistration == true && isValidStatus == true)
+                if (IsValidFirstName == true && Email == true && isValidRegistration == true && isValidStatus == true)
                 {
-                    Student student = new Student();
-                    student.FirstName1 = txtfirst.Text;
-                    student.LastName1 = txtlast.Text;
-                    student.Contact1 = txtcontact.Text;
-                    student.Email1 = txtemail.Text;
-                    student.Registration1 = txtregister.Text;
-                    student.Status1 = Convert.ToInt32(cmbstatus.Text);
-                    try
+                    if(IsValidLastName == true  || txtlast.Text.Length == 0)
                     {
-                        String firstname = txtfirst.Text;
-                        String lastname = txtlast.Text;
-                        String contact = txtcontact.Text;
-                        String email = txtemail.Text;
-                        String registration = txtregister.Text;
-                        int status = Convert.ToInt32(cmbstatus.Text);
-                        conn.Open();
-                        String cmd = String.Format("INSERT INTO Student(FirstName, LastName,Contact, Email, RegistrationNumber, Status) values('{0}','{1}','{2}','{3}','{4}','{5}')", firstname, lastname, contact, email, registration, status);
-                        SqlCommand command = new SqlCommand(cmd, conn);
-                        command.Parameters.Add(new SqlParameter("0", 1));
-                        //conn.Open();
-                        SqlDataReader reader = command.ExecuteReader();
-                        txtfirst.Text = " ";
-                        txtlast.Text = " ";
-                        txtcontact.Text = " ";
-                        txtemail.Text = " ";
-                        txtregister.Text = " ";
-                        cmbstatus.Text = null;
-                        conn.Close();
+                        if (isValidContactDigit == true || txtcontact.Text.Length == 0 && isValidContact == true )
+                        {
+                            Student student = new Student();
+                            student.FirstName1 = txtfirst.Text;
+                            student.LastName1 = txtlast.Text;
+                            student.Contact1 = txtcontact.Text;
+                            student.Email1 = txtemail.Text;
+                            student.Registration1 = txtregister.Text;
+                            student.Status1 = Convert.ToInt32(cmbstatus.Text);
+                            try
+                            {
+                                String firstname = txtfirst.Text;
+                                String lastname = txtlast.Text;
+                                String contact = txtcontact.Text;
+                                String email = txtemail.Text;
+                                String registration = txtregister.Text;
+                                int status = Convert.ToInt32(cmbstatus.Text);
+                                conn.Open();
+                                String cmd = String.Format("INSERT INTO Student(FirstName, LastName,Contact, Email, RegistrationNumber, Status) values('{0}','{1}','{2}','{3}','{4}','{5}')", firstname, lastname, contact, email, registration, status);
+                                SqlCommand command = new SqlCommand(cmd, conn);
+                                command.Parameters.Add(new SqlParameter("0", 1));
+                                //conn.Open();
+                                SqlDataReader reader = command.ExecuteReader();
+                                txtfirst.Text = " ";
+                                txtlast.Text = " ";
+                                txtcontact.Text = " ";
+                                txtemail.Text = " ";
+                                txtregister.Text = " ";
+                                cmbstatus.Text = null;
+                                conn.Close();
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(ex.Message);
+                            }
+                        }
                     }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
+                    
                 }
                 if (IsValidFirstName == false)
                 {
                     MessageBox.Show("Invalid FirstName");
                 }
-                if (IsValidLastName == false)
+                if (IsValidLastName == false && txtlast.Text.Length > 0)
                 {
                     MessageBox.Show("Invalid LastName");
                 }
-                if (isValidContact == false)
+                if (isValidContact == false && txtcontact.Text.Length > 0)
                 {
                     MessageBox.Show("Invalid Contact Length");
                 }
@@ -365,7 +380,7 @@ namespace MiniProject
         {
             string path;
             path = @"^(([A-Z][a-z]+[\s]{1}[A-za-z]+)|([A-Z][a-z]+))$";
-            if (Regex.IsMatch(txtlast.Text, path))
+            if (Regex.IsMatch(txtlast.Text, path) || txtlast.Text.Length == 0)
             {
                 errorlast.Clear();
             }
@@ -383,7 +398,7 @@ namespace MiniProject
         {
             bool contactlength = IsValidContactLength(txtcontact.Text);
             bool contact = IsValidContactDigit(txtcontact.Text);
-            if (contactlength && contact == true)
+            if (contactlength && contact == true || txtcontact.Text.Length == 0)
             {
                 errorcontact.Clear();
             }

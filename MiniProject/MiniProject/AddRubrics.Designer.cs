@@ -353,6 +353,8 @@
             this.txtdetail.Name = "txtdetail";
             this.txtdetail.Size = new System.Drawing.Size(100, 20);
             this.txtdetail.TabIndex = 2;
+            this.txtdetail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtallow);
+            this.txtdetail.Validating += new System.ComponentModel.CancelEventHandler(this.txtvalid);
             // 
             // tabPage2
             // 

@@ -303,6 +303,7 @@
             this.txtname.Name = "txtname";
             this.txtname.Size = new System.Drawing.Size(100, 20);
             this.txtname.TabIndex = 3;
+            this.txtname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.isstr);
             // 
             // tabPage2
             // 

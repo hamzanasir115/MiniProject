@@ -31,28 +31,35 @@ namespace MiniProject
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            SqlConnection conn = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
-            CLO clo = new CLO();
-            clo.Name1 = txtname.Text;
-            clo.DateCreated1 = DateTime.Now;
-            clo.DateUpdated1 = DateTime.Now;
-            try
+            if (txtname.Text != "")
             {
-            String name = txtname.Text;
-            DateTime datecreated = DateTime.Now;
-            DateTime dateupdated = DateTime.Now;
-            conn.Open();
-            String cmd = String.Format("INSERT INTO Clo(Name, DateCreated,DateUpdated) values('{0}','{1}','{2}')", name, datecreated, dateupdated);
-            SqlCommand command = new SqlCommand(cmd, conn);
-            command.Parameters.Add(new SqlParameter("0", 1));
-            SqlDataReader reader = command.ExecuteReader();
-            MessageBox.Show("CLO has been added");
-            txtname.Text = "";
-            conn.Close();
-             }
-            catch (Exception ex)
+                SqlConnection conn = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
+                CLO clo = new CLO();
+                clo.Name1 = txtname.Text;
+                clo.DateCreated1 = DateTime.Now;
+                clo.DateUpdated1 = DateTime.Now;
+                try
+                {
+                    String name = txtname.Text;
+                    DateTime datecreated = DateTime.Now;
+                    DateTime dateupdated = DateTime.Now;
+                    conn.Open();
+                    String cmd = String.Format("INSERT INTO Clo(Name, DateCreated,DateUpdated) values('{0}','{1}','{2}')", name, datecreated, dateupdated);
+                    SqlCommand command = new SqlCommand(cmd, conn);
+                    command.Parameters.Add(new SqlParameter("0", 1));
+                    SqlDataReader reader = command.ExecuteReader();
+                    MessageBox.Show("CLO has been added");
+                    txtname.Text = "";
+                    conn.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else
             {
-             MessageBox.Show(ex.Message);
+                MessageBox.Show("Please Give Valid Input");
             }
 
         }
@@ -226,6 +233,19 @@ namespace MiniProject
             AddRubrics rubric = new AddRubrics();
             this.Hide();
             rubric.Show();
+        }
+
+        private void isstr(object sender, KeyPressEventArgs e)
+        {
+            if(!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;
+                if((sender as TextBox).SelectionStart == 0)
+                {
+                    e.Handled = (e.KeyChar == (char)Keys.Space);
+                }
+            }
+            
         }
     }
 }

@@ -27,30 +27,37 @@ namespace MiniProject
         /// <param name="e"></param>
         private void bbaddrubrics_Click(object sender, EventArgs e)
         {
-            SqlConnection conn = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
-            Rubric rubric = new Rubric();
-            rubric.Details1 = txtdetail.Text;
-            rubric.Id1 = Convert.ToInt32(txtid.Text);
-            try
+            if(txtdetail.TextLength != 0)
             {
-                String details = txtdetail.Text;
-                int id = Convert.ToInt32(txtid.Text);
-                int cloid = Convert.ToInt32(cmbselect.Text);
-                conn.Open();
-                String cmd = String.Format("INSERT INTO Rubric(Id, Details, CloId) values('{0}', '{1}', '{2}')", id, details, cloid);
-                SqlCommand command = new SqlCommand(cmd, conn);
-                command.Parameters.Add(new SqlParameter("0", 1));
-                SqlDataReader reader = command.ExecuteReader();
-                MessageBox.Show("Rubric has been added");
-                txtdetail.Text = "";
-                txtid.Text = "";
-                conn.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+                SqlConnection conn = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
+                Rubric rubric = new Rubric();
+                rubric.Details1 = txtdetail.Text;
+                rubric.Id1 = Convert.ToInt32(txtid.Text);
+                try
+                {
+                    String details = txtdetail.Text;
+                    int id = Convert.ToInt32(txtid.Text);
+                    int cloid = Convert.ToInt32(cmbselect.Text);
+                    conn.Open();
+                    String cmd = String.Format("INSERT INTO Rubric(Id, Details, CloId) values('{0}', '{1}', '{2}')", id, details, cloid);
+                    SqlCommand command = new SqlCommand(cmd, conn);
+                    command.Parameters.Add(new SqlParameter("0", 1));
+                    SqlDataReader reader = command.ExecuteReader();
+                    MessageBox.Show("Rubric has been added");
+                    txtdetail.Text = "";
+                    txtid.Text = "";
+                    conn.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
 
+            }
+            else
+            {
+                MessageBox.Show("Required Detail");
+            }
 
 
         }
@@ -322,6 +329,25 @@ namespace MiniProject
             AddRubrics rubric = new AddRubrics();
             this.Hide();
             rubric.Show();
+        }
+
+        private void txtallow(object sender, KeyPressEventArgs e)
+        {
+        //    if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsPunctuation(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+        //    {
+        //        e.Handled = true;
+        //    }
+        }
+
+        private void txtvalid(object sender, CancelEventArgs e)
+        {
+            //TextBox tb = sender as TextBox;
+            //if (string.IsNullOrWhiteSpace(tb.Text) == true)
+            //{
+            //    MessageBox.Show("Invalid Input");
+            //    e.Cancel = true;
+            //    return;
+            //}
         }
     }
 }

@@ -115,30 +115,46 @@ namespace MiniProject
         /// <param name="e"></param>
         private void cmdUpdate_Click(object sender, EventArgs e)
         {
-            SqlConnection constring = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
-            constring.Open();
-            int id = Convert.ToInt32(lblID.Text);
+            bool Name = false;
+            if (string.IsNullOrWhiteSpace(txtname.Text))
+            {
+                Name = false;
+            }
+            else
+            {
+                Name = true;
+            }
+            if (Name == true)
+            {
+                SqlConnection constring = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
+                constring.Open();
+                int id = Convert.ToInt32(lblID.Text);
 
-            string Query = "Update Clo Set Name ='" + txtname.Text + "', DateUpdated ='" + DateTime.Now + "' where id ='" + id + "' ";
-            SqlCommand command = new SqlCommand(Query, constring);
-            command.ExecuteNonQuery();
-            MessageBox.Show("Data Updated");
-            conn.Close();
-            btnUpdate.Hide();
-            button1.Show();
-            txtname.Text = "";
-            tabPage1.Hide();
-            tabPage2.Show();
-            String cmd = "SELECT * FROM Clo";
-            command = new SqlCommand(cmd, conn);
-            command.Parameters.Add(new SqlParameter("0", 1));
-            conn.Open();
-            SqlDataReader reader = command.ExecuteReader();
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd, conn);
-            DataTable view = new DataTable();
-            adapter.Fill(view);
-            dataGridView1.DataSource = view;
-            conn.Close();
+                string Query = "Update Clo Set Name ='" + txtname.Text + "', DateUpdated ='" + DateTime.Now + "' where id ='" + id + "' ";
+                SqlCommand command = new SqlCommand(Query, constring);
+                command.ExecuteNonQuery();
+                MessageBox.Show("Data Updated");
+                conn.Close();
+                btnUpdate.Hide();
+                button1.Show();
+                txtname.Text = "";
+                tabPage1.Hide();
+                tabPage2.Show();
+                String cmd = "SELECT * FROM Clo";
+                command = new SqlCommand(cmd, conn);
+                command.Parameters.Add(new SqlParameter("0", 1));
+                conn.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd, conn);
+                DataTable view = new DataTable();
+                adapter.Fill(view);
+                dataGridView1.DataSource = view;
+                conn.Close();
+            }
+            else
+            {
+                MessageBox.Show("Put Valid Inputs");
+            }
         }
 
         private void tabPage1_Click(object sender, EventArgs e)

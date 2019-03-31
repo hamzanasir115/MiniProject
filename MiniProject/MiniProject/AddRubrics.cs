@@ -40,7 +40,7 @@ namespace MiniProject
             bool AllLetter;
             IsDigit = IsValidRubricDigit(txtid.Text);
             AllLetter = IsLetters(txtdetail.Text);
-            if (txtdetail.TextLength != 0 && IsDigit == true && AllLetter == true && Name == true)
+            if (txtdetail.TextLength != 0 && IsDigit == true && AllLetter == true && Name == true && txtdetail.Text.Length > 0)
             {
                 bool IdPresent = false;
                 SqlConnection conn = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
@@ -287,33 +287,48 @@ namespace MiniProject
         private void button1_Click(object sender, EventArgs e)
 
         {
-
-            SqlConnection constring = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
-            constring.Open();
-            string Query = "Update Rubric Set  Details ='" + txtdetail.Text + "', CloId ='" + cmbselect.Text + "' where Id ='" + id2 + "' ";
-            SqlCommand cmd = new SqlCommand(Query, constring);
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Data has been Updated");
-            txtid.Show();
-            lblid.Show();
-            constring.Close();
-            button1.Hide();
-            bbaddrubrics.Show();
-            txtid.Text = "";
-            txtdetail.Text = "";
-            cmbselect.Text = "";
-            tabPage1.Hide();
-            tabPage2.Show();
-            String query = "SELECT * FROM Rubric";
-            cmd = new SqlCommand(query, constring);
-            cmd.Parameters.Add(new SqlParameter("0", 1));
-            constring.Open();
-            SqlDataReader reader = cmd.ExecuteReader();
-            SqlDataAdapter adapter = new SqlDataAdapter(query, constring);
-            DataTable view = new DataTable();
-            adapter.Fill(view);
-            dataGridView1.DataSource = view;
-            constring.Close();
+            bool Name = false;
+            if (string.IsNullOrWhiteSpace(txtdetail.Text))
+            {
+                Name = false;
+            }
+            else
+            {
+                Name = true;
+            }
+            if (Name == true && txtdetail.Text.Length > 0)
+            {
+                SqlConnection constring = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
+                constring.Open();
+                string Query = "Update Rubric Set  Details ='" + txtdetail.Text + "', CloId ='" + cmbselect.Text + "' where Id ='" + id2 + "' ";
+                SqlCommand cmd = new SqlCommand(Query, constring);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Data has been Updated");
+                txtid.Show();
+                lblid.Show();
+                constring.Close();
+                button1.Hide();
+                bbaddrubrics.Show();
+                txtid.Text = "";
+                txtdetail.Text = "";
+                cmbselect.Text = "";
+                tabPage1.Hide();
+                tabPage2.Show();
+                String query = "SELECT * FROM Rubric";
+                cmd = new SqlCommand(query, constring);
+                cmd.Parameters.Add(new SqlParameter("0", 1));
+                constring.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                SqlDataAdapter adapter = new SqlDataAdapter(query, constring);
+                DataTable view = new DataTable();
+                adapter.Fill(view);
+                dataGridView1.DataSource = view;
+                constring.Close();
+            }
+            else
+            {
+                MessageBox.Show("Please Give Valid Input");
+            }
 
         }
         /// <summary>
@@ -358,29 +373,45 @@ namespace MiniProject
         /// <param name="e"></param>
         private void Update_Click(object sender, EventArgs e)
         {
-            SqlConnection constring = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
-            constring.Open();
-            string Query = "Update RubricLevel Set  RubricId ='" + cmbrubricid.Text + "', Details ='" + txtdet.Text + "', MeasurementLevel ='" + txtlvl.Text + "' where Id ='" + id + "' ";
-            SqlCommand cmd = new SqlCommand(Query, constring);
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Data has been Updated");
-            constring.Close();
-            Update.Hide();
-            bbaddlevel.Show();
-            txtdet.Text = "";
-            txtlvl.Text = "";
-            tabPage3.Hide();
-            tabPage4.Show();
-            String query = "SELECT * FROM RubricLevel";
-            cmd = new SqlCommand(query, constring);
-            cmd.Parameters.Add(new SqlParameter("0", 1));
-            constring.Open();
-            SqlDataReader reader = cmd.ExecuteReader();
-            SqlDataAdapter adapter = new SqlDataAdapter(query, constring);
-            DataTable view = new DataTable();
-            adapter.Fill(view);
-            dataGridView2.DataSource = view;
-            constring.Close();
+            bool Name = false;
+            if (string.IsNullOrWhiteSpace(txtdet.Text))
+            {
+                Name = false;
+            }
+            else
+            {
+                Name = true;
+            }
+            if (Name == true)
+            {
+                SqlConnection constring = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
+                constring.Open();
+                string Query = "Update RubricLevel Set  RubricId ='" + cmbrubricid.Text + "', Details ='" + txtdet.Text + "', MeasurementLevel ='" + txtlvl.Text + "' where Id ='" + id + "' ";
+                SqlCommand cmd = new SqlCommand(Query, constring);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Data has been Updated");
+                constring.Close();
+                Update.Hide();
+                bbaddlevel.Show();
+                txtdet.Text = "";
+                txtlvl.Text = "";
+                tabPage3.Hide();
+                tabPage4.Show();
+                String query = "SELECT * FROM RubricLevel";
+                cmd = new SqlCommand(query, constring);
+                cmd.Parameters.Add(new SqlParameter("0", 1));
+                constring.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                SqlDataAdapter adapter = new SqlDataAdapter(query, constring);
+                DataTable view = new DataTable();
+                adapter.Fill(view);
+                dataGridView2.DataSource = view;
+                constring.Close();
+            }
+            else
+            {
+                MessageBox.Show("Invalid Inputs");
+            }
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

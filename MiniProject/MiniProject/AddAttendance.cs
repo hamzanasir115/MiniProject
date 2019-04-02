@@ -24,6 +24,11 @@ namespace MiniProject
         string reg_no;
         string status;
         string att_date;
+        int update_student;
+        int update_attendance;
+        int update_lookup;
+
+
         SqlConnection constring = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
 
         private void AddAttendance_Load(object sender, EventArgs e)
@@ -102,19 +107,24 @@ namespace MiniProject
             SqlConnection conn = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
             id = Convert.ToInt32(datadate.Rows[e.RowIndex].Cells[0].Value);
             conn.Open();
-            /*if (e.ColumnIndex == datadate.Columns["Delete"].Index)
+            if (e.ColumnIndex == datadate.Columns["Delete"].Index)
             {
                 this.datadate.Rows.RemoveAt(e.RowIndex);
                 int row = e.RowIndex;
                 var item = datadate.Rows[e.RowIndex].Cells[0].Value;
                 //int id5 = Convert.ToInt32(dataGridView2.Rows[row].Cells[0].Value);
-                string query = "Delete from ClassAttendance where Id = @id";
-                SqlCommand command = new SqlCommand(query, conn);
+                string query1 = "Delete from StudentAttendance where AttendanceId = @id1";
+                SqlCommand command = new SqlCommand(query1, conn);
                 command.Parameters.Add(new SqlParameter("@id", id));
-                SqlDataReader reader = command.ExecuteReader();
+               // SqlDataReader reader = command.ExecuteReader();
+                string query = "Delete from ClassAttendance where Id = @id";
+                SqlCommand command1 = new SqlCommand(query, conn);
+                command.Parameters.Add(new SqlParameter("@id", id));
+                SqlDataReader reader1 = command.ExecuteReader();
                 MessageBox.Show("Data Deleted Succesfully");
                 conn.Close();
-            }*/
+                
+            }
             if (e.ColumnIndex == datadate.Columns["Edit"].Index)
             {
                 string t = datadate.Rows[e.RowIndex].Cells[0].FormattedValue.ToString();
@@ -132,7 +142,7 @@ namespace MiniProject
         {
             SqlConnection constring = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
             constring.Open();
-            string Query = "Update ClassAttendance Set  AttendanceDate ='" + Attendencepick.SelectionEnd + "' where Id ='" + id + "' ";
+            string Query = "Update ClassAttendance Set  AttendanceDate ='" + Attendencepick.SelectionEnd.Date + "' where Id ='" + id + "' ";
             SqlCommand cmd = new SqlCommand(Query, constring);
             cmd.ExecuteNonQuery();
             MessageBox.Show("Class Attendance has been Updated");
@@ -151,25 +161,25 @@ namespace MiniProject
 
         private void btnaddstudent_Click(object sender, EventArgs e)
         {
-
-            string query1 = "SELECT Id FROM Student WHERE RegistrationNumber = '" + cmbstdid.Text + "'";
-            SqlCommand cmdDataBase1 = new SqlCommand(query1, constring);
-            SqlDataReader myreader1;
             constring.Open();
-            cmdDataBase1.Parameters.Add(new SqlParameter("0", 1));
-            myreader1 = cmdDataBase1.ExecuteReader();
-            while (myreader1.Read())
+            string query3 = "SELECT Id FROM Student WHERE RegistrationNumber = '" + cmbstdid.Text + "'";
+            //constring.Open();
+            SqlCommand cmdDataBase3 = new SqlCommand(query3, constring);
+            SqlDataReader myreader3;
+            cmdDataBase3.Parameters.Add(new SqlParameter("0", 1));
+            myreader3 = cmdDataBase3.ExecuteReader();
+            while (myreader3.Read())
             {
-                sid = Convert.ToInt32(myreader1[0]);
+                sid = Convert.ToInt32(myreader3[0]);
             }
+            constring.Close();
 
 
             String date = cmbattid.Text;
-
             DateTime d1 = Convert.ToDateTime(date);
             DateTime d2 = d1.Date;
             string query2 = "SELECT Id FROM ClassAttendance WHERE AttendanceDate = '" + d2 + "'";
-
+            constring.Open();
             SqlCommand cmdDataBase2 = new SqlCommand(query2, constring);
             SqlDataReader myreader2;
             cmdDataBase2.Parameters.Add(new SqlParameter("0", 1));
@@ -178,8 +188,10 @@ namespace MiniProject
             {
                 att_id = Convert.ToInt32(myreader2[0]);
             }
-            string query3 = "Select LookupId from Lookup where Name = '" + cmbattstatus.Text + "'";
-            SqlCommand cmddatabase3 = new SqlCommand(query3, constring);
+            constring.Close();
+            constring.Open();
+            string query4 = "Select LookupId from Lookup where Name = '" + cmbattstatus.Text + "'";
+            SqlCommand cmddatabase3 = new SqlCommand(query4, constring);
             SqlDataReader reader;
             cmddatabase3.Parameters.Add(new SqlParameter("0", 1));
             reader = cmddatabase3.ExecuteReader();
@@ -187,9 +199,11 @@ namespace MiniProject
             {
                 lookid = Convert.ToInt32(reader[0]);
             }
-            string query4 = "Insert into StudentAttendance(AttendanceId,StudentId,AttendanceStatus) values('" + att_id + "','" + sid + "','" + lookid + "')";
+            constring.Close();
+            constring.Open();
+            string query5 = "Insert into StudentAttendance(AttendanceId,StudentId,AttendanceStatus) values('" + att_id + "','" + sid + "','" + lookid + "')";
 
-            SqlCommand cmdDataBase = new SqlCommand(query4, constring);
+            SqlCommand cmdDataBase = new SqlCommand(query5, constring);
             //SqlDataReader myreader;
             SqlDataReader myreader = cmdDataBase.ExecuteReader();
             MessageBox.Show("Attendance has been Marked");
@@ -202,7 +216,7 @@ namespace MiniProject
             SqlDataAdapter adapter = new SqlDataAdapter(cmd, constring);
             DataTable view = new DataTable();
             adapter.Fill(view);
-            datadate.DataSource = view;
+            datastudentatt.DataSource = view;
             constring.Close();
         }
 
@@ -210,8 +224,8 @@ namespace MiniProject
         {
             if (e.ColumnIndex == datastudentatt.Columns["Editt"].Index)
             {
-                //string temp = datastudentatt.Rows[e.RowIndex].Cells[0].FormattedValue.ToString();
-                //id = Convert.ToInt32(temp);
+                string temp = datastudentatt.Rows[e.RowIndex].Cells[0].FormattedValue.ToString();
+                id = Convert.ToInt32(temp);
                 string attendance_id = datastudentatt.Rows[e.RowIndex].Cells[0].FormattedValue.ToString();
                 string student_id = datastudentatt.Rows[e.RowIndex].Cells[1].FormattedValue.ToString();
                 string lookup_id = datastudentatt.Rows[e.RowIndex].Cells[2].FormattedValue.ToString();
@@ -228,7 +242,7 @@ namespace MiniProject
                 {
                     reg_no = Convert.ToString(myreader1[0]);
                 }
-                cmbattid.Text = reg_no;
+                cmbstdid.Text = reg_no;
                 string query2 = "Select Name from Lookup where LookupId = '" + lookid + "'";
                 SqlCommand cmddatabase3 = new SqlCommand(query2, constring);
                 SqlDataReader reader;
@@ -249,31 +263,123 @@ namespace MiniProject
                 {
                     att_date = Convert.ToString(myreader2[0]);
                 }
-                cmbattid.Text = att_date;
+                DateTime today = Convert.ToDateTime(att_date).Date;
+                cmbattid.Text = Convert.ToString(today);
                 constring.Close();
                 btnaddstudent.Hide();
                 btnupdates.Show();
+            }
+            if (e.ColumnIndex == datastudentatt.Columns["Deletee"].Index)
+            {
+                constring.Open();
+                string att1 = datastudentatt.Rows[e.RowIndex].Cells[0].FormattedValue.ToString();
+                string stdId = datastudentatt.Rows[e.RowIndex].Cells[1].FormattedValue.ToString();
+                string query = "Delete from StudentAttendance where AttendanceId = @att AND StudentId = @std";
+                SqlCommand command = new SqlCommand(query, constring);
+                command.Parameters.Add(new SqlParameter("@att", att1));
+                command.Parameters.Add(new SqlParameter("@std", stdId));
+                command.ExecuteReader();
+                MessageBox.Show("Data Deleted Succesfully");
+                constring.Close();
+
+                String cmd = "SELECT * FROM Assessment";
+                command.Parameters.Add(new SqlParameter("0", 1));
+                constring.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd, constring);
+                DataTable view = new DataTable();
+                adapter.Fill(view);
+                datastudentatt.DataSource = view;
+                constring.Close();
             }
         }
 
         private void btnupdates_Click(object sender, EventArgs e)
         {
+            
+            string query1 = "SELECT Id FROM Student WHERE RegistrationNumber = '" + cmbstdid.Text + "'";
+            SqlCommand cmdDataBase1 = new SqlCommand(query1, constring);
+            SqlDataReader myreader1;
             constring.Open();
-            string Qeury = "Update StudentAttendance Set AttendanceId ='" + cmbattid.Text + "',StudentId ='" + cmbstdid.Text + "',AttendanceStatus ='" + cmbattstatus.Text + "' Where Id ='" + id + "' ";
+            cmdDataBase1.Parameters.Add(new SqlParameter("0", 1));
+            myreader1 = cmdDataBase1.ExecuteReader();
+            while (myreader1.Read())
+            {
+                update_student = Convert.ToInt32(myreader1[0]);
+            }
+
+            string query = "SELECT LookupId FROM Lookup WHERE Name = '" + cmbattstatus.Text + "'";
+            SqlCommand cmdDataBase2 = new SqlCommand(query, constring);
+            SqlDataReader myreader2;
+            //constring.Open();
+            cmdDataBase2.Parameters.Add(new SqlParameter("0", 1));
+            myreader2 = cmdDataBase2.ExecuteReader();
+            while (myreader2.Read())
+            {
+                update_lookup = Convert.ToInt32(myreader2[0]);
+            }
+
+            string d = cmbattid.Text;
+            DateTime d1 = Convert.ToDateTime(d);
+            DateTime d2 = d1.Date;
+
+            string query3 = "SELECT Id FROM ClassAttendance WHERE AttendanceDate = '" + d1 + "'";
+            SqlCommand cmdDataBase3 = new SqlCommand(query3, constring);
+            SqlDataReader myreader3;
+            //constring.Open();
+            cmdDataBase3.Parameters.Add(new SqlParameter("0", 1));
+            myreader3 = cmdDataBase3.ExecuteReader();
+            while (myreader3.Read())
+            {
+                update_attendance = Convert.ToInt32(myreader3[0]);
+            }
+
+            //constring.Open();
+            string Qeury = "Update StudentAttendance Set AttendanceId ='" + update_attendance + "',StudentId ='" + update_student + "',AttendanceStatus ='" + update_lookup + "' Where AttendanceId ='" + att_id + "' AND StudentId ='"+ sid+"' ";
             SqlCommand cmd = new SqlCommand(Qeury, constring);
             cmd.ExecuteNonQuery();
             MessageBox.Show("Attendance Updated");
-            constring.Close();
-            String query = "SELECT * FROM StudentAttendance";
-            cmd = new SqlCommand(query, constring);
-            cmd.Parameters.Add(new SqlParameter("0", 1));
-            constring.Open();
-            SqlDataReader reader = cmd.ExecuteReader();
-            SqlDataAdapter adapter = new SqlDataAdapter(query, constring);
+            //constring.Close();
+            String query8 = "SELECT * FROM StudentAttendance";
+            SqlCommand c = new SqlCommand(query8, constring);
+            c.Parameters.Add(new SqlParameter("0", 1));
+            //constring.Open();
+            SqlDataReader reader = c.ExecuteReader();
+            SqlDataAdapter adapter = new SqlDataAdapter(query8, constring);
             DataTable view = new DataTable();
             adapter.Fill(view);
-            datadate.DataSource = view;
+            datastudentatt.DataSource = view;
             constring.Close();
+        }
+
+        private void tabStudentAttendance_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbattid_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbattid_Click(object sender, EventArgs e)
+        {
+            cmbattid.Items.Clear();
+            this.studentAttendanceTableAdapter.Fill(this.projectBDataSet7.StudentAttendance);
+            // TODO: This line of code loads data into the 'projectBDataSet6.ClassAttendance' table. You can move, or remove it, as needed.
+            this.classAttendanceTableAdapter.Fill(this.projectBDataSet6.ClassAttendance);
+            btnupdate.Hide();
+            btnupdates.Hide();
+            constring.Open();
+            String cmd = "SELECT AttendanceDate FROM ClassAttendance";
+            SqlCommand command = new SqlCommand(cmd, constring);
+            command.Parameters.Add(new SqlParameter("0", 1));
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                cmbattid.Items.Add(reader[0]);
+            }
+
         }
     }
 }

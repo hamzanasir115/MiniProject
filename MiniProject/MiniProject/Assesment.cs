@@ -136,9 +136,13 @@ namespace MiniProject
             if (e.ColumnIndex == dataGridView1.Columns["Delete"].Index)
             {
                 int row = e.RowIndex;
-                string query = "Delete from Assessment where Id = @id";
+                string query = "Delete from AssessmentComponent where AssessmentId = @Id1";
                 SqlCommand command = new SqlCommand(query, conn);
-                command.Parameters.Add(new SqlParameter("@Id", Id));
+                command.Parameters.Add(new SqlParameter("@Id1", Id));
+                command.ExecuteReader();
+                string query1 = "Delete from Assessment where Id = @id";
+                command = new SqlCommand(query1, conn);
+                command.Parameters.Add(new SqlParameter("@id", Id));
                 command.ExecuteReader();
                 MessageBox.Show("Data Deleted Succesfully");
                 conn.Close();
@@ -263,20 +267,20 @@ namespace MiniProject
         {
             SqlConnection conn = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
             id = Convert.ToInt32(dataGridView2.Rows[e.RowIndex].Cells[0].Value);
-            /*conn.Open();
-            if (e.ColumnIndex == dataGridView2.Columns["deelete"].Index)
+            conn.Open();
+            if (e.ColumnIndex == dataGridView2.Columns["Deletee"].Index)
             {
                 this.dataGridView2.Rows.RemoveAt(e.RowIndex);
                 int row = e.RowIndex;
                 var item = dataGridView2.Rows[e.RowIndex].Cells[0].Value;
                 //int id5 = Convert.ToInt32(dataGridView2.Rows[row].Cells[0].Value);
-                string query = "Delete from RubricLevel where Id = @id";
+                string query = "Delete from AssessmentComponent where Id = @id";
                 SqlCommand command = new SqlCommand(query, conn);
                 command.Parameters.Add(new SqlParameter("@id", id));
                 SqlDataReader reader = command.ExecuteReader();
                 MessageBox.Show("Data Deleted Succesfully");
                 conn.Close();
-            }*/
+            }
             if (e.ColumnIndex == dataGridView2.Columns["Editt"].Index)
             {
                 string id2 = dataGridView2.Rows[e.RowIndex].Cells[0].FormattedValue.ToString();
@@ -333,6 +337,16 @@ namespace MiniProject
             adapter.Fill(view);
             dataGridView2.DataSource = view;
             conn.Close();
+        }
+
+        private void cmbrubricid_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbrubricid_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

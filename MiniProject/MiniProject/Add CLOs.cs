@@ -186,10 +186,14 @@ namespace MiniProject
                 {
                     //conn.Open();
                     int read = Convert.ToInt32(reader[0]);
+                    string qr2 = "DELETE FROM AssessmentComponent WHERE RubricId = @id1";
+                    command = new SqlCommand(qr2, conn);
+                    command.Parameters.Add(new SqlParameter("@id1", read));
+                    SqlDataReader extract = command.ExecuteReader();
                     string qr1 = "DELETE FROM RubricLevel WHERE RubricId = @id1";
                     command = new SqlCommand(qr1, conn);
                     command.Parameters.Add(new SqlParameter("@id1", read));
-                    SqlDataReader extract = command.ExecuteReader();
+                    SqlDataReader extract1 = command.ExecuteReader();
                     // conn.Close();
                 }
                 conn.Close();

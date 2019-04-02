@@ -257,10 +257,15 @@ namespace MiniProject
                 int row = e.RowIndex;
                 var item = dataGridView1.Rows[e.RowIndex].Cells[0].Value;
                 //int id5 = Convert.ToInt32(dataGridView2.Rows[row].Cells[0].Value);
+                string query1 = "Delete from AssessmentComponent where RubricId = @id4";
+                conn.Open();
+
+                command = new SqlCommand(query1, conn);
+                command.Parameters.Add(new SqlParameter("@id4", id2));
+                reader = command.ExecuteReader();
                 string query = "Delete from Rubric where Id = @id3";
                 command = new SqlCommand(query, conn);
                 command.Parameters.Add(new SqlParameter("@id3", id2));
-                conn.Open();
                 reader = command.ExecuteReader();
                 MessageBox.Show("Data Deleted Succesfully");
                 conn.Close();
@@ -457,6 +462,36 @@ namespace MiniProject
             //    e.Cancel = true;
             //    return;
             //}
+        }
+
+        private void cmbrubricid_SelectedIndexChanged(object sender, EventArgs e)
+        {
+     
+        }
+
+        private void cmbrubricid_Click(object sender, EventArgs e)
+        {
+            cmbrubricid.Items.Clear();
+            Value();
+
+
+        }
+        void Value()
+        {
+            SqlConnection conn = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
+            conn.Open();
+            cmbrubricid.Items.Clear();
+            String c = "SELECT Id from rubric";
+            SqlCommand cd = new SqlCommand(c, conn);
+            cd.Parameters.Add(new SqlParameter("0", 1));
+            SqlDataReader re = cd.ExecuteReader();
+            while (re.Read())
+            {
+                // Console.WriteLine(cmbselect reader[0] + " " + reader[1]);
+                cmbrubricid.Items.Add(re[0]);
+            }
+            conn.Close();
+
         }
     }
 }

@@ -541,6 +541,8 @@
             this.cmbrubricid.Name = "cmbrubricid";
             this.cmbrubricid.Size = new System.Drawing.Size(116, 21);
             this.cmbrubricid.TabIndex = 0;
+            this.cmbrubricid.SelectedIndexChanged += new System.EventHandler(this.cmbrubricid_SelectedIndexChanged);
+            this.cmbrubricid.Click += new System.EventHandler(this.cmbrubricid_Click);
             // 
             // tabPage4
             // 

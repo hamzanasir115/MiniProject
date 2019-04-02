@@ -41,7 +41,7 @@
             this.projectBDataSet6 = new MiniProject.ProjectBDataSet6();
             this.btndate = new System.Windows.Forms.Button();
             this.Attendencepick = new System.Windows.Forms.MonthCalendar();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabStudentAttendance = new System.Windows.Forms.TabPage();
             this.datastudentatt = new System.Windows.Forms.DataGridView();
             this.attendanceIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.studentIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,7 +65,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.datadate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.classAttendanceBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet6)).BeginInit();
-            this.tabPage2.SuspendLayout();
+            this.tabStudentAttendance.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datastudentatt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentAttendanceBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet7)).BeginInit();
@@ -74,7 +74,7 @@
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabStudentAttendance);
             this.tabControl1.Location = new System.Drawing.Point(109, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -178,24 +178,25 @@
             this.Attendencepick.Name = "Attendencepick";
             this.Attendencepick.TabIndex = 0;
             // 
-            // tabPage2
+            // tabStudentAttendance
             // 
-            this.tabPage2.Controls.Add(this.datastudentatt);
-            this.tabPage2.Controls.Add(this.btnupdates);
-            this.tabPage2.Controls.Add(this.btnaddstudent);
-            this.tabPage2.Controls.Add(this.label3);
-            this.tabPage2.Controls.Add(this.label2);
-            this.tabPage2.Controls.Add(this.label1);
-            this.tabPage2.Controls.Add(this.cmbattstatus);
-            this.tabPage2.Controls.Add(this.cmbstdid);
-            this.tabPage2.Controls.Add(this.cmbattid);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(560, 353);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Student Attendance";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabStudentAttendance.Controls.Add(this.datastudentatt);
+            this.tabStudentAttendance.Controls.Add(this.btnupdates);
+            this.tabStudentAttendance.Controls.Add(this.btnaddstudent);
+            this.tabStudentAttendance.Controls.Add(this.label3);
+            this.tabStudentAttendance.Controls.Add(this.label2);
+            this.tabStudentAttendance.Controls.Add(this.label1);
+            this.tabStudentAttendance.Controls.Add(this.cmbattstatus);
+            this.tabStudentAttendance.Controls.Add(this.cmbstdid);
+            this.tabStudentAttendance.Controls.Add(this.cmbattid);
+            this.tabStudentAttendance.Location = new System.Drawing.Point(4, 22);
+            this.tabStudentAttendance.Name = "tabStudentAttendance";
+            this.tabStudentAttendance.Padding = new System.Windows.Forms.Padding(3);
+            this.tabStudentAttendance.Size = new System.Drawing.Size(560, 353);
+            this.tabStudentAttendance.TabIndex = 1;
+            this.tabStudentAttendance.Text = "Student Attendance";
+            this.tabStudentAttendance.UseVisualStyleBackColor = true;
+            this.tabStudentAttendance.Click += new System.EventHandler(this.tabStudentAttendance_Click);
             // 
             // datastudentatt
             // 
@@ -330,6 +331,8 @@
             this.cmbattid.Name = "cmbattid";
             this.cmbattid.Size = new System.Drawing.Size(115, 21);
             this.cmbattid.TabIndex = 0;
+            this.cmbattid.SelectedIndexChanged += new System.EventHandler(this.cmbattid_SelectedIndexChanged);
+            this.cmbattid.Click += new System.EventHandler(this.cmbattid_Click);
             // 
             // classAttendanceTableAdapter
             // 
@@ -353,8 +356,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.datadate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.classAttendanceBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet6)).EndInit();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            this.tabStudentAttendance.ResumeLayout(false);
+            this.tabStudentAttendance.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datastudentatt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentAttendanceBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet7)).EndInit();
@@ -369,7 +372,7 @@
         private System.Windows.Forms.DataGridView datadate;
         private System.Windows.Forms.Button btndate;
         private System.Windows.Forms.MonthCalendar Attendencepick;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabStudentAttendance;
         private ProjectBDataSet6 projectBDataSet6;
         private System.Windows.Forms.BindingSource classAttendanceBindingSource;
         private ProjectBDataSet6TableAdapters.ClassAttendanceTableAdapter classAttendanceTableAdapter;

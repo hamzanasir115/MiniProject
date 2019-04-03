@@ -52,6 +52,14 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.bbshow = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateCreatedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateUpdatedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.cloBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.projectBDataSet8 = new MiniProject.ProjectBDataSet8();
             this.tablelst = new System.Windows.Forms.TableLayoutPanel();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.rubricBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -78,15 +86,7 @@
             this.lbl = new System.Windows.Forms.Label();
             this.errorreg = new System.Windows.Forms.ErrorProvider(this.components);
             this.bindingSource3 = new System.Windows.Forms.BindingSource(this.components);
-            this.projectBDataSet8 = new MiniProject.ProjectBDataSet8();
-            this.cloBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cloTableAdapter = new MiniProject.ProjectBDataSet8TableAdapters.CloTableAdapter();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateCreatedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateUpdatedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.delete = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider5)).BeginInit();
@@ -97,6 +97,8 @@
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cloBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet8)).BeginInit();
             this.tablelst.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rubricBindingSource)).BeginInit();
@@ -117,8 +119,6 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorreg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cloBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // errorProvider3
@@ -285,6 +285,7 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Add Clos";
             this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click_1);
             // 
             // lblID
             // 
@@ -380,6 +381,59 @@
             this.dataGridView1.Size = new System.Drawing.Size(647, 232);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            // 
+            // dateCreatedDataGridViewTextBoxColumn
+            // 
+            this.dateCreatedDataGridViewTextBoxColumn.DataPropertyName = "DateCreated";
+            this.dateCreatedDataGridViewTextBoxColumn.HeaderText = "DateCreated";
+            this.dateCreatedDataGridViewTextBoxColumn.Name = "dateCreatedDataGridViewTextBoxColumn";
+            // 
+            // dateUpdatedDataGridViewTextBoxColumn
+            // 
+            this.dateUpdatedDataGridViewTextBoxColumn.DataPropertyName = "DateUpdated";
+            this.dateUpdatedDataGridViewTextBoxColumn.HeaderText = "DateUpdated";
+            this.dateUpdatedDataGridViewTextBoxColumn.Name = "dateUpdatedDataGridViewTextBoxColumn";
+            // 
+            // Edit
+            // 
+            this.Edit.DataPropertyName = "(none)";
+            this.Edit.HeaderText = "Edit";
+            this.Edit.Name = "Edit";
+            this.Edit.Text = "Edit";
+            this.Edit.ToolTipText = "Edit";
+            this.Edit.UseColumnTextForButtonValue = true;
+            // 
+            // delete
+            // 
+            this.delete.DataPropertyName = "(none)";
+            this.delete.HeaderText = "delete";
+            this.delete.Name = "delete";
+            this.delete.Text = "delete";
+            this.delete.ToolTipText = "delete";
+            this.delete.UseColumnTextForButtonValue = true;
+            // 
+            // cloBindingSource
+            // 
+            this.cloBindingSource.DataMember = "Clo";
+            this.cloBindingSource.DataSource = this.projectBDataSet8;
+            // 
+            // projectBDataSet8
+            // 
+            this.projectBDataSet8.DataSetName = "ProjectBDataSet8";
+            this.projectBDataSet8.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tablelst
             // 
@@ -528,62 +582,9 @@
             this.bindingSource3.DataMember = "Student";
             this.bindingSource3.DataSource = this.projectBDataSet1;
             // 
-            // projectBDataSet8
-            // 
-            this.projectBDataSet8.DataSetName = "ProjectBDataSet8";
-            this.projectBDataSet8.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // cloBindingSource
-            // 
-            this.cloBindingSource.DataMember = "Clo";
-            this.cloBindingSource.DataSource = this.projectBDataSet8;
-            // 
             // cloTableAdapter
             // 
             this.cloTableAdapter.ClearBeforeFill = true;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            // 
-            // dateCreatedDataGridViewTextBoxColumn
-            // 
-            this.dateCreatedDataGridViewTextBoxColumn.DataPropertyName = "DateCreated";
-            this.dateCreatedDataGridViewTextBoxColumn.HeaderText = "DateCreated";
-            this.dateCreatedDataGridViewTextBoxColumn.Name = "dateCreatedDataGridViewTextBoxColumn";
-            // 
-            // dateUpdatedDataGridViewTextBoxColumn
-            // 
-            this.dateUpdatedDataGridViewTextBoxColumn.DataPropertyName = "DateUpdated";
-            this.dateUpdatedDataGridViewTextBoxColumn.HeaderText = "DateUpdated";
-            this.dateUpdatedDataGridViewTextBoxColumn.Name = "dateUpdatedDataGridViewTextBoxColumn";
-            // 
-            // Edit
-            // 
-            this.Edit.DataPropertyName = "(none)";
-            this.Edit.HeaderText = "Edit";
-            this.Edit.Name = "Edit";
-            this.Edit.Text = "Edit";
-            this.Edit.ToolTipText = "Edit";
-            this.Edit.UseColumnTextForButtonValue = true;
-            // 
-            // delete
-            // 
-            this.delete.DataPropertyName = "(none)";
-            this.delete.HeaderText = "delete";
-            this.delete.Name = "delete";
-            this.delete.Text = "delete";
-            this.delete.ToolTipText = "delete";
-            this.delete.UseColumnTextForButtonValue = true;
             // 
             // Add_CLOs
             // 
@@ -608,6 +609,8 @@
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cloBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet8)).EndInit();
             this.tablelst.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rubricBindingSource)).EndInit();
@@ -628,8 +631,6 @@
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorreg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cloBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

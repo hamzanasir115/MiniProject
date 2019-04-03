@@ -68,18 +68,26 @@
             this.btnStudent = new System.Windows.Forms.Button();
             this.tablelst = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.Add = new System.Windows.Forms.TabControl();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.lblID = new System.Windows.Forms.Label();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtname = new System.Windows.Forms.TextBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.bbshow = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnupdate = new System.Windows.Forms.Button();
+            this.datadate = new System.Windows.Forms.DataGridView();
             this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btndate = new System.Windows.Forms.Button();
+            this.Attendencepick = new System.Windows.Forms.MonthCalendar();
+            this.tabStudentAttendance = new System.Windows.Forms.TabPage();
+            this.datastudentatt = new System.Windows.Forms.DataGridView();
+            this.Editt = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Deletee = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btnupdates = new System.Windows.Forms.Button();
+            this.btnaddstudent = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cmbattstatus = new System.Windows.Forms.ComboBox();
+            this.cmbstdid = new System.Windows.Forms.ComboBox();
+            this.cmbattid = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.rubricBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rubricLevelBindingSource)).BeginInit();
@@ -106,10 +114,11 @@
             this.tablelstudent.SuspendLayout();
             this.tablelst.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.Add.SuspendLayout();
+            this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datadate)).BeginInit();
+            this.tabStudentAttendance.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.datastudentatt)).BeginInit();
             this.SuspendLayout();
             // 
             // rubricBindingSource
@@ -389,7 +398,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.Add, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.tabControl1, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
@@ -397,118 +406,49 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(670, 367);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
-            // Add
+            // tabControl1
             // 
-            this.Add.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Add.Controls.Add(this.tabPage1);
-            this.Add.Controls.Add(this.tabPage2);
-            this.Add.Location = new System.Drawing.Point(3, 3);
-            this.Add.Name = "Add";
-            this.Add.SelectedIndex = 0;
-            this.Add.Size = new System.Drawing.Size(664, 361);
-            this.Add.TabIndex = 6;
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabStudentAttendance);
+            this.tabControl1.Location = new System.Drawing.Point(3, 3);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(664, 361);
+            this.tabControl1.TabIndex = 1;
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.lblID);
-            this.tabPage1.Controls.Add(this.btnUpdate);
-            this.tabPage1.Controls.Add(this.button1);
-            this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.txtname);
+            this.tabPage1.Controls.Add(this.btnupdate);
+            this.tabPage1.Controls.Add(this.datadate);
+            this.tabPage1.Controls.Add(this.btndate);
+            this.tabPage1.Controls.Add(this.Attendencepick);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(656, 335);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Add Clos";
+            this.tabPage1.Text = "Class Attendance";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // lblID
+            // btnupdate
             // 
-            this.lblID.AutoSize = true;
-            this.lblID.Location = new System.Drawing.Point(428, 276);
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(15, 13);
-            this.lblID.TabIndex = 7;
-            this.lblID.Text = "id";
+            this.btnupdate.Location = new System.Drawing.Point(322, 123);
+            this.btnupdate.Name = "btnupdate";
+            this.btnupdate.Size = new System.Drawing.Size(75, 23);
+            this.btnupdate.TabIndex = 3;
+            this.btnupdate.Text = "Update";
+            this.btnupdate.UseVisualStyleBackColor = true;
             // 
-            // btnUpdate
+            // datadate
             // 
-            this.btnUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnUpdate.Location = new System.Drawing.Point(201, 150);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(69, 23);
-            this.btnUpdate.TabIndex = 6;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(120, 150);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(69, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Add CLOs";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(28, 84);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Name";
-            // 
-            // txtname
-            // 
-            this.txtname.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtname.Location = new System.Drawing.Point(184, 77);
-            this.txtname.Name = "txtname";
-            this.txtname.Size = new System.Drawing.Size(94, 20);
-            this.txtname.TabIndex = 3;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.bbshow);
-            this.tabPage2.Controls.Add(this.dataGridView1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(656, 335);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "View Clos";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // bbshow
-            // 
-            this.bbshow.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.bbshow.Location = new System.Drawing.Point(183, 43);
-            this.bbshow.Name = "bbshow";
-            this.bbshow.Size = new System.Drawing.Size(75, 23);
-            this.bbshow.TabIndex = 1;
-            this.bbshow.Text = "Show All";
-            this.bbshow.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.datadate.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datadate.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Edit,
-            this.delete});
-            this.dataGridView1.Location = new System.Drawing.Point(6, 100);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(653, 235);
-            this.dataGridView1.TabIndex = 0;
+            this.Delete});
+            this.datadate.Location = new System.Drawing.Point(9, 194);
+            this.datadate.Name = "datadate";
+            this.datadate.Size = new System.Drawing.Size(647, 141);
+            this.datadate.TabIndex = 2;
             // 
             // Edit
             // 
@@ -519,14 +459,146 @@
             this.Edit.ToolTipText = "Edit";
             this.Edit.UseColumnTextForButtonValue = true;
             // 
-            // delete
+            // Delete
             // 
-            this.delete.DataPropertyName = "(none)";
-            this.delete.HeaderText = "delete";
-            this.delete.Name = "delete";
-            this.delete.Text = "delete";
-            this.delete.ToolTipText = "delete";
-            this.delete.UseColumnTextForButtonValue = true;
+            this.Delete.DataPropertyName = "(none)";
+            this.Delete.HeaderText = "Delete";
+            this.Delete.Name = "Delete";
+            this.Delete.Text = "Delete";
+            this.Delete.ToolTipText = "Delete";
+            this.Delete.UseColumnTextForButtonValue = true;
+            // 
+            // btndate
+            // 
+            this.btndate.Location = new System.Drawing.Point(322, 68);
+            this.btndate.Name = "btndate";
+            this.btndate.Size = new System.Drawing.Size(75, 23);
+            this.btndate.TabIndex = 1;
+            this.btndate.Text = "Add Date";
+            this.btndate.UseVisualStyleBackColor = true;
+            // 
+            // Attendencepick
+            // 
+            this.Attendencepick.Location = new System.Drawing.Point(9, 9);
+            this.Attendencepick.Name = "Attendencepick";
+            this.Attendencepick.TabIndex = 0;
+            // 
+            // tabStudentAttendance
+            // 
+            this.tabStudentAttendance.Controls.Add(this.datastudentatt);
+            this.tabStudentAttendance.Controls.Add(this.btnupdates);
+            this.tabStudentAttendance.Controls.Add(this.btnaddstudent);
+            this.tabStudentAttendance.Controls.Add(this.label3);
+            this.tabStudentAttendance.Controls.Add(this.label2);
+            this.tabStudentAttendance.Controls.Add(this.label1);
+            this.tabStudentAttendance.Controls.Add(this.cmbattstatus);
+            this.tabStudentAttendance.Controls.Add(this.cmbstdid);
+            this.tabStudentAttendance.Controls.Add(this.cmbattid);
+            this.tabStudentAttendance.Location = new System.Drawing.Point(4, 22);
+            this.tabStudentAttendance.Name = "tabStudentAttendance";
+            this.tabStudentAttendance.Padding = new System.Windows.Forms.Padding(3);
+            this.tabStudentAttendance.Size = new System.Drawing.Size(656, 335);
+            this.tabStudentAttendance.TabIndex = 1;
+            this.tabStudentAttendance.Text = "Student Attendance";
+            this.tabStudentAttendance.UseVisualStyleBackColor = true;
+            // 
+            // datastudentatt
+            // 
+            this.datastudentatt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datastudentatt.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Editt,
+            this.Deletee});
+            this.datastudentatt.Location = new System.Drawing.Point(6, 200);
+            this.datastudentatt.Name = "datastudentatt";
+            this.datastudentatt.Size = new System.Drawing.Size(654, 135);
+            this.datastudentatt.TabIndex = 8;
+            // 
+            // Editt
+            // 
+            this.Editt.DataPropertyName = "(none)";
+            this.Editt.HeaderText = "Editt";
+            this.Editt.Name = "Editt";
+            this.Editt.Text = "Editt";
+            this.Editt.ToolTipText = "Edit";
+            this.Editt.UseColumnTextForButtonValue = true;
+            // 
+            // Deletee
+            // 
+            this.Deletee.DataPropertyName = "(none)";
+            this.Deletee.HeaderText = "Deletee";
+            this.Deletee.Name = "Deletee";
+            this.Deletee.Text = "Deletee";
+            this.Deletee.ToolTipText = "Delete";
+            this.Deletee.UseColumnTextForButtonValue = true;
+            // 
+            // btnupdates
+            // 
+            this.btnupdates.Location = new System.Drawing.Point(331, 126);
+            this.btnupdates.Name = "btnupdates";
+            this.btnupdates.Size = new System.Drawing.Size(75, 23);
+            this.btnupdates.TabIndex = 7;
+            this.btnupdates.Text = "Update";
+            this.btnupdates.UseVisualStyleBackColor = true;
+            // 
+            // btnaddstudent
+            // 
+            this.btnaddstudent.Location = new System.Drawing.Point(331, 66);
+            this.btnaddstudent.Name = "btnaddstudent";
+            this.btnaddstudent.Size = new System.Drawing.Size(75, 23);
+            this.btnaddstudent.TabIndex = 6;
+            this.btnaddstudent.Text = "Add ";
+            this.btnaddstudent.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(28, 159);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(95, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Attendance Status";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(28, 97);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(58, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Student ID";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(28, 42);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(76, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Attendance ID";
+            // 
+            // cmbattstatus
+            // 
+            this.cmbattstatus.FormattingEnabled = true;
+            this.cmbattstatus.Location = new System.Drawing.Point(138, 151);
+            this.cmbattstatus.Name = "cmbattstatus";
+            this.cmbattstatus.Size = new System.Drawing.Size(115, 21);
+            this.cmbattstatus.TabIndex = 2;
+            // 
+            // cmbstdid
+            // 
+            this.cmbstdid.FormattingEnabled = true;
+            this.cmbstdid.Location = new System.Drawing.Point(138, 89);
+            this.cmbstdid.Name = "cmbstdid";
+            this.cmbstdid.Size = new System.Drawing.Size(115, 21);
+            this.cmbstdid.TabIndex = 1;
+            // 
+            // cmbattid
+            // 
+            this.cmbattid.FormattingEnabled = true;
+            this.cmbattid.Location = new System.Drawing.Point(138, 35);
+            this.cmbattid.Name = "cmbattid";
+            this.cmbattid.Size = new System.Drawing.Size(115, 21);
+            this.cmbattid.TabIndex = 0;
             // 
             // Check
             // 
@@ -565,11 +637,12 @@
             this.tablelstudent.ResumeLayout(false);
             this.tablelst.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.Add.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datadate)).EndInit();
+            this.tabStudentAttendance.ResumeLayout(false);
+            this.tabStudentAttendance.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.datastudentatt)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -616,17 +689,25 @@
         private System.Windows.Forms.Button btnCLO;
         private System.Windows.Forms.Button btnStudent;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TabControl Add;
+        private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.Label lblID;
-        private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtname;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Button bbshow;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnupdate;
+        private System.Windows.Forms.DataGridView datadate;
         private System.Windows.Forms.DataGridViewButtonColumn Edit;
-        private System.Windows.Forms.DataGridViewButtonColumn delete;
+        private System.Windows.Forms.DataGridViewButtonColumn Delete;
+        private System.Windows.Forms.Button btndate;
+        private System.Windows.Forms.MonthCalendar Attendencepick;
+        private System.Windows.Forms.TabPage tabStudentAttendance;
+        private System.Windows.Forms.DataGridView datastudentatt;
+        private System.Windows.Forms.DataGridViewButtonColumn Editt;
+        private System.Windows.Forms.DataGridViewButtonColumn Deletee;
+        private System.Windows.Forms.Button btnupdates;
+        private System.Windows.Forms.Button btnaddstudent;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cmbattstatus;
+        private System.Windows.Forms.ComboBox cmbstdid;
+        private System.Windows.Forms.ComboBox cmbattid;
     }
 }

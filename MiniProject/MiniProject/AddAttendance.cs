@@ -117,9 +117,9 @@ namespace MiniProject
                 SqlCommand command = new SqlCommand(query1, conn);
                 command.Parameters.Add(new SqlParameter("@id", id));
                // SqlDataReader reader = command.ExecuteReader();
-                string query = "Delete from ClassAttendance where Id = @id";
+                string query = "Delete from ClassAttendance where Id = @id1";
                 SqlCommand command1 = new SqlCommand(query, conn);
-                command.Parameters.Add(new SqlParameter("@id", id));
+                command.Parameters.Add(new SqlParameter("@id1", id));
                 SqlDataReader reader1 = command.ExecuteReader();
                 MessageBox.Show("Data Deleted Succesfully");
                 conn.Close();
@@ -379,6 +379,50 @@ namespace MiniProject
             {
                 cmbattid.Items.Add(reader[0]);
             }
+
+        }
+
+        private void lbl_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void btnStudent_Click(object sender, EventArgs e)
+        {
+            AddStudents stu = new AddStudents();
+            this.Hide();
+            stu.Show();
+        }
+
+        private void btnCLO_Click(object sender, EventArgs e)
+        {
+            Add_CLOs clo = new Add_CLOs();
+            this.Hide();
+            clo.Show();
+        }
+
+        private void btnRubric_Click(object sender, EventArgs e)
+        {
+            AddRubrics rub = new AddRubrics();
+            this.Hide();
+            rub.Show();
+        }
+
+        private void btnAssessment_Click(object sender, EventArgs e)
+        {
+            Assesment ass = new Assesment();
+            this.Hide();
+            ass.Show();
+        }
+
+        private void btnAttendance_Click(object sender, EventArgs e)
+        {
+            AddAttendance att = new AddAttendance();
+            this.Hide();
+            att.Show();
+        }
+
+        private void btnStudentResult_Click(object sender, EventArgs e)
+        {
 
         }
     }

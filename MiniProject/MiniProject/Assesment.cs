@@ -94,10 +94,14 @@ namespace MiniProject
 
         private void Assesment_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'projectBDataSet10.AssessmentComponent' table. You can move, or remove it, as needed.
+            this.assessmentComponentTableAdapter.Fill(this.projectBDataSet10.AssessmentComponent);
+            // TODO: This line of code loads data into the 'projectBDataSet9.Assessment' table. You can move, or remove it, as needed.
+            this.assessmentTableAdapter.Fill(this.projectBDataSet9.Assessment);
             // TODO: This line of code loads data into the 'projectBDataSet5.AssessmentComponent' table. You can move, or remove it, as needed.
-            this.assessmentComponentTableAdapter.Fill(this.projectBDataSet5.AssessmentComponent);
+           // this.assessmentComponentTableAdapter.Fill(this.projectBDataSet5.AssessmentComponent);
             // TODO: This line of code loads data into the 'projectBDataSet4.Assessment' table. You can move, or remove it, as needed.
-            this.assessmentTableAdapter.Fill(this.projectBDataSet4.Assessment);
+            //this.assessmentTableAdapter.Fill(this.projectBDataSet4.Assessment);
             btnupdate.Hide();
             //label1.Hide();
             //button1.Hide();
@@ -345,6 +349,45 @@ namespace MiniProject
         }
 
         private void cmbrubricid_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void btnStudent_Click(object sender, EventArgs e)
+        {
+            AddStudents stu = new AddStudents();
+            this.Hide();
+            stu.Show();
+        }
+
+        private void btnCLO_Click(object sender, EventArgs e)
+        {
+            Add_CLOs clo = new Add_CLOs();
+            this.Hide();
+            clo.Show();
+        }
+
+        private void btnRubric_Click(object sender, EventArgs e)
+        {
+            AddRubrics rub = new AddRubrics();
+            this.Hide();
+            rub.Show();
+        }
+
+        private void btnAssessment_Click(object sender, EventArgs e)
+        {
+            Assesment ass = new Assesment();
+            this.Hide();
+            ass.Show();
+        }
+
+        private void btnAttendance_Click(object sender, EventArgs e)
+        {
+            AddAttendance att = new AddAttendance();
+            this.Hide();
+            att.Show();
+        }
+
+        private void btnStudentResult_Click(object sender, EventArgs e)
         {
 
         }

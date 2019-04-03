@@ -27,11 +27,6 @@ namespace MiniProject
 
         }
 
-        private void btnadd_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnStudent_Click(object sender, EventArgs e)
         {
             AddStudents stu = new AddStudents();

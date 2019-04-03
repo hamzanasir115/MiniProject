@@ -19,11 +19,6 @@ namespace MiniProject
         }
 
         SqlConnection conn = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
-
-        private void bbaddclos_Click(object sender, EventArgs e)
-        {
-
-        }
         /// <summary>
         /// Here we add clos in the database.
         /// </summary>
@@ -97,8 +92,10 @@ namespace MiniProject
 
         private void Add_CLOs_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'projectBDataSet8.Clo' table. You can move, or remove it, as needed.
+            this.cloTableAdapter.Fill(this.projectBDataSet8.Clo);
             // TODO: This line of code loads data into the 'projectBDataSet1.Clo' table. You can move, or remove it, as needed.
-            this.cloTableAdapter.Fill(this.projectBDataSet1.Clo);
+            // this.cloTableAdapter.Fill(this.projectBDataSet1.Clo);
             btnUpdate.Hide();
             lblID.Hide();
 
@@ -291,5 +288,46 @@ namespace MiniProject
                 txtname.ContextMenu = new ContextMenu();
             }
         }
+
+        private void btnStudent_Click(object sender, EventArgs e)
+        {
+            AddStudents stu = new AddStudents();
+            this.Hide();
+            stu.Show();
+        }
+
+        private void btnCLO_Click(object sender, EventArgs e)
+        {
+            Add_CLOs clo = new Add_CLOs();
+            this.Hide();
+            clo.Show();
+        }
+
+        private void btnRubric_Click(object sender, EventArgs e)
+        {
+            AddRubrics rub = new AddRubrics();
+            this.Hide();
+            rub.Show();
+        }
+
+        private void btnAssessment_Click(object sender, EventArgs e)
+        {
+            Assesment ass = new Assesment();
+            this.Hide();
+            ass.Show();
+        }
+
+        private void btnAttendance_Click(object sender, EventArgs e)
+        {
+            AddAttendance att = new AddAttendance();
+            this.Hide();
+            att.Show();
+        }
+
+        private void btnStudentResult_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

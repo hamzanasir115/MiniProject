@@ -31,5 +31,50 @@ namespace MiniProject
         {
 
         }
+
+        private void btnStudent_Click(object sender, EventArgs e)
+        {
+            AddStudents stu = new AddStudents();
+            this.Hide();
+            stu.Show();
+        }
+
+        private void btnCLO_Click(object sender, EventArgs e)
+        {
+            Add_CLOs clo = new Add_CLOs();
+            this.Hide();
+            clo.Show();
+        }
+
+        private void btnRubric_Click(object sender, EventArgs e)
+        {
+            AddRubrics rub = new AddRubrics();
+            this.Hide();
+            rub.Show();
+        }
+
+        private void btnAssessment_Click(object sender, EventArgs e)
+        {
+            Assesment ass = new Assesment();
+            this.Hide();
+            ass.Show();
+        }
+
+        private void btnAttendance_Click(object sender, EventArgs e)
+        {
+            AddAttendance att = new AddAttendance();
+            this.Hide();
+            att.Show();
+        }
+
+        private void btnStudentResult_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

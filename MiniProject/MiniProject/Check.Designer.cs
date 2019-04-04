@@ -68,26 +68,24 @@
             this.btnStudent = new System.Windows.Forms.Button();
             this.tablelst = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.btnupdate = new System.Windows.Forms.Button();
-            this.datadate = new System.Windows.Forms.DataGridView();
-            this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.btndate = new System.Windows.Forms.Button();
-            this.Attendencepick = new System.Windows.Forms.MonthCalendar();
-            this.tabStudentAttendance = new System.Windows.Forms.TabPage();
-            this.datastudentatt = new System.Windows.Forms.DataGridView();
-            this.Editt = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Deletee = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.btnupdates = new System.Windows.Forms.Button();
-            this.btnaddstudent = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ObtainedMarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnadd = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.cmbattstatus = new System.Windows.Forms.ComboBox();
-            this.cmbstdid = new System.Windows.Forms.ComboBox();
-            this.cmbattid = new System.Windows.Forms.ComboBox();
+            this.cmbLevel = new System.Windows.Forms.ComboBox();
+            this.cmbDetails = new System.Windows.Forms.ComboBox();
+            this.cmbComponentId = new System.Windows.Forms.ComboBox();
+            this.cmbTitle = new System.Windows.Forms.ComboBox();
+            this.cmbStudentId = new System.Windows.Forms.ComboBox();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
             ((System.ComponentModel.ISupportInitialize)(this.rubricBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rubricLevelBindingSource)).BeginInit();
@@ -114,11 +112,9 @@
             this.tablelstudent.SuspendLayout();
             this.tablelst.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.tabControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.datadate)).BeginInit();
-            this.tabStudentAttendance.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.datastudentatt)).BeginInit();
+            this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // rubricBindingSource
@@ -406,199 +402,174 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(670, 367);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabStudentAttendance);
-            this.tabControl1.Location = new System.Drawing.Point(3, 3);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(664, 361);
-            this.tabControl1.TabIndex = 1;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.btnupdate);
-            this.tabPage1.Controls.Add(this.datadate);
-            this.tabPage1.Controls.Add(this.btndate);
-            this.tabPage1.Controls.Add(this.Attendencepick);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(656, 335);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Class Attendance";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // btnupdate
-            // 
-            this.btnupdate.Location = new System.Drawing.Point(322, 123);
-            this.btnupdate.Name = "btnupdate";
-            this.btnupdate.Size = new System.Drawing.Size(75, 23);
-            this.btnupdate.TabIndex = 3;
-            this.btnupdate.Text = "Update";
-            this.btnupdate.UseVisualStyleBackColor = true;
-            // 
-            // datadate
-            // 
-            this.datadate.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datadate.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Edit,
-            this.Delete});
-            this.datadate.Location = new System.Drawing.Point(9, 194);
-            this.datadate.Name = "datadate";
-            this.datadate.Size = new System.Drawing.Size(647, 141);
-            this.datadate.TabIndex = 2;
-            // 
-            // Edit
-            // 
-            this.Edit.DataPropertyName = "(none)";
-            this.Edit.HeaderText = "Edit";
-            this.Edit.Name = "Edit";
-            this.Edit.Text = "Edit";
-            this.Edit.ToolTipText = "Edit";
-            this.Edit.UseColumnTextForButtonValue = true;
-            // 
             // Delete
             // 
-            this.Delete.DataPropertyName = "(none)";
             this.Delete.HeaderText = "Delete";
             this.Delete.Name = "Delete";
             this.Delete.Text = "Delete";
             this.Delete.ToolTipText = "Delete";
             this.Delete.UseColumnTextForButtonValue = true;
             // 
-            // btndate
+            // label6
             // 
-            this.btndate.Location = new System.Drawing.Point(322, 68);
-            this.btndate.Name = "btndate";
-            this.btndate.Size = new System.Drawing.Size(75, 23);
-            this.btndate.TabIndex = 1;
-            this.btndate.Text = "Add Date";
-            this.btndate.UseVisualStyleBackColor = true;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(26, 153);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(79, 13);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Rubric Level Id";
             // 
-            // Attendencepick
+            // comboBox1
             // 
-            this.Attendencepick.Location = new System.Drawing.Point(9, 9);
-            this.Attendencepick.Name = "Attendencepick";
-            this.Attendencepick.TabIndex = 0;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(183, 145);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(166, 21);
+            this.comboBox1.TabIndex = 12;
             // 
-            // tabStudentAttendance
+            // dataGridView1
             // 
-            this.tabStudentAttendance.Controls.Add(this.datastudentatt);
-            this.tabStudentAttendance.Controls.Add(this.btnupdates);
-            this.tabStudentAttendance.Controls.Add(this.btnaddstudent);
-            this.tabStudentAttendance.Controls.Add(this.label3);
-            this.tabStudentAttendance.Controls.Add(this.label2);
-            this.tabStudentAttendance.Controls.Add(this.label1);
-            this.tabStudentAttendance.Controls.Add(this.cmbattstatus);
-            this.tabStudentAttendance.Controls.Add(this.cmbstdid);
-            this.tabStudentAttendance.Controls.Add(this.cmbattid);
-            this.tabStudentAttendance.Location = new System.Drawing.Point(4, 22);
-            this.tabStudentAttendance.Name = "tabStudentAttendance";
-            this.tabStudentAttendance.Padding = new System.Windows.Forms.Padding(3);
-            this.tabStudentAttendance.Size = new System.Drawing.Size(656, 335);
-            this.tabStudentAttendance.TabIndex = 1;
-            this.tabStudentAttendance.Text = "Student Attendance";
-            this.tabStudentAttendance.UseVisualStyleBackColor = true;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ObtainedMarks,
+            this.Delete});
+            this.dataGridView1.Location = new System.Drawing.Point(29, 180);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(743, 150);
+            this.dataGridView1.TabIndex = 11;
             // 
-            // datastudentatt
+            // ObtainedMarks
             // 
-            this.datastudentatt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datastudentatt.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Editt,
-            this.Deletee});
-            this.datastudentatt.Location = new System.Drawing.Point(6, 200);
-            this.datastudentatt.Name = "datastudentatt";
-            this.datastudentatt.Size = new System.Drawing.Size(654, 135);
-            this.datastudentatt.TabIndex = 8;
+            this.ObtainedMarks.HeaderText = "ObtainedMarks";
+            this.ObtainedMarks.Name = "ObtainedMarks";
             // 
-            // Editt
+            // btnadd
             // 
-            this.Editt.DataPropertyName = "(none)";
-            this.Editt.HeaderText = "Editt";
-            this.Editt.Name = "Editt";
-            this.Editt.Text = "Editt";
-            this.Editt.ToolTipText = "Edit";
-            this.Editt.UseColumnTextForButtonValue = true;
+            this.btnadd.Location = new System.Drawing.Point(379, 24);
+            this.btnadd.Name = "btnadd";
+            this.btnadd.Size = new System.Drawing.Size(75, 23);
+            this.btnadd.TabIndex = 10;
+            this.btnadd.Text = "ADD";
+            this.btnadd.UseVisualStyleBackColor = true;
+            this.btnadd.Click += new System.EventHandler(this.btnadd_Click);
             // 
-            // Deletee
+            // label5
             // 
-            this.Deletee.DataPropertyName = "(none)";
-            this.Deletee.HeaderText = "Deletee";
-            this.Deletee.Name = "Deletee";
-            this.Deletee.Text = "Deletee";
-            this.Deletee.ToolTipText = "Delete";
-            this.Deletee.UseColumnTextForButtonValue = true;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(26, 126);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(100, 13);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Measurement Level";
             // 
-            // btnupdates
+            // label4
             // 
-            this.btnupdates.Location = new System.Drawing.Point(331, 126);
-            this.btnupdates.Name = "btnupdates";
-            this.btnupdates.Size = new System.Drawing.Size(75, 23);
-            this.btnupdates.TabIndex = 7;
-            this.btnupdates.Text = "Update";
-            this.btnupdates.UseVisualStyleBackColor = true;
-            // 
-            // btnaddstudent
-            // 
-            this.btnaddstudent.Location = new System.Drawing.Point(331, 66);
-            this.btnaddstudent.Name = "btnaddstudent";
-            this.btnaddstudent.Size = new System.Drawing.Size(75, 23);
-            this.btnaddstudent.TabIndex = 6;
-            this.btnaddstudent.Text = "Add ";
-            this.btnaddstudent.UseVisualStyleBackColor = true;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(26, 99);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(39, 13);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Details";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(28, 159);
+            this.label3.Location = new System.Drawing.Point(26, 72);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(95, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Attendance Status";
+            this.label3.Size = new System.Drawing.Size(132, 13);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Assessment Component Id";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(28, 97);
+            this.label2.Location = new System.Drawing.Point(26, 45);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Student ID";
+            this.label2.Size = new System.Drawing.Size(86, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Assessment Title";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(28, 42);
+            this.label1.Location = new System.Drawing.Point(26, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Attendance ID";
+            this.label1.Size = new System.Drawing.Size(56, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Student Id";
             // 
-            // cmbattstatus
+            // cmbLevel
             // 
-            this.cmbattstatus.FormattingEnabled = true;
-            this.cmbattstatus.Location = new System.Drawing.Point(138, 151);
-            this.cmbattstatus.Name = "cmbattstatus";
-            this.cmbattstatus.Size = new System.Drawing.Size(115, 21);
-            this.cmbattstatus.TabIndex = 2;
+            this.cmbLevel.FormattingEnabled = true;
+            this.cmbLevel.Location = new System.Drawing.Point(183, 118);
+            this.cmbLevel.Name = "cmbLevel";
+            this.cmbLevel.Size = new System.Drawing.Size(166, 21);
+            this.cmbLevel.TabIndex = 4;
             // 
-            // cmbstdid
+            // cmbDetails
             // 
-            this.cmbstdid.FormattingEnabled = true;
-            this.cmbstdid.Location = new System.Drawing.Point(138, 89);
-            this.cmbstdid.Name = "cmbstdid";
-            this.cmbstdid.Size = new System.Drawing.Size(115, 21);
-            this.cmbstdid.TabIndex = 1;
+            this.cmbDetails.FormattingEnabled = true;
+            this.cmbDetails.Location = new System.Drawing.Point(183, 91);
+            this.cmbDetails.Name = "cmbDetails";
+            this.cmbDetails.Size = new System.Drawing.Size(166, 21);
+            this.cmbDetails.TabIndex = 3;
             // 
-            // cmbattid
+            // cmbComponentId
             // 
-            this.cmbattid.FormattingEnabled = true;
-            this.cmbattid.Location = new System.Drawing.Point(138, 35);
-            this.cmbattid.Name = "cmbattid";
-            this.cmbattid.Size = new System.Drawing.Size(115, 21);
-            this.cmbattid.TabIndex = 0;
+            this.cmbComponentId.FormattingEnabled = true;
+            this.cmbComponentId.Location = new System.Drawing.Point(183, 64);
+            this.cmbComponentId.Name = "cmbComponentId";
+            this.cmbComponentId.Size = new System.Drawing.Size(166, 21);
+            this.cmbComponentId.TabIndex = 2;
+            // 
+            // cmbTitle
+            // 
+            this.cmbTitle.FormattingEnabled = true;
+            this.cmbTitle.Location = new System.Drawing.Point(183, 37);
+            this.cmbTitle.Name = "cmbTitle";
+            this.cmbTitle.Size = new System.Drawing.Size(166, 21);
+            this.cmbTitle.TabIndex = 1;
+            // 
+            // cmbStudentId
+            // 
+            this.cmbStudentId.FormattingEnabled = true;
+            this.cmbStudentId.Location = new System.Drawing.Point(183, 10);
+            this.cmbStudentId.Name = "cmbStudentId";
+            this.cmbStudentId.Size = new System.Drawing.Size(166, 21);
+            this.cmbStudentId.TabIndex = 0;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.label6);
+            this.tabPage1.Controls.Add(this.comboBox1);
+            this.tabPage1.Controls.Add(this.dataGridView1);
+            this.tabPage1.Controls.Add(this.btnadd);
+            this.tabPage1.Controls.Add(this.label5);
+            this.tabPage1.Controls.Add(this.label4);
+            this.tabPage1.Controls.Add(this.label3);
+            this.tabPage1.Controls.Add(this.label2);
+            this.tabPage1.Controls.Add(this.label1);
+            this.tabPage1.Controls.Add(this.cmbLevel);
+            this.tabPage1.Controls.Add(this.cmbDetails);
+            this.tabPage1.Controls.Add(this.cmbComponentId);
+            this.tabPage1.Controls.Add(this.cmbTitle);
+            this.tabPage1.Controls.Add(this.cmbStudentId);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(656, 335);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Result";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Location = new System.Drawing.Point(3, 3);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(664, 361);
+            this.tabControl1.TabIndex = 1;
             // 
             // Check
             // 
@@ -637,12 +608,10 @@
             this.tablelstudent.ResumeLayout(false);
             this.tablelst.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.datadate)).EndInit();
-            this.tabStudentAttendance.ResumeLayout(false);
-            this.tabStudentAttendance.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.datastudentatt)).EndInit();
+            this.tabPage1.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -691,23 +660,21 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.Button btnupdate;
-        private System.Windows.Forms.DataGridView datadate;
-        private System.Windows.Forms.DataGridViewButtonColumn Edit;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ObtainedMarks;
         private System.Windows.Forms.DataGridViewButtonColumn Delete;
-        private System.Windows.Forms.Button btndate;
-        private System.Windows.Forms.MonthCalendar Attendencepick;
-        private System.Windows.Forms.TabPage tabStudentAttendance;
-        private System.Windows.Forms.DataGridView datastudentatt;
-        private System.Windows.Forms.DataGridViewButtonColumn Editt;
-        private System.Windows.Forms.DataGridViewButtonColumn Deletee;
-        private System.Windows.Forms.Button btnupdates;
-        private System.Windows.Forms.Button btnaddstudent;
+        private System.Windows.Forms.Button btnadd;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cmbattstatus;
-        private System.Windows.Forms.ComboBox cmbstdid;
-        private System.Windows.Forms.ComboBox cmbattid;
+        private System.Windows.Forms.ComboBox cmbLevel;
+        private System.Windows.Forms.ComboBox cmbDetails;
+        private System.Windows.Forms.ComboBox cmbComponentId;
+        private System.Windows.Forms.ComboBox cmbTitle;
+        private System.Windows.Forms.ComboBox cmbStudentId;
     }
 }

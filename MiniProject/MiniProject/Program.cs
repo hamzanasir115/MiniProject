@@ -17,7 +17,7 @@ namespace MiniProject
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new AddRubrics());
-           // Application.Run(new Assesment());
+            //Application.Run(new Assesment());
            Application.Run(new AddStudents());
            
         }

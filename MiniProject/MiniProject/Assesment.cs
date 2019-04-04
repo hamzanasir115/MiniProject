@@ -390,6 +390,14 @@ namespace MiniProject
         private void btnStudentResult_Click(object sender, EventArgs e)
         {
 
+            StudentResults att = new StudentResults();
+            this.Hide();
+            att.Show();
+        }
+
+        private void tabPage3_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

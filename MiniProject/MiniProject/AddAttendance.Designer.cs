@@ -48,10 +48,19 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnupdate = new System.Windows.Forms.Button();
             this.datadate = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.attendanceDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btndate = new System.Windows.Forms.Button();
             this.Attendencepick = new System.Windows.Forms.MonthCalendar();
             this.tabStudentAttendance = new System.Windows.Forms.TabPage();
             this.datastudentatt = new System.Windows.Forms.DataGridView();
+            this.attendanceIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.studentIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.attendanceStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Editt = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Deletee = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnupdates = new System.Windows.Forms.Button();
             this.btnaddstudent = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -90,15 +99,6 @@
             this.errorProvider3 = new System.Windows.Forms.ErrorProvider(this.components);
             this.rubricLevelTableAdapter1 = new MiniProject.ProjectBDataSet3TableAdapters.RubricLevelTableAdapter();
             this.errorProvider4 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.attendanceDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.attendanceIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.studentIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.attendanceStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Editt = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Deletee = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.classAttendanceBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentAttendanceBindingSource)).BeginInit();
@@ -263,8 +263,8 @@
             this.tablelst.Name = "tablelst";
             this.tablelst.RowCount = 1;
             this.tablelst.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tablelst.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tablelst.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tablelst.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 373F));
+            this.tablelst.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 373F));
             this.tablelst.Size = new System.Drawing.Size(676, 373);
             this.tablelst.TabIndex = 12;
             // 
@@ -340,10 +340,41 @@
             this.datadate.TabIndex = 2;
             this.datadate.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datadate_CellContentClick);
             // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // attendanceDateDataGridViewTextBoxColumn
+            // 
+            this.attendanceDateDataGridViewTextBoxColumn.DataPropertyName = "AttendanceDate";
+            this.attendanceDateDataGridViewTextBoxColumn.HeaderText = "AttendanceDate";
+            this.attendanceDateDataGridViewTextBoxColumn.Name = "attendanceDateDataGridViewTextBoxColumn";
+            // 
+            // Edit
+            // 
+            this.Edit.DataPropertyName = "(none)";
+            this.Edit.HeaderText = "Edit";
+            this.Edit.Name = "Edit";
+            this.Edit.Text = "Edit";
+            this.Edit.ToolTipText = "Edit";
+            this.Edit.UseColumnTextForButtonValue = true;
+            // 
+            // Delete
+            // 
+            this.Delete.DataPropertyName = "(none)";
+            this.Delete.HeaderText = "Delete";
+            this.Delete.Name = "Delete";
+            this.Delete.Text = "Delete";
+            this.Delete.ToolTipText = "Delete";
+            this.Delete.UseColumnTextForButtonValue = true;
+            // 
             // btndate
             // 
             this.btndate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btndate.Location = new System.Drawing.Point(322, 68);
+            this.btndate.Location = new System.Drawing.Point(322, 70);
             this.btndate.Name = "btndate";
             this.btndate.Size = new System.Drawing.Size(75, 23);
             this.btndate.TabIndex = 1;
@@ -397,6 +428,42 @@
             this.datastudentatt.Size = new System.Drawing.Size(660, 135);
             this.datastudentatt.TabIndex = 8;
             this.datastudentatt.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datastudentatt_CellContentClick);
+            // 
+            // attendanceIdDataGridViewTextBoxColumn
+            // 
+            this.attendanceIdDataGridViewTextBoxColumn.DataPropertyName = "AttendanceId";
+            this.attendanceIdDataGridViewTextBoxColumn.HeaderText = "AttendanceId";
+            this.attendanceIdDataGridViewTextBoxColumn.Name = "attendanceIdDataGridViewTextBoxColumn";
+            // 
+            // studentIdDataGridViewTextBoxColumn
+            // 
+            this.studentIdDataGridViewTextBoxColumn.DataPropertyName = "StudentId";
+            this.studentIdDataGridViewTextBoxColumn.HeaderText = "StudentId";
+            this.studentIdDataGridViewTextBoxColumn.Name = "studentIdDataGridViewTextBoxColumn";
+            // 
+            // attendanceStatusDataGridViewTextBoxColumn
+            // 
+            this.attendanceStatusDataGridViewTextBoxColumn.DataPropertyName = "AttendanceStatus";
+            this.attendanceStatusDataGridViewTextBoxColumn.HeaderText = "AttendanceStatus";
+            this.attendanceStatusDataGridViewTextBoxColumn.Name = "attendanceStatusDataGridViewTextBoxColumn";
+            // 
+            // Editt
+            // 
+            this.Editt.DataPropertyName = "(none)";
+            this.Editt.HeaderText = "Editt";
+            this.Editt.Name = "Editt";
+            this.Editt.Text = "Editt";
+            this.Editt.ToolTipText = "Edit";
+            this.Editt.UseColumnTextForButtonValue = true;
+            // 
+            // Deletee
+            // 
+            this.Deletee.DataPropertyName = "(none)";
+            this.Deletee.HeaderText = "Deletee";
+            this.Deletee.Name = "Deletee";
+            this.Deletee.Text = "Deletee";
+            this.Deletee.ToolTipText = "Delete";
+            this.Deletee.UseColumnTextForButtonValue = true;
             // 
             // btnupdates
             // 
@@ -642,73 +709,6 @@
             // errorProvider4
             // 
             this.errorProvider4.ContainerControl = this;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // attendanceDateDataGridViewTextBoxColumn
-            // 
-            this.attendanceDateDataGridViewTextBoxColumn.DataPropertyName = "AttendanceDate";
-            this.attendanceDateDataGridViewTextBoxColumn.HeaderText = "AttendanceDate";
-            this.attendanceDateDataGridViewTextBoxColumn.Name = "attendanceDateDataGridViewTextBoxColumn";
-            // 
-            // Edit
-            // 
-            this.Edit.DataPropertyName = "(none)";
-            this.Edit.HeaderText = "Edit";
-            this.Edit.Name = "Edit";
-            this.Edit.Text = "Edit";
-            this.Edit.ToolTipText = "Edit";
-            this.Edit.UseColumnTextForButtonValue = true;
-            // 
-            // Delete
-            // 
-            this.Delete.DataPropertyName = "(none)";
-            this.Delete.HeaderText = "Delete";
-            this.Delete.Name = "Delete";
-            this.Delete.Text = "Delete";
-            this.Delete.ToolTipText = "Delete";
-            this.Delete.UseColumnTextForButtonValue = true;
-            // 
-            // attendanceIdDataGridViewTextBoxColumn
-            // 
-            this.attendanceIdDataGridViewTextBoxColumn.DataPropertyName = "AttendanceId";
-            this.attendanceIdDataGridViewTextBoxColumn.HeaderText = "AttendanceId";
-            this.attendanceIdDataGridViewTextBoxColumn.Name = "attendanceIdDataGridViewTextBoxColumn";
-            // 
-            // studentIdDataGridViewTextBoxColumn
-            // 
-            this.studentIdDataGridViewTextBoxColumn.DataPropertyName = "StudentId";
-            this.studentIdDataGridViewTextBoxColumn.HeaderText = "StudentId";
-            this.studentIdDataGridViewTextBoxColumn.Name = "studentIdDataGridViewTextBoxColumn";
-            // 
-            // attendanceStatusDataGridViewTextBoxColumn
-            // 
-            this.attendanceStatusDataGridViewTextBoxColumn.DataPropertyName = "AttendanceStatus";
-            this.attendanceStatusDataGridViewTextBoxColumn.HeaderText = "AttendanceStatus";
-            this.attendanceStatusDataGridViewTextBoxColumn.Name = "attendanceStatusDataGridViewTextBoxColumn";
-            // 
-            // Editt
-            // 
-            this.Editt.DataPropertyName = "(none)";
-            this.Editt.HeaderText = "Editt";
-            this.Editt.Name = "Editt";
-            this.Editt.Text = "Editt";
-            this.Editt.ToolTipText = "Edit";
-            this.Editt.UseColumnTextForButtonValue = true;
-            // 
-            // Deletee
-            // 
-            this.Deletee.DataPropertyName = "(none)";
-            this.Deletee.HeaderText = "Deletee";
-            this.Deletee.Name = "Deletee";
-            this.Deletee.Text = "Deletee";
-            this.Deletee.ToolTipText = "Delete";
-            this.Deletee.UseColumnTextForButtonValue = true;
             // 
             // AddAttendance
             // 

@@ -218,6 +218,9 @@ namespace MiniProject
             adapter.Fill(view);
             datastudentatt.DataSource = view;
             constring.Close();
+            cmbattid.Text = "";
+            cmbstdid.Text = "";
+            cmbattstatus.Text = ""; 
         }
 
         private void datastudentatt_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -425,6 +428,13 @@ namespace MiniProject
         {
 
             StudentResults att = new StudentResults();
+            this.Hide();
+            att.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Report att = new Report();
             this.Hide();
             att.Show();
         }

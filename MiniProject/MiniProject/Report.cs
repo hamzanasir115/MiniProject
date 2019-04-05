@@ -179,5 +179,13 @@ namespace MiniProject
         {
             exportgridtopdf(dataGridView2, "Report Evaluations");
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            AddStudents st = new AddStudents();
+            this.Hide();
+            st.Show();
+
+        }
     }
 }

@@ -47,6 +47,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.Title = new System.Windows.Forms.Label();
             this.txtweightage = new System.Windows.Forms.TextBox();
@@ -324,6 +325,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.btnupdate);
             this.tabPage1.Controls.Add(this.btnassesment);
             this.tabPage1.Controls.Add(this.label3);
@@ -339,6 +341,17 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Add Assesment";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.button1.Location = new System.Drawing.Point(435, 93);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "Report";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // label2
             // 
@@ -1044,5 +1057,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn assessmentIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn Editt;
         private System.Windows.Forms.DataGridViewButtonColumn Deletee;
+        private System.Windows.Forms.Button button1;
     }
 }

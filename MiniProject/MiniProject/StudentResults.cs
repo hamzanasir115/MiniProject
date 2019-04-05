@@ -248,12 +248,12 @@ namespace MiniProject
                 double marks = Convert.ToDouble((l / 4) * k);
                 dataGridView1.Rows[i].Cells["ObtainedMarks"].Value = marks;
             }
-            cmbComponentId.Items.Clear();
-            cmbDetails.Items.Clear();
-            cmbLevel.Items.Clear();
-            cmbStudentId.Items.Clear();
-            cmbTitle.Items.Clear();
-            comboBox1.Items.Clear();
+            cmbComponentId.Text = "";
+            cmbDetails.Text = "";
+            cmbLevel.Text = "";
+            cmbStudentId.Text = "";
+            cmbTitle.Text = "";
+            comboBox1.Text = "";
             conn.Close();
 
         }
@@ -321,6 +321,13 @@ namespace MiniProject
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Report att = new Report();
+            this.Hide();
+            att.Show();
         }
     }
 }

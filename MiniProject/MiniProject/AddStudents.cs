@@ -768,5 +768,12 @@ namespace MiniProject
             this.Hide();
             att.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Report att = new Report();
+            this.Hide();
+            att.Show();
+        }
     }
 }

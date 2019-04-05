@@ -77,6 +77,7 @@ namespace MiniProject
                         MessageBox.Show("Rubric has been added");
                         txtdetail.Text = "";
                         txtid.Text = "";
+                        cmbselect.Text = "";
                         conn.Close();
                     }
 
@@ -603,6 +604,11 @@ namespace MiniProject
             att.Show();
         }
 
-       
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Report att = new Report();
+            this.Hide();
+            att.Show();
+        }
     }
 }

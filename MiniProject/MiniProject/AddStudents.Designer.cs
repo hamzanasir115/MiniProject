@@ -36,6 +36,7 @@
             this.btnRubric = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.cmbstatus = new System.Windows.Forms.ComboBox();
             this.empty = new System.Windows.Forms.Label();
             this.lblstatus = new System.Windows.Forms.Label();
@@ -204,6 +205,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.cmbstatus);
             this.tabPage1.Controls.Add(this.empty);
             this.tabPage1.Controls.Add(this.lblstatus);
@@ -225,6 +227,17 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Add Students";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.button1.Location = new System.Drawing.Point(484, 99);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 29;
+            this.button1.Text = "Report";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // cmbstatus
             // 
@@ -581,8 +594,8 @@
             this.tablelst.Name = "tablelst";
             this.tablelst.RowCount = 1;
             this.tablelst.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tablelst.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tablelst.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tablelst.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 373F));
+            this.tablelst.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 373F));
             this.tablelst.Size = new System.Drawing.Size(676, 373);
             this.tablelst.TabIndex = 12;
             // 
@@ -815,5 +828,6 @@
         private System.Windows.Forms.ErrorProvider errorProvider5;
         private ProjectBDataSetTableAdapters.StudentTableAdapter studentTableAdapter1;
         private System.Windows.Forms.BindingSource bindingSource1;
+        private System.Windows.Forms.Button button1;
     }
 }

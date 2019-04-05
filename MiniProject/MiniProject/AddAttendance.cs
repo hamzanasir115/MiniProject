@@ -282,7 +282,7 @@ namespace MiniProject
                 MessageBox.Show("Data Deleted Succesfully");
                 constring.Close();
 
-                String cmd = "SELECT * FROM Assessment";
+                String cmd = "SELECT * FROM StudentAttendance";
                 command.Parameters.Add(new SqlParameter("0", 1));
                 constring.Open();
                 SqlDataReader reader = command.ExecuteReader();

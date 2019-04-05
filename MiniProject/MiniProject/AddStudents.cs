@@ -535,14 +535,29 @@ namespace MiniProject
             {
                 //this.datastudent.Rows.RemoveAt(e.RowIndex);
                 int row = e.RowIndex;
-               // int id = Convert.ToInt32(datastudent.Rows[row].Cells[0].Value);
+                // int id = Convert.ToInt32(datastudent.Rows[row].Cells[0].Value);
                 //var id = datastudent.Rows[e.RowIndex].Cells[0].Value;
+                string query1 = "Delete from StudentAttendance where StudentId = @id";
+                SqlCommand command1 = new SqlCommand(query1, conn);
+                command1.Parameters.Add(new SqlParameter("@Id", Id));
+                command1.ExecuteReader();
+                //MessageBox.Show("Data Deleted Succesfully");
+                //conn.Close();
+
+                string query2 = "Delete from StudentResult where Id = @id";
+                SqlCommand command2 = new SqlCommand(query2, conn);
+                command2.Parameters.Add(new SqlParameter("@Id", Id));
+                command2.ExecuteReader();
+                //MessageBox.Show("Data Deleted Succesfully");
+                //conn.Close();
+
+
                 string query = "Delete from Student where Id = @id";
                 SqlCommand command = new SqlCommand(query, conn);
                 command.Parameters.Add(new SqlParameter("@Id", Id));
                 command.ExecuteReader();
                 MessageBox.Show("Data Deleted Succesfully");
-                conn.Close();
+                //conn.Close();
 
                 String cmd = "SELECT * FROM Student";
                 //command = new SqlCommand(cmd, conn);

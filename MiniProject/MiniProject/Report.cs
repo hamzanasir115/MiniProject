@@ -24,12 +24,66 @@ namespace MiniProject
         SqlConnection con = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
         private void Report_Load(object sender, EventArgs e)
         {
+            string query1 = "SELECT Student.RegistrationNumber, Clo.Name AS CLONAME, Rubric.Details AS RubricDetails, RubricLevel.MeasurementLevel, AssessmentComponent.Name, AssessmentComponent.TotalMarks AS ComponentMarks FROM StudentResult JOIN Student ON StudentResult.StudentId = Student.Id JOIN StudentAttendance ON Student.Id = StudentAttendance.StudentId JOIN RubricLevel ON StudentResult.RubricMeasurementId = RubricLevel.Id JOIN AssessmentComponent ON StudentResult.AssessmentComponentId = AssessmentComponent.Id JOIN Rubric ON AssessmentComponent.RubricId = Rubric.Id JOIN Clo ON Rubric.CloId = Clo.Id";
+            SqlDataAdapter d = new SqlDataAdapter(query1, con);
+            DataTable dt = new DataTable();
+            d.Fill(dt);
+            dataGridView1.DataSource = dt;
+            int count = dataGridView1.RowCount;
+            for (int i = 0; i < count; i++)
+            {
+                double k = Convert.ToDouble(dataGridView1.Rows[i].Cells["ComponentMarks"].Value);
+                double l = Convert.ToDouble(dataGridView1.Rows[i].Cells["MeasurementLevel"].Value);
+                double marks = Convert.ToDouble((l / 4) * k);
+                dataGridView1.Rows[i].Cells["ObtainedMarks"].Value = marks;
+            }
+
             bindgrid();
+
+            string query2 = "SELECT Student.RegistrationNumber, Assessment.Title, AssessmentComponent.Name As AssessmentComponent, RubricLevel.MeasurementLevel, AssessmentComponent.TotalMarks AS ComponentMarks FROM StudentResult JOIN Student ON StudentResult.StudentId = Student.Id JOIN StudentAttendance ON Student.Id = StudentAttendance.StudentId JOIN RubricLevel ON StudentResult.RubricMeasurementId = RubricLevel.Id JOIN AssessmentComponent ON StudentResult.AssessmentComponentId = AssessmentComponent.Id JOIN Assessment ON AssessmentComponent.AssessmentId = Assessment.Id";
+            SqlDataAdapter d1 = new SqlDataAdapter(query2, con);
+            DataTable dt1 = new DataTable();
+            d1.Fill(dt1);
+            dataGridView2.DataSource = dt1;
+            int count1 = dataGridView2.RowCount;
+            for (int i = 0; i < count1; i++)
+            {
+                double k = Convert.ToDouble(dataGridView2.Rows[i].Cells["ComponentMarks"].Value);
+                double l = Convert.ToDouble(dataGridView2.Rows[i].Cells["MeasurementLevel"].Value);
+                double marks = Convert.ToDouble((l / 4) * k);
+                dataGridView2.Rows[i].Cells["Marks"].Value = marks;
+            }
+
+            bindgrid1();
+
+
         }
         private void bindgrid()
         {
 
-            string query1 = "Select * FROM Student";
+            string query1 = "SELECT Student.RegistrationNumber, Clo.Name AS CLONAME, Rubric.Details AS RubricDetails, RubricLevel.MeasurementLevel, AssessmentComponent.Name, AssessmentComponent.TotalMarks AS ComponentMarks FROM StudentResult JOIN Student ON StudentResult.StudentId = Student.Id JOIN StudentAttendance ON Student.Id = StudentAttendance.StudentId JOIN RubricLevel ON StudentResult.RubricMeasurementId = RubricLevel.Id JOIN AssessmentComponent ON StudentResult.AssessmentComponentId = AssessmentComponent.Id JOIN Rubric ON AssessmentComponent.RubricId = Rubric.Id JOIN Clo ON Rubric.CloId = Clo.Id";
+            SqlCommand cmd1 = new SqlCommand(query1, con);
+
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter();
+                da.SelectCommand = cmd1;
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                BindingSource source = new BindingSource();
+                source.DataSource = dt;
+                dataGridView1.DataSource = source;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+        private void bindgrid1()
+        {
+
+            string query1 = "SELECT Student.RegistrationNumber, Assessment.Title, AssessmentComponent.Name As AssessmentComponent, RubricLevel.MeasurementLevel, AssessmentComponent.TotalMarks AS ComponentMarks FROM StudentResult JOIN Student ON StudentResult.StudentId = Student.Id JOIN StudentAttendance ON Student.Id = StudentAttendance.StudentId JOIN RubricLevel ON StudentResult.RubricMeasurementId = RubricLevel.Id JOIN AssessmentComponent ON StudentResult.AssessmentComponentId = AssessmentComponent.Id JOIN Assessment ON AssessmentComponent.AssessmentId = Assessment.Id";
             SqlCommand cmd1 = new SqlCommand(query1, con);
 
             try
@@ -100,6 +154,30 @@ namespace MiniProject
         private void btnreport_Click(object sender, EventArgs e)
         {
             exportgridtopdf(dataGridView1, "Report Evaluations");
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+            string query1 = "SELECT Student.RegistrationNumber, Assessment.Title, AssessmentComponent.Name As AssessmentComponent, RubricLevel.MeasurementLevel, AssessmentComponent.TotalMarks AS ComponentMarks FROM StudentResult JOIN Student ON StudentResult.StudentId = Student.Id JOIN StudentAttendance ON Student.Id = StudentAttendance.StudentId JOIN RubricLevel ON StudentResult.RubricMeasurementId = RubricLevel.Id JOIN AssessmentComponent ON StudentResult.AssessmentComponentId = AssessmentComponent.Id JOIN Assessment ON AssessmentComponent.AssessmentId = Assessment.Id";
+            SqlDataAdapter d = new SqlDataAdapter(query1, con);
+            DataTable dt = new DataTable();
+            d.Fill(dt);
+            dataGridView2.DataSource = dt;
+            int count = dataGridView2.RowCount;
+            for (int i = 0; i < count; i++)
+            {
+                double k = Convert.ToDouble(dataGridView2.Rows[i].Cells["ComponentMarks"].Value);
+                double l = Convert.ToDouble(dataGridView2.Rows[i].Cells["MeasurementLevel"].Value);
+                double marks = Convert.ToDouble((l / 4) * k);
+                dataGridView2.Rows[i].Cells["Marks"].Value = marks;
+            }
+
+            bindgrid1();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            exportgridtopdf(dataGridView2, "Report Evaluations");
         }
     }
 }

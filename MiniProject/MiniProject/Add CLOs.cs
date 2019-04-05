@@ -171,6 +171,91 @@ namespace MiniProject
             if (e.ColumnIndex == dataGridView1.Columns["delete"].Index)
             {
                 conn.Open();
+                int[] rubric = new int[5];
+                int i = 0;
+                int[] assessment = new int[20];
+                string qeury = "Select Id from Rubric where CLoId = '"+ id+ "'";
+                SqlCommand com = new SqlCommand(qeury, conn);
+                com.Parameters.Add(new SqlParameter("0", 1));
+                SqlDataReader r = com.ExecuteReader();
+                while (r.Read())
+                {
+                    rubric[i] = Convert.ToInt32(r[0]);
+                    i++;
+                }
+                
+                foreach (int rubricid in rubric)
+                {
+                    int k = 0;
+                    int[] rubriclvl = new int[5];
+                    string qeury1 = "Select Id from RubricLevel where RubricId = "+ rubricid +"";
+                    SqlCommand com1 = new SqlCommand(qeury1, conn);
+                    com1.Parameters.Add(new SqlParameter("0", 1));
+                    SqlDataReader r1 = com1.ExecuteReader();
+                    while (r1.Read())
+                    {
+                        rubriclvl[i] = Convert.ToInt32(r1[0]);
+                        i++;
+                    }
+                    foreach (int levelid in rubriclvl)
+                    {
+                        string qeury2 = "Delete from StudentResult where RubricMeasurementId = " + levelid + "";
+                        SqlCommand com2 = new SqlCommand(qeury2, conn);
+                        com2.ExecuteNonQuery();
+
+                    }
+                    string qeury3 = "Delete from RubricLevel where Rubricid = " + rubricid + "";
+                    SqlCommand com3 = new SqlCommand(qeury3, conn);
+                    com3.ExecuteNonQuery();
+                }
+                foreach(int rubricid in rubric)
+                {
+                    int k = 0;
+                    int[] assessmentlvl = new int[5];
+                    string qeury1 = "Select Id from AssessmentComponent where RubricId = " + rubricid + "";
+                    SqlCommand com1 = new SqlCommand(qeury1, conn);
+                    com1.Parameters.Add(new SqlParameter("0", 1));
+                    SqlDataReader r1 = com1.ExecuteReader();
+                    while (r1.Read())
+                    {
+                        assessmentlvl[i] = Convert.ToInt32(r1[0]);
+                        i++;
+                    }
+                    foreach (int assessmentid in assessmentlvl)
+                    {
+                        string qeury2 = "Delete from StudentResult where AssessmentComponentId = " + assessmentid + "";
+                        SqlCommand com2 = new SqlCommand(qeury2, conn);
+                        com2.ExecuteNonQuery();
+
+                    }
+                    string qeury3 = "Delete from AssessmentComponent where Rubricid = " + rubricid + "";
+                    SqlCommand com3 = new SqlCommand(qeury3, conn);
+                    com3.ExecuteNonQuery();
+                }
+
+                string qeury4 = "Delete from Rubric where Cloid = '" + id + "'";
+                SqlCommand com4 = new SqlCommand(qeury4, conn);
+                com4.ExecuteNonQuery();
+
+                string qeury5 = "Delete from Clo where Id = '" + id + "'";
+                SqlCommand com5 = new SqlCommand(qeury5, conn);
+                com5.ExecuteNonQuery();
+                MessageBox.Show("Data Deleted Succesfully");
+                String cmd = "SELECT * FROM Clo";
+                SqlCommand command = new SqlCommand(cmd, conn);
+                command.Parameters.Add(new SqlParameter("0", 1));
+                SqlDataReader reader = command.ExecuteReader();
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd, conn);
+                DataTable view = new DataTable();
+                adapter.Fill(view);
+                dataGridView1.DataSource = view;
+                conn.Close();
+
+
+
+
+
+                /*
                 string qr = "SELECT Id FROM Rubric WHERE CloId = @id";
                 //string qr = "Delete from RubricLevel where RubricId in (SELECT RubricId FROM RubricLevel WHERE RubricId= @id)";
                 SqlCommand command = new SqlCommand(qr, conn);
@@ -183,10 +268,10 @@ namespace MiniProject
                 {
                     //conn.Open();
                     int read = Convert.ToInt32(reader[0]);
-                    string qr3 = "DELETE FROM StudentResult WHERE AssessmentComponentId = @id2";
-                    command = new SqlCommand(qr3, conn);
-                    command.Parameters.Add(new SqlParameter("@id2", read));
-                    SqlDataReader extract = command.ExecuteReader();
+                    //string qr3 = "DELETE FROM StudentResult WHERE AssessmentComponentId = @id2";
+                    //command = new SqlCommand(qr3, conn);
+                    //command.Parameters.Add(new SqlParameter("@id2", read));
+                    //SqlDataReader extract = command.ExecuteReader();
                     string qr2 = "DELETE FROM AssessmentComponent WHERE RubricId = @id3";
                     command = new SqlCommand(qr2, conn);
                     command.Parameters.Add(new SqlParameter("@id3", read));
@@ -226,7 +311,7 @@ namespace MiniProject
                 DataTable view = new DataTable();
                 adapter.Fill(view);
                 dataGridView1.DataSource = view;
-                conn.Close();
+                conn.Close();*/
 
 
             }

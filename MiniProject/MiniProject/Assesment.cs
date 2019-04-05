@@ -278,6 +278,13 @@ namespace MiniProject
                 int row = e.RowIndex;
                 var item = dataGridView2.Rows[e.RowIndex].Cells[0].Value;
                 //int id5 = Convert.ToInt32(dataGridView2.Rows[row].Cells[0].Value);
+                string query1 = "Delete from dbo.StudentResult where AssessmentComponentId = @id";
+                SqlCommand command1 = new SqlCommand(query1, conn);
+                command1.Parameters.Add(new SqlParameter("@id", id));
+                SqlDataReader reader1 = command1.ExecuteReader();
+                //MessageBox.Show("Data Deleted Succesfully");
+                conn.Close();
+                conn.Open();
                 string query = "Delete from AssessmentComponent where Id = @id";
                 SqlCommand command = new SqlCommand(query, conn);
                 command.Parameters.Add(new SqlParameter("@id", id));

@@ -543,7 +543,7 @@
             this.Editt,
             this.Deletee});
             this.dataGridView2.DataSource = this.assessmentComponentBindingSource;
-            this.dataGridView2.Location = new System.Drawing.Point(6, 85);
+            this.dataGridView2.Location = new System.Drawing.Point(-19, 82);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(649, 247);
             this.dataGridView2.TabIndex = 1;

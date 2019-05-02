@@ -274,6 +274,7 @@
             // cmbselect
             // 
             this.cmbselect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbselect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbselect.FormattingEnabled = true;
             this.cmbselect.Location = new System.Drawing.Point(151, 69);
             this.cmbselect.Name = "cmbselect";
@@ -394,8 +395,8 @@
             // 
             // button2
             // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.button2.Location = new System.Drawing.Point(435, 70);
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.Location = new System.Drawing.Point(88, 209);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 10;

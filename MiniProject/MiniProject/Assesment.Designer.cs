@@ -292,7 +292,7 @@
             this.btnassesment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.btnassesment.Location = new System.Drawing.Point(76, 210);
             this.btnassesment.Name = "btnassesment";
-            this.btnassesment.Size = new System.Drawing.Size(75, 23);
+            this.btnassesment.Size = new System.Drawing.Size(108, 23);
             this.btnassesment.TabIndex = 10;
             this.btnassesment.Text = "Add Assesment";
             this.btnassesment.UseVisualStyleBackColor = true;
@@ -344,10 +344,10 @@
             // 
             // button1
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.button1.Location = new System.Drawing.Point(435, 93);
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Location = new System.Drawing.Point(76, 256);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(108, 23);
             this.button1.TabIndex = 12;
             this.button1.Text = "Report";
             this.button1.UseVisualStyleBackColor = true;

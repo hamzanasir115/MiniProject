@@ -143,9 +143,9 @@
             this.btnStudentResult.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnStudentResult.Location = new System.Drawing.Point(3, 313);
+            this.btnStudentResult.Location = new System.Drawing.Point(3, 368);
             this.btnStudentResult.Name = "btnStudentResult";
-            this.btnStudentResult.Size = new System.Drawing.Size(154, 57);
+            this.btnStudentResult.Size = new System.Drawing.Size(154, 73);
             this.btnStudentResult.TabIndex = 5;
             this.btnStudentResult.Text = "Student Result";
             this.btnStudentResult.UseVisualStyleBackColor = true;
@@ -156,9 +156,9 @@
             this.btnAttendance.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAttendance.Location = new System.Drawing.Point(3, 251);
+            this.btnAttendance.Location = new System.Drawing.Point(3, 295);
             this.btnAttendance.Name = "btnAttendance";
-            this.btnAttendance.Size = new System.Drawing.Size(154, 56);
+            this.btnAttendance.Size = new System.Drawing.Size(154, 67);
             this.btnAttendance.TabIndex = 4;
             this.btnAttendance.Text = "Attendance";
             this.btnAttendance.UseVisualStyleBackColor = true;
@@ -169,9 +169,9 @@
             this.btnAssessment.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAssessment.Location = new System.Drawing.Point(3, 189);
+            this.btnAssessment.Location = new System.Drawing.Point(3, 222);
             this.btnAssessment.Name = "btnAssessment";
-            this.btnAssessment.Size = new System.Drawing.Size(154, 56);
+            this.btnAssessment.Size = new System.Drawing.Size(154, 67);
             this.btnAssessment.TabIndex = 3;
             this.btnAssessment.Text = "Assessment";
             this.btnAssessment.UseVisualStyleBackColor = true;
@@ -182,9 +182,9 @@
             this.btnRubric.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRubric.Location = new System.Drawing.Point(3, 127);
+            this.btnRubric.Location = new System.Drawing.Point(3, 149);
             this.btnRubric.Name = "btnRubric";
-            this.btnRubric.Size = new System.Drawing.Size(154, 56);
+            this.btnRubric.Size = new System.Drawing.Size(154, 67);
             this.btnRubric.TabIndex = 2;
             this.btnRubric.Text = "Rubric";
             this.btnRubric.UseVisualStyleBackColor = true;
@@ -200,7 +200,7 @@
             this.tabControl1.Location = new System.Drawing.Point(3, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(664, 361);
+            this.tabControl1.Size = new System.Drawing.Size(664, 432);
             this.tabControl1.TabIndex = 16;
             // 
             // tabPage1
@@ -223,17 +223,17 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(656, 335);
+            this.tabPage1.Size = new System.Drawing.Size(656, 406);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Add Students";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.button1.Location = new System.Drawing.Point(484, 99);
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Location = new System.Drawing.Point(168, 365);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(106, 23);
             this.button1.TabIndex = 29;
             this.button1.Text = "Report";
             this.button1.UseVisualStyleBackColor = true;
@@ -243,7 +243,7 @@
             // 
             this.cmbstatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbstatus.FormattingEnabled = true;
-            this.cmbstatus.Location = new System.Drawing.Point(239, 254);
+            this.cmbstatus.Location = new System.Drawing.Point(239, 290);
             this.cmbstatus.Name = "cmbstatus";
             this.cmbstatus.Size = new System.Drawing.Size(94, 21);
             this.cmbstatus.TabIndex = 28;
@@ -254,7 +254,7 @@
             // 
             this.empty.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.empty.AutoSize = true;
-            this.empty.Location = new System.Drawing.Point(77, 86);
+            this.empty.Location = new System.Drawing.Point(77, 122);
             this.empty.Name = "empty";
             this.empty.Size = new System.Drawing.Size(36, 13);
             this.empty.TabIndex = 27;
@@ -264,7 +264,7 @@
             // 
             this.lblstatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblstatus.AutoSize = true;
-            this.lblstatus.Location = new System.Drawing.Point(77, 262);
+            this.lblstatus.Location = new System.Drawing.Point(77, 298);
             this.lblstatus.Name = "lblstatus";
             this.lblstatus.Size = new System.Drawing.Size(37, 13);
             this.lblstatus.TabIndex = 24;
@@ -273,7 +273,7 @@
             // btnadd
             // 
             this.btnadd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnadd.Location = new System.Drawing.Point(143, 307);
+            this.btnadd.Location = new System.Drawing.Point(168, 328);
             this.btnadd.Name = "btnadd";
             this.btnadd.Size = new System.Drawing.Size(106, 23);
             this.btnadd.TabIndex = 13;
@@ -285,7 +285,7 @@
             // 
             this.lblregistration.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblregistration.AutoSize = true;
-            this.lblregistration.Location = new System.Drawing.Point(76, 214);
+            this.lblregistration.Location = new System.Drawing.Point(76, 250);
             this.lblregistration.Name = "lblregistration";
             this.lblregistration.Size = new System.Drawing.Size(103, 13);
             this.lblregistration.TabIndex = 23;
@@ -295,7 +295,7 @@
             // 
             this.lblemail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblemail.AutoSize = true;
-            this.lblemail.Location = new System.Drawing.Point(76, 160);
+            this.lblemail.Location = new System.Drawing.Point(76, 196);
             this.lblemail.Name = "lblemail";
             this.lblemail.Size = new System.Drawing.Size(32, 13);
             this.lblemail.TabIndex = 22;
@@ -305,7 +305,7 @@
             // 
             this.lblcontact.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblcontact.AutoSize = true;
-            this.lblcontact.Location = new System.Drawing.Point(76, 112);
+            this.lblcontact.Location = new System.Drawing.Point(76, 148);
             this.lblcontact.Name = "lblcontact";
             this.lblcontact.Size = new System.Drawing.Size(44, 13);
             this.lblcontact.TabIndex = 21;
@@ -315,7 +315,7 @@
             // 
             this.lblsecond.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblsecond.AutoSize = true;
-            this.lblsecond.Location = new System.Drawing.Point(76, 59);
+            this.lblsecond.Location = new System.Drawing.Point(76, 95);
             this.lblsecond.Name = "lblsecond";
             this.lblsecond.Size = new System.Drawing.Size(58, 13);
             this.lblsecond.TabIndex = 20;
@@ -325,7 +325,7 @@
             // 
             this.lblfirst.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblfirst.AutoSize = true;
-            this.lblfirst.Location = new System.Drawing.Point(76, 8);
+            this.lblfirst.Location = new System.Drawing.Point(76, 44);
             this.lblfirst.Name = "lblfirst";
             this.lblfirst.Size = new System.Drawing.Size(57, 13);
             this.lblfirst.TabIndex = 19;
@@ -334,7 +334,7 @@
             // txtregister
             // 
             this.txtregister.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtregister.Location = new System.Drawing.Point(239, 211);
+            this.txtregister.Location = new System.Drawing.Point(239, 247);
             this.txtregister.Name = "txtregister";
             this.txtregister.Size = new System.Drawing.Size(94, 20);
             this.txtregister.TabIndex = 17;
@@ -343,7 +343,7 @@
             // txtemail
             // 
             this.txtemail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtemail.Location = new System.Drawing.Point(239, 153);
+            this.txtemail.Location = new System.Drawing.Point(239, 189);
             this.txtemail.Name = "txtemail";
             this.txtemail.Size = new System.Drawing.Size(94, 20);
             this.txtemail.TabIndex = 16;
@@ -352,7 +352,7 @@
             // txtcontact
             // 
             this.txtcontact.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtcontact.Location = new System.Drawing.Point(239, 105);
+            this.txtcontact.Location = new System.Drawing.Point(239, 141);
             this.txtcontact.Name = "txtcontact";
             this.txtcontact.Size = new System.Drawing.Size(94, 20);
             this.txtcontact.TabIndex = 15;
@@ -361,7 +361,7 @@
             // txtlast
             // 
             this.txtlast.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtlast.Location = new System.Drawing.Point(239, 52);
+            this.txtlast.Location = new System.Drawing.Point(239, 88);
             this.txtlast.Name = "txtlast";
             this.txtlast.Size = new System.Drawing.Size(94, 20);
             this.txtlast.TabIndex = 14;
@@ -371,7 +371,7 @@
             // txtfirst
             // 
             this.txtfirst.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtfirst.Location = new System.Drawing.Point(239, 1);
+            this.txtfirst.Location = new System.Drawing.Point(239, 37);
             this.txtfirst.Name = "txtfirst";
             this.txtfirst.Size = new System.Drawing.Size(94, 20);
             this.txtfirst.TabIndex = 13;
@@ -494,9 +494,9 @@
             this.btnCLO.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCLO.Location = new System.Drawing.Point(3, 65);
+            this.btnCLO.Location = new System.Drawing.Point(3, 76);
             this.btnCLO.Name = "btnCLO";
-            this.btnCLO.Size = new System.Drawing.Size(154, 56);
+            this.btnCLO.Size = new System.Drawing.Size(154, 67);
             this.btnCLO.TabIndex = 1;
             this.btnCLO.Text = "Clo";
             this.btnCLO.UseVisualStyleBackColor = true;
@@ -509,7 +509,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnStudent.Location = new System.Drawing.Point(3, 3);
             this.btnStudent.Name = "btnStudent";
-            this.btnStudent.Size = new System.Drawing.Size(154, 56);
+            this.btnStudent.Size = new System.Drawing.Size(154, 67);
             this.btnStudent.TabIndex = 0;
             this.btnStudent.Text = "Student";
             this.btnStudent.UseVisualStyleBackColor = true;
@@ -527,7 +527,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(670, 367);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(670, 438);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
             // rubricBindingSource
@@ -596,7 +596,7 @@
             this.tablelst.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tablelst.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 373F));
             this.tablelst.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 373F));
-            this.tablelst.Size = new System.Drawing.Size(676, 373);
+            this.tablelst.Size = new System.Drawing.Size(676, 444);
             this.tablelst.TabIndex = 12;
             // 
             // rubricLevelTableAdapter1
@@ -708,14 +708,14 @@
             this.tablelstudent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tablelstudent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tablelstudent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tablelstudent.Size = new System.Drawing.Size(160, 373);
+            this.tablelstudent.Size = new System.Drawing.Size(160, 444);
             this.tablelstudent.TabIndex = 11;
             // 
             // AddStudents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(841, 443);
+            this.ClientSize = new System.Drawing.Size(841, 514);
             this.Controls.Add(this.tablelst);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tablelstudent);

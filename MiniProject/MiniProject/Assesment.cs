@@ -98,13 +98,7 @@ namespace MiniProject
             this.assessmentComponentTableAdapter.Fill(this.projectBDataSet10.AssessmentComponent);
             // TODO: This line of code loads data into the 'projectBDataSet9.Assessment' table. You can move, or remove it, as needed.
             this.assessmentTableAdapter.Fill(this.projectBDataSet9.Assessment);
-            // TODO: This line of code loads data into the 'projectBDataSet5.AssessmentComponent' table. You can move, or remove it, as needed.
-           // this.assessmentComponentTableAdapter.Fill(this.projectBDataSet5.AssessmentComponent);
-            // TODO: This line of code loads data into the 'projectBDataSet4.Assessment' table. You can move, or remove it, as needed.
-            //this.assessmentTableAdapter.Fill(this.projectBDataSet4.Assessment);
             btnupdate.Hide();
-            //label1.Hide();
-            //button1.Hide();
             btnupdates.Hide();
             SqlConnection conn = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
             conn.Open();
@@ -114,7 +108,6 @@ namespace MiniProject
             SqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
-                // Console.WriteLine(cmbselect reader[0] + " " + reader[1]);
                 cmbassesmentid.Items.Add(reader[0]);
             }
             conn.Close();
@@ -125,7 +118,6 @@ namespace MiniProject
             SqlDataReader re = cd.ExecuteReader();
             while (re.Read())
             {
-                // Console.WriteLine(cmbselect reader[0] + " " + reader[1]);
                 cmbrubricid.Items.Add(re[0]);
             }
             conn.Close();
@@ -181,10 +173,7 @@ namespace MiniProject
             {
                 int row = e.RowIndex;
                 id = Convert.ToInt32(dataGridView1.Rows[row].Cells[0].Value);
-                //int id = Convert.ToInt32(id1);
                 txttitle.Text = dataGridView1.Rows[e.RowIndex].Cells[1].FormattedValue.ToString();
-
-                //int id = Convert.ToInt32(id1);
                 txtmarks.Text = dataGridView1.Rows[e.RowIndex].Cells[3].FormattedValue.ToString();
                 txtweightage.Text = dataGridView1.Rows[e.RowIndex].Cells[4].FormattedValue.ToString();
                 btnassesment.Hide();
@@ -195,15 +184,12 @@ namespace MiniProject
 
         private void btnupdate_Click(object sender, EventArgs e)
         {
-            //int id = Convert.ToInt32(label1.Text);
             bool IsValidTitle = false;
             IsValidTitle = IsString(txttitle.Text);
             if (IsValidTitle == true)
             {
                 SqlConnection constring = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
                 constring.Open();
-                //int id = Convert.ToInt32(label1.Text);
-
                 string Query = "Update Assessment Set Title ='" + txttitle.Text + "', DateCreated ='" + DateTime.Now + "', TotalMarks = '" + txtmarks.Text + "', TotalWeightage ='" + txtweightage.Text + "' where id ='" + id + "' ";
                 SqlCommand command = new SqlCommand(Query, constring);
                 command.ExecuteNonQuery();
@@ -270,17 +256,6 @@ namespace MiniProject
 
         private void button1_Click(object sender, EventArgs e)
         {
-           /* SqlConnection conn = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
-            String cmd = "SELECT * FROM AssessmentComponent";
-            SqlCommand command = new SqlCommand(cmd, conn);
-            command.Parameters.Add(new SqlParameter("0", 1));
-            conn.Open();
-            SqlDataReader reader = command.ExecuteReader();
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd, conn);
-            DataTable view = new DataTable();
-            adapter.Fill(view);
-            dataGridView2.DataSource = view;
-            conn.Close(); */
         }
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -293,12 +268,10 @@ namespace MiniProject
                 this.dataGridView2.Rows.RemoveAt(e.RowIndex);
                 int row = e.RowIndex;
                 var item = dataGridView2.Rows[e.RowIndex].Cells[0].Value;
-                //int id5 = Convert.ToInt32(dataGridView2.Rows[row].Cells[0].Value);
                 string query1 = "Delete from dbo.StudentResult where AssessmentComponentId = @id";
                 SqlCommand command1 = new SqlCommand(query1, conn);
                 command1.Parameters.Add(new SqlParameter("@id", id));
                 SqlDataReader reader1 = command1.ExecuteReader();
-                //MessageBox.Show("Data Deleted Succesfully");
                 conn.Close();
                 conn.Open();
                 string query = "Delete from AssessmentComponent where Id = @id";
@@ -311,7 +284,6 @@ namespace MiniProject
             if (e.ColumnIndex == dataGridView2.Columns["Editt"].Index)
             {
                 string id2 = dataGridView2.Rows[e.RowIndex].Cells[0].FormattedValue.ToString();
-                //id5 = Convert.ToInt32(id2);
                 txtname.Text = dataGridView2.Rows[e.RowIndex].Cells[1].FormattedValue.ToString();
                 cmbrubricid.Text = dataGridView2.Rows[e.RowIndex].Cells[2].FormattedValue.ToString();
                 txttotalmarks.Text = dataGridView2.Rows[e.RowIndex].Cells[3].FormattedValue.ToString();

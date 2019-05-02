@@ -33,10 +33,7 @@ namespace MiniProject
 
         private void AddAttendance_Load(object sender, EventArgs e)
         {
-
-            // TODO: This line of code loads data into the 'projectBDataSet7.StudentAttendance' table. You can move, or remove it, as needed.
             this.studentAttendanceTableAdapter.Fill(this.projectBDataSet7.StudentAttendance);
-            // TODO: This line of code loads data into the 'projectBDataSet6.ClassAttendance' table. You can move, or remove it, as needed.
             this.classAttendanceTableAdapter.Fill(this.projectBDataSet6.ClassAttendance);
             btnupdate.Hide();
             btnupdates.Hide();
@@ -84,7 +81,6 @@ namespace MiniProject
                 SqlDataReader reader = command.ExecuteReader();
                 MessageBox.Show("Class Attendance Added");
                 constring.Close();
-                //SqlConnection conn = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
                 cmd = "SELECT * FROM ClassAttendance";
                 command = new SqlCommand(cmd, constring);
                 command.Parameters.Add(new SqlParameter("0", 1));
@@ -112,11 +108,9 @@ namespace MiniProject
                 this.datadate.Rows.RemoveAt(e.RowIndex);
                 int row = e.RowIndex;
                 var item = datadate.Rows[e.RowIndex].Cells[0].Value;
-                //int id5 = Convert.ToInt32(dataGridView2.Rows[row].Cells[0].Value);
                 string query1 = "Delete from StudentAttendance where AttendanceId = @id1";
                 SqlCommand command = new SqlCommand(query1, conn);
                 command.Parameters.Add(new SqlParameter("@id", id));
-               // SqlDataReader reader = command.ExecuteReader();
                 string query = "Delete from ClassAttendance where Id = @id1";
                 SqlCommand command1 = new SqlCommand(query, conn);
                 command.Parameters.Add(new SqlParameter("@id1", id));
@@ -128,13 +122,11 @@ namespace MiniProject
             if (e.ColumnIndex == datadate.Columns["Edit"].Index)
             {
                 string t = datadate.Rows[e.RowIndex].Cells[0].FormattedValue.ToString();
-                //int id5 = Convert.ToInt32(t);
                 string date = datadate.Rows[e.RowIndex].Cells[1].FormattedValue.ToString();
                 DateTime dat = Convert.ToDateTime(date);
                 Attendencepick.SetDate(dat);
                 btndate.Hide();
                 btnupdate.Show();
-                //tabPage1.Show();
             }
         }
 
@@ -163,7 +155,6 @@ namespace MiniProject
         {
             constring.Open();
             string query3 = "SELECT Id FROM Student WHERE RegistrationNumber = '" + cmbstdid.Text + "'";
-            //constring.Open();
             SqlCommand cmdDataBase3 = new SqlCommand(query3, constring);
             SqlDataReader myreader3;
             cmdDataBase3.Parameters.Add(new SqlParameter("0", 1));
@@ -204,7 +195,6 @@ namespace MiniProject
             string query5 = "Insert into StudentAttendance(AttendanceId,StudentId,AttendanceStatus) values('" + att_id + "','" + sid + "','" + lookid + "')";
 
             SqlCommand cmdDataBase = new SqlCommand(query5, constring);
-            //SqlDataReader myreader;
             SqlDataReader myreader = cmdDataBase.ExecuteReader();
             MessageBox.Show("Attendance has been Marked");
             constring.Close();
@@ -314,7 +304,6 @@ namespace MiniProject
             string query = "SELECT LookupId FROM Lookup WHERE Name = '" + cmbattstatus.Text + "'";
             SqlCommand cmdDataBase2 = new SqlCommand(query, constring);
             SqlDataReader myreader2;
-            //constring.Open();
             cmdDataBase2.Parameters.Add(new SqlParameter("0", 1));
             myreader2 = cmdDataBase2.ExecuteReader();
             while (myreader2.Read())
@@ -329,24 +318,19 @@ namespace MiniProject
             string query3 = "SELECT Id FROM ClassAttendance WHERE AttendanceDate = '" + d1 + "'";
             SqlCommand cmdDataBase3 = new SqlCommand(query3, constring);
             SqlDataReader myreader3;
-            //constring.Open();
             cmdDataBase3.Parameters.Add(new SqlParameter("0", 1));
             myreader3 = cmdDataBase3.ExecuteReader();
             while (myreader3.Read())
             {
                 update_attendance = Convert.ToInt32(myreader3[0]);
             }
-
-            //constring.Open();
             string Qeury = "Update StudentAttendance Set AttendanceId ='" + update_attendance + "',StudentId ='" + update_student + "',AttendanceStatus ='" + update_lookup + "' Where AttendanceId ='" + att_id + "' AND StudentId ='"+ sid+"' ";
             SqlCommand cmd = new SqlCommand(Qeury, constring);
             cmd.ExecuteNonQuery();
             MessageBox.Show("Attendance Updated");
-            //constring.Close();
             String query8 = "SELECT * FROM StudentAttendance";
             SqlCommand c = new SqlCommand(query8, constring);
             c.Parameters.Add(new SqlParameter("0", 1));
-            //constring.Open();
             SqlDataReader reader = c.ExecuteReader();
             SqlDataAdapter adapter = new SqlDataAdapter(query8, constring);
             DataTable view = new DataTable();
@@ -369,7 +353,6 @@ namespace MiniProject
         {
             cmbattid.Items.Clear();
             this.studentAttendanceTableAdapter.Fill(this.projectBDataSet7.StudentAttendance);
-            // TODO: This line of code loads data into the 'projectBDataSet6.ClassAttendance' table. You can move, or remove it, as needed.
             this.classAttendanceTableAdapter.Fill(this.projectBDataSet6.ClassAttendance);
             btnupdate.Hide();
             btnupdates.Hide();

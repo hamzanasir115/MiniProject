@@ -194,8 +194,8 @@ namespace MiniProject
                     SqlDataReader r1 = com1.ExecuteReader();
                     while (r1.Read())
                     {
-                        rubriclvl[i] = Convert.ToInt32(r1[0]);
-                        i++;
+                        rubriclvl[k] = Convert.ToInt32(r1[0]);
+                        k++;
                     }
                     foreach (int levelid in rubriclvl)
                     {
@@ -218,8 +218,8 @@ namespace MiniProject
                     SqlDataReader r1 = com1.ExecuteReader();
                     while (r1.Read())
                     {
-                        assessmentlvl[i] = Convert.ToInt32(r1[0]);
-                        i++;
+                        assessmentlvl[k] = Convert.ToInt32(r1[0]);
+                        k++;
                     }
                     foreach (int assessmentid in assessmentlvl)
                     {
@@ -250,77 +250,11 @@ namespace MiniProject
                 adapter.Fill(view);
                 dataGridView1.DataSource = view;
                 conn.Close();
-
-
-
-
-
-                /*
-                string qr = "SELECT Id FROM Rubric WHERE CloId = @id";
-                //string qr = "Delete from RubricLevel where RubricId in (SELECT RubricId FROM RubricLevel WHERE RubricId= @id)";
-                SqlCommand command = new SqlCommand(qr, conn);
-                command.Parameters.Add(new SqlParameter("@id", id));
-                SqlDataReader reader = command.ExecuteReader();
-
-                //conn.Close();
-
-                while (reader.Read())
-                {
-                    //conn.Open();
-                    int read = Convert.ToInt32(reader[0]);
-                    //string qr3 = "DELETE FROM StudentResult WHERE AssessmentComponentId = @id2";
-                    //command = new SqlCommand(qr3, conn);
-                    //command.Parameters.Add(new SqlParameter("@id2", read));
-                    //SqlDataReader extract = command.ExecuteReader();
-                    string qr2 = "DELETE FROM AssessmentComponent WHERE RubricId = @id3";
-                    command = new SqlCommand(qr2, conn);
-                    command.Parameters.Add(new SqlParameter("@id3", read));
-                    SqlDataReader extract2 = command.ExecuteReader();
-                    string qr1 = "DELETE FROM RubricLevel WHERE RubricId = @id1";
-                    command = new SqlCommand(qr1, conn);
-                    command.Parameters.Add(new SqlParameter("@id1", read));
-                    SqlDataReader extract1 = command.ExecuteReader();
-                    // conn.Close();
-                }
-                conn.Close();
-                conn.Open();
-                // this.dataGridView1.Rows.RemoveAt(e.RowIndex);
-                string qry = "Delete from Rubric where CloId in(SELECT CloId FROM Rubric WHERE CloId= @id2)";
-                command = new SqlCommand(qry, conn);
-                command.Parameters.Add(new SqlParameter("@id2", id));
-                reader = command.ExecuteReader();
-                conn.Close();
-
-                int row = e.RowIndex;
-                var item = dataGridView1.Rows[e.RowIndex].Cells[0].Value;
-                //int id = Convert.ToInt32(dataGridView1.Rows[row].Cells[0].Value);
-                conn.Open();
-                string query = "Delete from Clo where Id = @id2";
-                command = new SqlCommand(query, conn);
-                command.Parameters.Add(new SqlParameter("@id2", id));
-                reader = command.ExecuteReader();
-                MessageBox.Show("Data Deleted Succesfully");
-                conn.Close();
-
-                String cmd = "SELECT * FROM Clo";
-                command = new SqlCommand(cmd, conn);
-                command.Parameters.Add(new SqlParameter("0", 1));
-                conn.Open();
-                reader = command.ExecuteReader();
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd, conn);
-                DataTable view = new DataTable();
-                adapter.Fill(view);
-                dataGridView1.DataSource = view;
-                conn.Close();*/
-
-
             }
             else if (e.ColumnIndex == dataGridView1.Columns["Edit"].Index)
             {
                 string id1 = dataGridView1.Rows[e.RowIndex].Cells[0].FormattedValue.ToString();
-                //int id = Convert.ToInt32(id1);
                 txtname.Text = dataGridView1.Rows[e.RowIndex].Cells[1].FormattedValue.ToString();
-                //button1.Text = "Update";
                 button1.Hide();
                 btnUpdate.Show();
                 tabPage1.Show();
@@ -364,7 +298,6 @@ namespace MiniProject
             TextBox t = sender as TextBox;
             if (string.IsNullOrWhiteSpace(t.Text) == true)
             {
-                //MessageBox.Show("Invalid Information");
                 e.Cancel = false;
                 return;
             }

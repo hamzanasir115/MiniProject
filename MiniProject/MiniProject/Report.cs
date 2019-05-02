@@ -37,33 +37,12 @@ namespace MiniProject
                 double marks = Convert.ToDouble((l / 4) * k);
                 dataGridView1.Rows[i].Cells["ObtainedMarks"].Value = marks;
             }
-
-            //bindgrid();
-
-            //string query2 = "SELECT Student.RegistrationNumber, Assessment.Title, AssessmentComponent.Name As AssessmentComponent, RubricLevel.MeasurementLevel, AssessmentComponent.TotalMarks AS ComponentMarks FROM StudentResult JOIN Student ON StudentResult.StudentId = Student.Id JOIN StudentAttendance ON Student.Id = StudentAttendance.StudentId JOIN RubricLevel ON StudentResult.RubricMeasurementId = RubricLevel.Id JOIN AssessmentComponent ON StudentResult.AssessmentComponentId = AssessmentComponent.Id JOIN Assessment ON AssessmentComponent.AssessmentId = Assessment.Id";
-            //SqlDataAdapter d1 = new SqlDataAdapter(query2, con);
-            //DataTable dt1 = new DataTable();
-            //d1.Fill(dt1);
-            //dataGridView2.DataSource = dt1;
-            //int count1 = dataGridView2.RowCount;
-            //for (int i = 0; i < count1; i++)
-            //{
-            //    double k = Convert.ToDouble(dataGridView2.Rows[i].Cells["ComponentMarks"].Value);
-            //    double l = Convert.ToDouble(dataGridView2.Rows[i].Cells["MeasurementLevel"].Value);
-            //    double marks = Convert.ToDouble((l / 4) * k);
-            //    dataGridView2.Rows[i].Cells["Marks"].Value = marks;
-            //}
-
-            //bindgrid1();
-
-
         }
         private void bindgrid()
         {
 
             string query1 = "SELECT Student.RegistrationNumber, Clo.Name AS CLONAME, Rubric.Details AS RubricDetails, RubricLevel.MeasurementLevel, AssessmentComponent.Name, AssessmentComponent.TotalMarks AS ComponentMarks FROM StudentResult JOIN Student ON StudentResult.StudentId = Student.Id JOIN StudentAttendance ON Student.Id = StudentAttendance.StudentId JOIN RubricLevel ON StudentResult.RubricMeasurementId = RubricLevel.Id JOIN AssessmentComponent ON StudentResult.AssessmentComponentId = AssessmentComponent.Id JOIN Rubric ON AssessmentComponent.RubricId = Rubric.Id JOIN Clo ON Rubric.CloId = Clo.Id";
             SqlCommand cmd1 = new SqlCommand(query1, con);
-
             try
             {
                 SqlDataAdapter da = new SqlDataAdapter();
@@ -85,7 +64,6 @@ namespace MiniProject
 
             string query1 = "SELECT Student.RegistrationNumber, Assessment.Title, AssessmentComponent.Name As AssessmentComponent, RubricLevel.MeasurementLevel, AssessmentComponent.TotalMarks AS ComponentMarks FROM StudentResult JOIN Student ON StudentResult.StudentId = Student.Id JOIN StudentAttendance ON Student.Id = StudentAttendance.StudentId JOIN RubricLevel ON StudentResult.RubricMeasurementId = RubricLevel.Id JOIN AssessmentComponent ON StudentResult.AssessmentComponentId = AssessmentComponent.Id JOIN Assessment ON AssessmentComponent.AssessmentId = Assessment.Id";
             SqlCommand cmd1 = new SqlCommand(query1, con);
-
             try
             {
                 SqlDataAdapter da = new SqlDataAdapter();
@@ -106,16 +84,11 @@ namespace MiniProject
         {
             BaseFont bf = BaseFont.CreateFont(BaseFont.TIMES_BOLD, BaseFont.CP1250, BaseFont.EMBEDDED);
             PdfPTable pdftable1 = new PdfPTable(d.Columns.Count);
-
             pdftable1.DefaultCell.Padding = 2;
             pdftable1.WidthPercentage = 100;
             pdftable1.HorizontalAlignment = Element.ALIGN_LEFT;
             pdftable1.DefaultCell.BorderWidth = 1;
-
             iTextSharp.text.Font text = new iTextSharp.text.Font(bf, 10, iTextSharp.text.Font.NORMAL);
-
-
-            //Header
             foreach (DataGridViewColumn column in d.Columns)
             {
                 PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText, text));
@@ -123,8 +96,6 @@ namespace MiniProject
                 pdftable1.AddCell(cell);
 
             }
-
-            // Data Row
             foreach (DataGridViewRow row in d.Rows)
             {
                 foreach (DataGridViewCell cell in row.Cells)
@@ -158,21 +129,7 @@ namespace MiniProject
 
         private void tabPage2_Click(object sender, EventArgs e)
         {
-            //string query1 = "SELECT Student.RegistrationNumber, Assessment.Title, AssessmentComponent.Name As AssessmentComponent, RubricLevel.MeasurementLevel, AssessmentComponent.TotalMarks AS ComponentMarks FROM StudentResult JOIN Student ON StudentResult.StudentId = Student.Id JOIN StudentAttendance ON Student.Id = StudentAttendance.StudentId JOIN RubricLevel ON StudentResult.RubricMeasurementId = RubricLevel.Id JOIN AssessmentComponent ON StudentResult.AssessmentComponentId = AssessmentComponent.Id JOIN Assessment ON AssessmentComponent.AssessmentId = Assessment.Id";
-            //SqlDataAdapter d = new SqlDataAdapter(query1, con);
-            //DataTable dt = new DataTable();
-            //d.Fill(dt);
-            //dataGridView2.DataSource = dt;
-            //int count = dataGridView2.RowCount;
-            //for (int i = 0; i < count; i++)
-            //{
-            //    double k = Convert.ToDouble(dataGridView2.Rows[i].Cells["ComponentMarks"].Value);
-            //    double l = Convert.ToDouble(dataGridView2.Rows[i].Cells["MeasurementLevel"].Value);
-            //    double marks = Convert.ToDouble((l / 4) * k);
-            //    dataGridView2.Rows[i].Cells["Marks"].Value = marks;
-            //}
 
-           // bindgrid1();
         }
 
         private void button1_Click(object sender, EventArgs e)

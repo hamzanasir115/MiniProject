@@ -74,7 +74,6 @@ namespace MiniProject
                                 command.Parameters.Add(new SqlParameter("@email", email));
                                 command.Parameters.Add(new SqlParameter("@registration", registration));
                                 command.Parameters.Add(new SqlParameter("@status", status));
-                                //conn.Open();
                                 SqlDataReader reader = command.ExecuteReader();
                                 txtfirst.Text = "";
                                 txtlast.Text = "";
@@ -85,7 +84,6 @@ namespace MiniProject
                                 conn.Close();
                                 tabPage1.Hide();
                                 tabPage2.Show();
-                                //SqlConnection conn = new SqlConnection("Data Source =HAMZA; Initial Catalog =ProjectB; User ID =sa; Password =hamza; MultipleActiveResultSets = True");
                                 cmd = "SELECT * FROM Student";
                                 command = new SqlCommand(cmd, conn);
                                 command.Parameters.Add(new SqlParameter("0", 1));
@@ -124,18 +122,6 @@ namespace MiniProject
                 {
                     MessageBox.Show("Invalid FirstName");
                 }
-                //if (IsValidLastName == false && txtlast.Text.Length > 0)
-                //{
-                //    MessageBox.Show("Invalid LastName");
-                //}
-                //if (isValidContact == false && txtcontact.Text.Length > 0)
-                //{
-                //    MessageBox.Show("Invalid Contact Length");
-                //}
-                //if (isValidContactDigit == false)
-                //{
-                //    MessageBox.Show("Invalid Contact");
-                //}
                 if (Email == false)
                 {
                     MessageBox.Show("Invalid Email");
@@ -187,7 +173,6 @@ namespace MiniProject
                                 String cmd = String.Format("INSERT INTO Student(FirstName, LastName,Contact, Email, RegistrationNumber, Status) values('{0}','{1}','{2}','{3}','{4}','{5}')", firstname, lastname, contact, email, registration, status);
                                 SqlCommand command = new SqlCommand(cmd, conn);
                                 command.Parameters.Add(new SqlParameter("0", 1));
-                                //conn.Open();
                                 SqlDataReader reader = command.ExecuteReader();
                                 MessageBox.Show("Student has been added");
                                 txtfirst.Text = "";
@@ -222,18 +207,7 @@ namespace MiniProject
                 {
                     MessageBox.Show("Invalid FirstName");
                 }
-                //if (IsValidLastName == false && txtlast.Text.Length > 0)
-                //{
-                //    MessageBox.Show("Invalid LastName");
-                //}
-                //if (isValidContact == false && txtcontact.Text.Length > 0)
-                //{
-                //    MessageBox.Show("Invalid Contact Length");
-                //}
-                //if (isValidContactDigit == false)
-                //{
-                //    MessageBox.Show("Invalid Contact");
-                //}
+                
                 if (Email == false)
                 {
                     MessageBox.Show("Invalid Email");
@@ -508,8 +482,7 @@ namespace MiniProject
             command.Parameters.Add(new SqlParameter("0", 1));
             SqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
-            {
-                // Console.WriteLine(cmbselect reader[0] + " " + reader[1]);
+            { 
                 cmbstatus.Items.Add(reader[0]);
             }
             conn.Close();
@@ -533,23 +506,16 @@ namespace MiniProject
             conn.Open();
             if (e.ColumnIndex == datastudent.Columns["delete"].Index)
             {
-                //this.datastudent.Rows.RemoveAt(e.RowIndex);
                 int row = e.RowIndex;
-                // int id = Convert.ToInt32(datastudent.Rows[row].Cells[0].Value);
-                //var id = datastudent.Rows[e.RowIndex].Cells[0].Value;
                 string query1 = "Delete from StudentAttendance where StudentId = @id";
                 SqlCommand command1 = new SqlCommand(query1, conn);
                 command1.Parameters.Add(new SqlParameter("@Id", Id));
                 command1.ExecuteReader();
-                //MessageBox.Show("Data Deleted Succesfully");
-                //conn.Close();
 
                 string query2 = "Delete from StudentResult where Id = @id";
                 SqlCommand command2 = new SqlCommand(query2, conn);
                 command2.Parameters.Add(new SqlParameter("@Id", Id));
                 command2.ExecuteReader();
-                //MessageBox.Show("Data Deleted Succesfully");
-                //conn.Close();
 
 
                 string query = "Delete from Student where Id = @id";
@@ -557,10 +523,8 @@ namespace MiniProject
                 command.Parameters.Add(new SqlParameter("@Id", Id));
                 command.ExecuteReader();
                 MessageBox.Show("Data Deleted Succesfully");
-                //conn.Close();
 
                 String cmd = "SELECT * FROM Student";
-                //command = new SqlCommand(cmd, conn);
                 command.Parameters.Add(new SqlParameter("0", 1));
                 conn.Open();
                 SqlDataReader reader = command.ExecuteReader();
@@ -573,14 +537,11 @@ namespace MiniProject
             else if (e.ColumnIndex == datastudent.Columns["Edit"].Index)
             {               
                 String cmd;
-                //var Id = datastudent.Rows[e.RowIndex].Cells[0].Value;
                 cmd = "SELECT * FROM Student WHERE Id = @Id";
 
                 SqlCommand command;
                 command = new SqlCommand(cmd, conn);
                 command.Parameters.Add(new SqlParameter("@Id", Id));
-                
-
                 SqlDataReader reader;
                 reader = command.ExecuteReader();
                 string first;

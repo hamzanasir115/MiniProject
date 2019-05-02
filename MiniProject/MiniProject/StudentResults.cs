@@ -49,7 +49,6 @@ namespace MiniProject
             cmbStudentId.Items.Clear();
             cmbTitle.Items.Clear();
             comboBox1.Items.Clear();
-            //textBox1.Hide();
             string query = "SELECT Id FROM Student";
             SqlCommand cmd = new SqlCommand(query, conn);
             SqlDataReader reader;
@@ -57,7 +56,6 @@ namespace MiniProject
             {
                 conn.Open();
                 reader = cmd.ExecuteReader();
-                //MessageBox.Show("Saved");
                 while (reader.Read())
                 {
                     cmbStudentId.Items.Add(reader[0]);
@@ -76,7 +74,6 @@ namespace MiniProject
             {
                 conn.Open();
                 reader1 = cmd1.ExecuteReader();
-                //MessageBox.Show("Saved");
                 while (reader1.Read())
                 {
                     cmbTitle.Items.Add(reader1[0]);
@@ -95,7 +92,6 @@ namespace MiniProject
             {
                 conn.Open();
                 reader3 = cmd3.ExecuteReader();
-                //MessageBox.Show("Saved");
                 while (reader3.Read())
                 {
                     cmbDetails.Items.Add(reader3[0]);
@@ -113,10 +109,8 @@ namespace MiniProject
         {
             string q = "SELECT * FROM Assessment WHERE Title = '" + cmbTitle.Text + "'";
             SqlCommand cmda = new SqlCommand(q, conn);
-            
             conn.Open();
             int a = Convert.ToInt32(cmda.ExecuteScalar());
-            
             conn.Close();
             string query2 = "SELECT Id FROM AssessmentComponent WHERE AssessmentId = '" + a + "'";
             SqlCommand cmd2 = new SqlCommand(query2, conn);
@@ -125,7 +119,6 @@ namespace MiniProject
             {
                 conn.Open();
                 reader2 = cmd2.ExecuteReader();
-                //MessageBox.Show("Saved");
                 while (reader2.Read())
                 {
                     cmbComponentId.Items.Add(reader2[0]);
@@ -142,10 +135,8 @@ namespace MiniProject
         {
             string q = "SELECT RubricId FROM AssessmentComponent WHERE Id = '" + cmbComponentId.Text + "'";
             SqlCommand cmda = new SqlCommand(q, conn);
-            
             conn.Open();
             int a = Convert.ToInt32(cmda.ExecuteScalar());
-            
             conn.Close();
             string query2 = "SELECT Details FROM Rubric WHERE Id = '" + a + "'";
             SqlCommand cmd2 = new SqlCommand(query2, conn);
@@ -155,7 +146,6 @@ namespace MiniProject
             {
                 conn.Open();
                 reader2 = cmd2.ExecuteReader();
-                //MessageBox.Show("Saved");
                 while (reader2.Read())
                 {
                     cmbDetails.Items.Add(reader2[0]);
@@ -172,19 +162,16 @@ namespace MiniProject
         {
             string q = "SELECT Id FROM Rubric WHERE Details = '" + cmbDetails.Text + "'";
             SqlCommand cmda = new SqlCommand(q, conn);
-            //SqlDataReader myreader;
             conn.Open();
             int r = Convert.ToInt32(cmda.ExecuteScalar());
             conn.Close();
             string query2 = "SELECT MeasurementLevel FROM RubricLevel WHERE RubricId = '" + r + "'";
             SqlCommand cmd2 = new SqlCommand(query2, conn);
-            //cbx_rubricId.Items.Clear();
             SqlDataReader reader2;
             try
             {
                 conn.Open();
                 reader2 = cmd2.ExecuteReader();
-                //MessageBox.Show("Saved");
                 while (reader2.Read())
                 {
                     cmbLevel.Items.Add(reader2[0]);
@@ -201,17 +188,14 @@ namespace MiniProject
         {
             string query2 = "SELECT Id FROM RubricLevel WHERE MeasurementLevel = '" + cmbLevel.Text + "'";
             SqlCommand cmd2 = new SqlCommand(query2, conn);
-            //cbx_rubricId.Items.Clear();
             SqlDataReader reader2;
             try
             {
                 conn.Open();
                 reader2 = cmd2.ExecuteReader();
-                //MessageBox.Show("Saved");
                 while (reader2.Read())
                 {
                     comboBox1.Items.Add(reader2[0]);
-                    //textBox1.Text = Convert.ToString((reader2[0]));
                 }
             }
             catch (Exception ex)
@@ -227,11 +211,9 @@ namespace MiniProject
             string query = "INSERT into StudentResult(StudentId, AssessmentComponentId, RubricMeasurementId, EvaluationDate) values ('" + cmbStudentId.Text + "', '" + cmbComponentId.Text + "', '" + comboBox1.Text + "', '" + DateTime.Now + "')";
             SqlCommand cmd = new SqlCommand(query, conn);
             SqlDataReader reader;
-
             conn.Open();
             reader = cmd.ExecuteReader();
             MessageBox.Show("Data is Saved");
-
             string q1 = "SELECT StudentResult.AssessmentComponentId, StudentResult.StudentId, Student.FirstName As Student, Rubric.Details, Assessment.Title AS AssessmentTitle, AssessmentComponent.TotalMarks AS ComponentMarks, RubricLevel.MeasurementLevel FROM StudentResult JOIN Student On StudentResult.StudentId = Student.Id JOIN AssessmentComponent ON Assessmentcomponent.Id = StudentResult.AssessmentComponentId JOIN RubricLevel ON StudentResult.RubricMeasurementId = RubricLevel.Id JOIN Rubric ON RubricLevel.RubricId = Rubric.Id Join Assessment ON Assessment.Id = AssessmentComponent.AssessmentId ";
             SqlDataAdapter d = new SqlDataAdapter(q1, conn);
             DataTable dt = new DataTable();
@@ -239,7 +221,6 @@ namespace MiniProject
             dataGridView1.DataSource = dt;
             dataGridView1.Columns["AssessmentComponentId"].Visible = false;
             dataGridView1.Columns["StudentId"].Visible = false;
-
             int count = dataGridView1.RowCount;
             for (int i = 0; i < count; i++)
             {
@@ -255,7 +236,6 @@ namespace MiniProject
             cmbTitle.Text = "";
             comboBox1.Text = "";
             conn.Close();
-
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -328,6 +308,11 @@ namespace MiniProject
             Report att = new Report();
             this.Hide();
             att.Show();
+        }
+
+        private void cmbStudentId_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

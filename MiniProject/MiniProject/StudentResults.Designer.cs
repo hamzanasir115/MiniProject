@@ -57,6 +57,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.errorProvider5 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider4 = new System.Windows.Forms.ErrorProvider(this.components);
             this.rubricBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -86,7 +87,6 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider3 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.button1 = new System.Windows.Forms.Button();
             this.tablelstudent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tablelst.SuspendLayout();
@@ -123,9 +123,9 @@
             this.btnStudentResult.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnStudentResult.Location = new System.Drawing.Point(3, 313);
+            this.btnStudentResult.Location = new System.Drawing.Point(3, 368);
             this.btnStudentResult.Name = "btnStudentResult";
-            this.btnStudentResult.Size = new System.Drawing.Size(154, 57);
+            this.btnStudentResult.Size = new System.Drawing.Size(154, 70);
             this.btnStudentResult.TabIndex = 5;
             this.btnStudentResult.Text = "Student Result";
             this.btnStudentResult.UseVisualStyleBackColor = true;
@@ -136,9 +136,9 @@
             this.btnAttendance.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAttendance.Location = new System.Drawing.Point(3, 251);
+            this.btnAttendance.Location = new System.Drawing.Point(3, 295);
             this.btnAttendance.Name = "btnAttendance";
-            this.btnAttendance.Size = new System.Drawing.Size(154, 56);
+            this.btnAttendance.Size = new System.Drawing.Size(154, 67);
             this.btnAttendance.TabIndex = 4;
             this.btnAttendance.Text = "Attendance";
             this.btnAttendance.UseVisualStyleBackColor = true;
@@ -149,9 +149,9 @@
             this.btnRubric.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRubric.Location = new System.Drawing.Point(3, 127);
+            this.btnRubric.Location = new System.Drawing.Point(3, 149);
             this.btnRubric.Name = "btnRubric";
-            this.btnRubric.Size = new System.Drawing.Size(154, 56);
+            this.btnRubric.Size = new System.Drawing.Size(154, 67);
             this.btnRubric.TabIndex = 2;
             this.btnRubric.Text = "Rubric";
             this.btnRubric.UseVisualStyleBackColor = true;
@@ -161,7 +161,7 @@
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(26, 153);
+            this.label6.Location = new System.Drawing.Point(45, 164);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(79, 13);
             this.label6.TabIndex = 13;
@@ -179,7 +179,7 @@
             this.tablelstudent.Controls.Add(this.btnRubric, 0, 2);
             this.tablelstudent.Controls.Add(this.btnCLO, 0, 1);
             this.tablelstudent.Controls.Add(this.btnStudent, 0, 0);
-            this.tablelstudent.Location = new System.Drawing.Point(-3, 43);
+            this.tablelstudent.Location = new System.Drawing.Point(0, 72);
             this.tablelstudent.Name = "tablelstudent";
             this.tablelstudent.RowCount = 6;
             this.tablelstudent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
@@ -188,7 +188,7 @@
             this.tablelstudent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tablelstudent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tablelstudent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tablelstudent.Size = new System.Drawing.Size(160, 373);
+            this.tablelstudent.Size = new System.Drawing.Size(160, 441);
             this.tablelstudent.TabIndex = 11;
             // 
             // btnAssessment
@@ -196,9 +196,9 @@
             this.btnAssessment.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAssessment.Location = new System.Drawing.Point(3, 189);
+            this.btnAssessment.Location = new System.Drawing.Point(3, 222);
             this.btnAssessment.Name = "btnAssessment";
-            this.btnAssessment.Size = new System.Drawing.Size(154, 56);
+            this.btnAssessment.Size = new System.Drawing.Size(154, 67);
             this.btnAssessment.TabIndex = 3;
             this.btnAssessment.Text = "Assessment";
             this.btnAssessment.UseVisualStyleBackColor = true;
@@ -209,9 +209,9 @@
             this.btnCLO.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCLO.Location = new System.Drawing.Point(3, 65);
+            this.btnCLO.Location = new System.Drawing.Point(3, 76);
             this.btnCLO.Name = "btnCLO";
-            this.btnCLO.Size = new System.Drawing.Size(154, 56);
+            this.btnCLO.Size = new System.Drawing.Size(154, 67);
             this.btnCLO.TabIndex = 1;
             this.btnCLO.Text = "Clo";
             this.btnCLO.UseVisualStyleBackColor = true;
@@ -224,7 +224,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnStudent.Location = new System.Drawing.Point(3, 3);
             this.btnStudent.Name = "btnStudent";
-            this.btnStudent.Size = new System.Drawing.Size(154, 56);
+            this.btnStudent.Size = new System.Drawing.Size(154, 67);
             this.btnStudent.TabIndex = 0;
             this.btnStudent.Text = "Student";
             this.btnStudent.UseVisualStyleBackColor = true;
@@ -237,10 +237,11 @@
             // comboBox1
             // 
             this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(183, 145);
+            this.comboBox1.Location = new System.Drawing.Point(202, 156);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(166, 21);
+            this.comboBox1.Size = new System.Drawing.Size(319, 21);
             this.comboBox1.TabIndex = 12;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -252,9 +253,9 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ObtainedMarks,
             this.Delete});
-            this.dataGridView1.Location = new System.Drawing.Point(2, 172);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 223);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(658, 146);
+            this.dataGridView1.Size = new System.Drawing.Size(811, 131);
             this.dataGridView1.TabIndex = 11;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -273,8 +274,8 @@
             // 
             // btnadd
             // 
-            this.btnadd.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnadd.Location = new System.Drawing.Point(435, 62);
+            this.btnadd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnadd.Location = new System.Drawing.Point(124, 194);
             this.btnadd.Name = "btnadd";
             this.btnadd.Size = new System.Drawing.Size(75, 23);
             this.btnadd.TabIndex = 10;
@@ -286,7 +287,7 @@
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(26, 126);
+            this.label5.Location = new System.Drawing.Point(45, 137);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(100, 13);
             this.label5.TabIndex = 9;
@@ -296,7 +297,7 @@
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(26, 99);
+            this.label4.Location = new System.Drawing.Point(45, 110);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(39, 13);
             this.label4.TabIndex = 8;
@@ -306,7 +307,7 @@
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(26, 72);
+            this.label3.Location = new System.Drawing.Point(45, 83);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(132, 13);
             this.label3.TabIndex = 7;
@@ -316,7 +317,7 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(26, 45);
+            this.label2.Location = new System.Drawing.Point(45, 56);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(86, 13);
             this.label2.TabIndex = 6;
@@ -326,7 +327,7 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(26, 18);
+            this.label1.Location = new System.Drawing.Point(45, 29);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(56, 13);
             this.label1.TabIndex = 5;
@@ -335,51 +336,57 @@
             // cmbLevel
             // 
             this.cmbLevel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbLevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbLevel.FormattingEnabled = true;
-            this.cmbLevel.Location = new System.Drawing.Point(183, 118);
+            this.cmbLevel.Location = new System.Drawing.Point(202, 129);
             this.cmbLevel.Name = "cmbLevel";
-            this.cmbLevel.Size = new System.Drawing.Size(166, 21);
+            this.cmbLevel.Size = new System.Drawing.Size(319, 21);
             this.cmbLevel.TabIndex = 4;
             this.cmbLevel.SelectedIndexChanged += new System.EventHandler(this.cmbLevel_SelectedIndexChanged);
             // 
             // cmbDetails
             // 
             this.cmbDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbDetails.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDetails.FormattingEnabled = true;
-            this.cmbDetails.Location = new System.Drawing.Point(183, 91);
+            this.cmbDetails.Location = new System.Drawing.Point(202, 102);
             this.cmbDetails.Name = "cmbDetails";
-            this.cmbDetails.Size = new System.Drawing.Size(166, 21);
+            this.cmbDetails.Size = new System.Drawing.Size(319, 21);
             this.cmbDetails.TabIndex = 3;
             this.cmbDetails.SelectedIndexChanged += new System.EventHandler(this.cmbDetails_SelectedIndexChanged);
             // 
             // cmbComponentId
             // 
             this.cmbComponentId.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbComponentId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbComponentId.FormattingEnabled = true;
-            this.cmbComponentId.Location = new System.Drawing.Point(183, 64);
+            this.cmbComponentId.Location = new System.Drawing.Point(202, 75);
             this.cmbComponentId.Name = "cmbComponentId";
-            this.cmbComponentId.Size = new System.Drawing.Size(166, 21);
+            this.cmbComponentId.Size = new System.Drawing.Size(319, 21);
             this.cmbComponentId.TabIndex = 2;
             this.cmbComponentId.SelectedIndexChanged += new System.EventHandler(this.cmbComponentId_SelectedIndexChanged);
             // 
             // cmbTitle
             // 
             this.cmbTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbTitle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTitle.FormattingEnabled = true;
-            this.cmbTitle.Location = new System.Drawing.Point(183, 37);
+            this.cmbTitle.Location = new System.Drawing.Point(202, 48);
             this.cmbTitle.Name = "cmbTitle";
-            this.cmbTitle.Size = new System.Drawing.Size(166, 21);
+            this.cmbTitle.Size = new System.Drawing.Size(319, 21);
             this.cmbTitle.TabIndex = 1;
             this.cmbTitle.SelectedIndexChanged += new System.EventHandler(this.cmbTitle_SelectedIndexChanged);
             // 
             // cmbStudentId
             // 
             this.cmbStudentId.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbStudentId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbStudentId.FormattingEnabled = true;
-            this.cmbStudentId.Location = new System.Drawing.Point(183, 10);
+            this.cmbStudentId.Location = new System.Drawing.Point(202, 21);
             this.cmbStudentId.Name = "cmbStudentId";
-            this.cmbStudentId.Size = new System.Drawing.Size(166, 21);
+            this.cmbStudentId.Size = new System.Drawing.Size(319, 21);
             this.cmbStudentId.TabIndex = 0;
+            this.cmbStudentId.SelectedIndexChanged += new System.EventHandler(this.cmbStudentId_SelectedIndexChanged);
             // 
             // tablelst
             // 
@@ -389,13 +396,13 @@
             this.tablelst.ColumnCount = 1;
             this.tablelst.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tablelst.Controls.Add(this.tableLayoutPanel1, 0, 0);
-            this.tablelst.Location = new System.Drawing.Point(160, 43);
+            this.tablelst.Location = new System.Drawing.Point(163, 72);
             this.tablelst.Name = "tablelst";
             this.tablelst.RowCount = 1;
             this.tablelst.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tablelst.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 373F));
             this.tablelst.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 373F));
-            this.tablelst.Size = new System.Drawing.Size(676, 373);
+            this.tablelst.Size = new System.Drawing.Size(829, 441);
             this.tablelst.TabIndex = 12;
             // 
             // tableLayoutPanel1
@@ -410,7 +417,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(670, 367);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(823, 435);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
             // tabControl1
@@ -422,7 +429,7 @@
             this.tabControl1.Location = new System.Drawing.Point(3, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(664, 361);
+            this.tabControl1.Size = new System.Drawing.Size(817, 429);
             this.tabControl1.TabIndex = 1;
             // 
             // tabPage1
@@ -445,10 +452,21 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(656, 335);
+            this.tabPage1.Size = new System.Drawing.Size(809, 403);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Result";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Location = new System.Drawing.Point(599, 194);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "Report";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // errorProvider5
             // 
@@ -555,9 +573,9 @@
             this.panel1.AutoSize = true;
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.panel1.Controls.Add(this.lbl);
-            this.panel1.Location = new System.Drawing.Point(-3, -28);
+            this.panel1.Location = new System.Drawing.Point(0, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(839, 68);
+            this.panel1.Size = new System.Drawing.Size(1041, 68);
             this.panel1.TabIndex = 10;
             // 
             // lbl
@@ -566,9 +584,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl.Location = new System.Drawing.Point(138, 15);
+            this.lbl.Location = new System.Drawing.Point(148, 18);
             this.lbl.Name = "lbl";
-            this.lbl.Size = new System.Drawing.Size(545, 40);
+            this.lbl.Size = new System.Drawing.Size(747, 40);
             this.lbl.TabIndex = 1;
             this.lbl.Text = "MINI PROJECT";
             this.lbl.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -596,22 +614,11 @@
             // 
             this.errorProvider2.ContainerControl = this;
             // 
-            // button1
-            // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.button1.Location = new System.Drawing.Point(552, 99);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "Report";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // StudentResults
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(833, 388);
+            this.ClientSize = new System.Drawing.Size(986, 456);
             this.Controls.Add(this.tablelstudent);
             this.Controls.Add(this.tablelst);
             this.Controls.Add(this.panel1);

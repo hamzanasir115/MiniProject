@@ -152,7 +152,6 @@ namespace MiniProject
             SqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
-                // Console.WriteLine(cmbselect reader[0] + " " + reader[1]);
                 cmbselect.Items.Add(reader[0]);
             }
             conn.Close();
@@ -163,7 +162,6 @@ namespace MiniProject
             SqlDataReader re = cd.ExecuteReader();
             while (re.Read())
             {
-                // Console.WriteLine(cmbselect reader[0] + " " + reader[1]);
                 cmbrubricid.Items.Add(re[0]);
             }
             conn.Close();
@@ -305,33 +303,9 @@ namespace MiniProject
                 adapter.Fill(view);
                 dataGridView1.DataSource = view;
                 conn.Close();
-
-                /*string qry = "Delete from RubricLevel where RubricId in(SELECT RubricId FROM RubricLevel WHERE RubricId= @id2)";
-                SqlCommand command = new SqlCommand(qry, conn);
-                command.Parameters.Add(new SqlParameter("@id2", id2));
-                SqlDataReader reader = command.ExecuteReader();
-                conn.Close();
-                this.dataGridView1.Rows.RemoveAt(e.RowIndex);
-                int row = e.RowIndex;
-                var item = dataGridView1.Rows[e.RowIndex].Cells[0].Value;
-                //int id5 = Convert.ToInt32(dataGridView2.Rows[row].Cells[0].Value);
-                string query1 = "Delete from AssessmentComponent where RubricId = @id4";
-                conn.Open();
-
-                command = new SqlCommand(query1, conn);
-                command.Parameters.Add(new SqlParameter("@id4", id2));
-                reader = command.ExecuteReader();
-                string query = "Delete from Rubric where Id = @id3";
-                command = new SqlCommand(query, conn);
-                command.Parameters.Add(new SqlParameter("@id3", id2));
-                reader = command.ExecuteReader();
-                MessageBox.Show("Data Deleted Succesfully");
-                conn.Close();*/
             }
             if (e.ColumnIndex == dataGridView1.Columns["Edit"].Index)
             {
-                // id3 = dataGridView1.Rows[e.RowIndex].Cells[0].FormattedValue.ToString();
-                //id5 = Convert.ToInt32(id2);
                 txtid.Hide();
                 lblid.Hide();
                 txtdetail.Text = dataGridView1.Rows[e.RowIndex].Cells[1].FormattedValue.ToString();
@@ -409,12 +383,10 @@ namespace MiniProject
                 this.dataGridView2.Rows.RemoveAt(e.RowIndex);
                 int row = e.RowIndex;
                 var item = dataGridView2.Rows[e.RowIndex].Cells[0].Value;
-                //int id5 = Convert.ToInt32(dataGridView2.Rows[row].Cells[0].Value);
                 string query1 = "Delete from StudentResult where RubricMeasurementId = @id";
                 SqlCommand command1 = new SqlCommand(query1, conn);
                 command1.Parameters.Add(new SqlParameter("@id", id));
                 SqlDataReader reader1 = command1.ExecuteReader();
-                //MessageBox.Show("Data Deleted Succesfully");
                 conn.Close();
                 conn.Open();
                 string query = "Delete from RubricLevel where Id = @id";
@@ -427,7 +399,6 @@ namespace MiniProject
            if (e.ColumnIndex == dataGridView2.Columns["Editt"].Index)
             {
                 string id2 = dataGridView2.Rows[e.RowIndex].Cells[0].FormattedValue.ToString();
-                //id5 = Convert.ToInt32(id2);
                 txtdet.Text = dataGridView2.Rows[e.RowIndex].Cells[2].FormattedValue.ToString();
                 txtlvl.Text = dataGridView2.Rows[e.RowIndex].Cells[3].FormattedValue.ToString();
                 cmbrubricid.Text = dataGridView2.Rows[e.RowIndex].Cells[0].FormattedValue.ToString();
@@ -552,7 +523,6 @@ namespace MiniProject
             SqlDataReader re = cd.ExecuteReader();
             while (re.Read())
             {
-                // Console.WriteLine(cmbselect reader[0] + " " + reader[1]);
                 cmbrubricid.Items.Add(re[0]);
             }
             conn.Close();
